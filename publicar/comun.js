@@ -2,6 +2,9 @@
    la firma en el teléfono y el idioma de las páginas interiores. */
 (function(){
   var BSS = window.BSS = window.BSS || {};
+  // si la página llega tapada por el telón, lo demás espera a que se retire
+  BSS.telonFuera = !document.documentElement.classList.contains("telon-llega");
+  try { sessionStorage.setItem("bss-visto", "1"); } catch (e) {}
 
   /* ---------- Medición ----------
      Pega aquí el ID de Google Analytics 4 (G-XXXXXXXXXX). Vacío = no se mide nada y no se carga nada. */
@@ -50,7 +53,7 @@
     var b = document.createElement("a");
     b.className = "escribenos"; b.target = "_blank"; b.rel = "noopener"; b.setAttribute("data-wa", "flotante"); b.setAttribute("data-origen", "flotante");
     b.setAttribute("aria-label", "Escríbenos por WhatsApp"); b.setAttribute("data-en-aria", "Message us on WhatsApp");
-    b.innerHTML = '<span data-en="Leave the herd">Sal del rebaño</span>';
+    b.innerHTML = '<i aria-hidden="true"></i><span data-en="Leave the herd">Sal del rebaño</span>';
     document.body.appendChild(b);
     var desde = document.querySelector("[data-escribenos-desde]"), tapas = [].slice.call(document.querySelectorAll("[data-sin-escribenos]")), quieto = true, tapado = false, t = 0;
     function pasado(){ if (!desde) return scrollY > innerHeight * .5; return desde.getBoundingClientRect().bottom < innerHeight * .35; }
@@ -142,8 +145,60 @@
     document.head.appendChild(sc);
   }
 
+  /* ---------- Telón: tapa al salir de una página y se retira cuando la siguiente ya cargó ---------- */
+  var NOMBRES = {"": ["Black Sheep Studioss", "Black Sheep Studioss"], index: ["Black Sheep Studioss", "Black Sheep Studioss"], trabajo: ["Trabajo", "Work"], servicios: ["Servicios", "Services"], "como-trabajamos": ["Cómo trabajamos", "How we work"], estudio: ["Estudio", "Studio"], privacidad: ["Privacidad", "Privacy"]};
+  function nombrePagina(u){
+    var pag = u.pathname.split("/").pop().replace(/\.html$/, ""), h = decodeURIComponent(u.hash.slice(1)), e = h && BSS.etiqueta && BSS.etiqueta(h);
+    if (pag === "trabajo" && e) return BSS.L(e.es, e.en);
+    var n = NOMBRES[pag] || NOMBRES[""]; return BSS.L(n[0], n[1]);
+  }
+  function telon(){
+    var raiz = document.documentElement, reducido = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var t = document.createElement("div"); t.className = "telon"; t.setAttribute("aria-hidden", "true");
+    t.innerHTML = '<img src="img/oveja-tinta.webp" alt=""><b></b><i></i>'; document.body.appendChild(t);
+    function mover(de, a, ms, fin){
+      if (reducido || !t.animate) { fin(); return; }
+      var an = t.animate([{transform: de}, {transform: a}], {duration: ms, easing: "cubic-bezier(.7,0,.2,1)", fill: "forwards"}), hecho = false;
+      function f(){ if (!hecho) { hecho = true; fin(); } }
+      an.onfinish = f; setTimeout(f, ms + 400);
+    }
+    function retirar(){
+      raiz.classList.remove("telon-llega");
+      mover("translateY(0)", "translateY(-100%)", 760, function(){ t.classList.remove("cubre"); t.getAnimations && t.getAnimations().forEach(function(a){ a.cancel(); }); BSS.telonFuera = true; document.dispatchEvent(new Event("bss-telon-fuera")); });
+    }
+    if (raiz.classList.contains("telon-llega")) {
+      t.querySelector("b").textContent = raiz.getAttribute("data-telon") || "Black Sheep Studioss";
+      t.classList.add("cubre"); var t0 = performance.now(), ido = false;
+      function listo(){ if (ido) return; ido = true; setTimeout(retirar, Math.max(0, 650 - (performance.now() - t0))); }
+      if (document.readyState === "complete") listo(); else window.addEventListener("load", listo);
+      setTimeout(listo, 2800);
+    }
+    document.addEventListener("click", function(e){
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === "_blank" || a.hasAttribute("download")) return;
+      var u; try { u = new URL(a.getAttribute("href"), location.href); } catch (er) { return; }
+      if (u.origin !== location.origin || u.protocol !== location.protocol) return;
+      if (!/(\.html$|\/$)/.test(u.pathname) || u.pathname === location.pathname) return;
+      e.preventDefault();
+      var nom = nombrePagina(u); try { sessionStorage.setItem("bss-telon", nom); } catch (er) {}
+      t.querySelector("b").textContent = nom; t.classList.add("cubre");
+      mover("translateY(100%)", "translateY(0)", 600, function(){ location.href = u.href; });
+    });
+    // al volver con el botón de atrás, la página no debe quedarse tapada
+    window.addEventListener("pageshow", function(ev){ if (ev.persisted) { t.classList.remove("cubre"); t.getAnimations && t.getAnimations().forEach(function(a){ a.cancel(); }); raiz.classList.remove("telon-llega"); BSS.telonFuera = true; } });
+  }
+
+  /* ---------- Enlaces resaltados: el trazo se dibuja cuando entran en pantalla ---------- */
+  function resaltados(){
+    var bs = [].slice.call(document.querySelectorAll(".boton"));
+    if (!("IntersectionObserver" in window)) { bs.forEach(function(b){ b.classList.add("ya"); }); return; }
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("ya"); io.unobserve(e.target); } }); }, {threshold: .9});
+    bs.forEach(function(b){ io.observe(b); });
+  }
+  BSS.resaltados = resaltados;
+
   function iniciar(){
-    flotante(); firmaMovil(); colorFirma(); scrollSuave();
+    telon(); flotante(); firmaMovil(); colorFirma(); scrollSuave(); resaltados();
     // el cierre: la última s de "escríbenos" gira cuando llegas
     var pieS = document.querySelector(".pie-sub");
     if (pieS && "IntersectionObserver" in window) { var iop = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { pieS.classList.add("ya"); iop.disconnect(); } }, {threshold: .35}); iop.observe(pieS); }

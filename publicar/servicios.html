@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +41,7 @@
 .datos-o{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5px;background:var(--tinta);border:1.5px solid var(--tinta)}
 .datos-o>div{background:var(--papel);padding:16px 18px}
 .datos-o b{display:block;font-weight:750;font-size:clamp(17px,1.4vw,20px);line-height:1.3;margin-top:6px}
-.acciones-o{display:flex;gap:12px;flex-wrap:wrap}
+.acciones-o{display:flex;gap:14px 34px;flex-wrap:wrap;align-items:center}
 .oferta.invertida{background:var(--tinta);color:var(--papel);border-top-color:var(--tinta);margin-inline:calc(-1 * var(--lado));padding-inline:var(--lado)}
 .oferta.invertida .mono,.oferta.invertida .bloque-o h3,.oferta.invertida .recibes li::before{color:#9a9a95}
 .oferta.invertida .recibes{border-top-color:var(--papel)}
