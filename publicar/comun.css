@@ -1,10 +1,29 @@
 /* Piezas compartidas por todas las páginas: Escríbenos, firma en el teléfono y mapa. */
 
-/* ---------- Escríbenos: aparece solo cuando dejas de moverte ---------- */
-.escribenos{position:fixed;right:calc(var(--lado-d,16px) + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--tinta,#0B0B0A);color:var(--papel,#F4F4F2);text-decoration:none;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 10px 30px -12px rgba(0,0,0,.45);opacity:0;transform:translateY(12px) scale(.96);pointer-events:none;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1),background .25s}
+/* ---------- Botones: ovejas de tinta, no píldoras ---------- */
+.boton{position:relative;isolation:isolate;display:inline-grid;place-items:center;width:clamp(168px,13.5vw,206px);aspect-ratio:618/492;padding:clamp(15px,1.3vw,19px) clamp(10px,.9vw,14px) 4px clamp(28px,2.4vw,36px)!important;box-sizing:border-box;border:0!important;border-radius:0!important;background:none!important;color:var(--papel,#F4F4F2);text-decoration:none;text-align:center;font-family:var(--f-disp);font-weight:750;font-size:clamp(13px,1vw,15px);line-height:1.1;flex:none;grid-template-columns:minmax(0,1fr);text-wrap:balance;overflow-wrap:break-word;transition:transform .5s cubic-bezier(.2,.8,.2,1),color .3s}
+.boton::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tinta,#0B0B0A);-webkit-mask:url("img/oveja-mascara.webp") center/contain no-repeat;mask:url("img/oveja-mascara.webp") center/contain no-repeat;transform-origin:50% 88%;transition:transform .45s cubic-bezier(.3,1.6,.5,1),background .3s}
+.boton:hover::before,.boton:focus-visible::before{transform:scaleX(-1) translateY(-7%) rotate(6deg);background:var(--klein,#0A3BFF)}
+.boton:hover,.boton:focus-visible{color:#fff}
+.boton.claro{color:var(--tinta,#0B0B0A);filter:drop-shadow(0 0 .7px var(--tinta,#0B0B0A)) drop-shadow(0 0 .7px var(--tinta,#0B0B0A))}
+.boton.claro::before{background:var(--blanco,#fff)}
+.boton.claro:hover,.boton.claro:focus-visible{filter:none;color:#fff}
+.boton.klein::before{background:var(--klein,#0A3BFF)}
+.boton.klein{color:#fff}
+.boton.klein:hover::before,.boton.klein:focus-visible::before{background:var(--papel,#F4F4F2)}
+.boton.klein:hover,.boton.klein:focus-visible{color:var(--tinta,#0B0B0A)}
+.boton.fantasma::before{background:var(--papel,#F4F4F2)}
+.boton.fantasma{color:var(--tinta,#0B0B0A)}
+.boton.fantasma:hover::before{background:var(--klein,#0A3BFF)}
+.boton.fantasma:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){.boton::before{transition:background .2s}}
+
+/* ---------- Sal del rebaño: una oveja que aparece cuando dejas de moverte ---------- */
+.escribenos{position:fixed;right:calc(var(--lado-d,16px) + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;isolation:isolate;display:grid;place-items:center;width:132px;aspect-ratio:618/492;padding:12px 8px 2px 22px;box-sizing:border-box;color:var(--papel,#F4F4F2);text-decoration:none;text-align:center;font-family:var(--f-disp);font-weight:800;font-size:12.5px;line-height:1.05;grid-template-columns:minmax(0,1fr);text-wrap:balance;opacity:0;transform:translateY(16px) rotate(4deg) scale(.9);pointer-events:none;transition:opacity .35s ease,transform .55s cubic-bezier(.3,1.5,.5,1)}
+.escribenos::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tinta,#0B0B0A);-webkit-mask:url("img/oveja-mascara.webp") center/contain no-repeat;mask:url("img/oveja-mascara.webp") center/contain no-repeat;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25));transform-origin:50% 88%;transition:transform .45s cubic-bezier(.3,1.6,.5,1),background .3s}
 .escribenos.ver{opacity:1;transform:none;pointer-events:auto}
-.escribenos i{width:22px;height:18px;background:currentColor;-webkit-mask:url("img/oveja-mascara.webp") center/contain no-repeat;mask:url("img/oveja-mascara.webp") center/contain no-repeat;transform:scaleX(-1)}
-.escribenos:hover,.escribenos:focus-visible{background:var(--klein,#0A3BFF)}
+.escribenos:hover::before,.escribenos:focus-visible::before{background:var(--klein,#0A3BFF);transform:scaleX(-1) rotate(6deg)}
+@media (max-width:760px){.escribenos{width:92px;font-size:10.5px;padding:9px 6px 1px 16px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px))}}
 @media (prefers-reduced-motion:reduce){.escribenos{transition:opacity .2s}}
 
 /* ---------- Firma en el teléfono: se esconde al bajar y se reduce a la oveja ---------- */
@@ -52,3 +71,22 @@
 .red-cifras .ir{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;text-decoration:none;font-weight:700;font-size:clamp(17px,1.5vw,21px);transition:background .25s,color .25s}
 .red-cifras .ir:hover,.red-cifras .ir:focus-visible{background:var(--tinta,#0B0B0A);color:var(--papel,#F4F4F2)}
 @media (max-width:860px){.red-bloque{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Firma sin mezcla de color: la segunda S es azul de verdad ---------- */
+.firma{color:var(--tinta,#0B0B0A)!important;mix-blend-mode:normal!important}
+.firma img{filter:none!important;transition:filter .35s ease}
+.firma.claro{color:var(--papel,#F4F4F2)!important}
+.firma.claro img{filter:invert(1)!important}
+.firma-texto .sx{transition:transform .9s cubic-bezier(.7,0,.2,1),color .6s ease .5s!important}
+.firma-texto.volteada .sx,body[data-sub] .firma-texto .sx{color:var(--klein,#0A3BFF)}
+.firma.claro .firma-texto.volteada .sx,body[data-sub] .firma.claro .firma-texto .sx{color:var(--klein-claro,#2E5BFF)}
+.idioma{color:var(--tinta,#0B0B0A)!important;mix-blend-mode:normal!important;transition:color .35s ease,opacity .6s ease}
+.idioma.claro{color:var(--papel,#F4F4F2)!important}
+
+/* el reel: su oveja va abajo a la derecha */
+.reel-ver.boton{background:none!important;border-radius:0!important}
+
+/* scroll suave */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}

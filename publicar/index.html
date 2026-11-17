@@ -46,6 +46,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{background:var(--papel);color:var(--tinta);font-family:var(--f-disp);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
@@ -79,8 +80,8 @@ img{display:block;max-width:100%}
 .firma.ver{opacity:1;transform:none}
 .idioma{position:fixed;top:calc(env(safe-area-inset-top,0px) + 22px);right:var(--lado-d);z-index:50;color:#fff;mix-blend-mode:difference;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;opacity:0;transition:opacity .6s ease}
 .firma.ver ~ .idioma{opacity:1}
-.marcador{position:fixed;top:calc(env(safe-area-inset-top,0px) + 70px);left:var(--lado);z-index:50;color:#fff;mix-blend-mode:difference;font-size:10px;letter-spacing:.12em;opacity:0;transform:translateY(-4px);transition:opacity .6s ease,transform .6s ease;pointer-events:none;white-space:nowrap}
-.firma.ver ~ .marcador.on{opacity:.85;transform:none}
+.marcador{position:absolute;top:calc(env(safe-area-inset-top,0px) + 78px);left:var(--lado);z-index:4;color:var(--tinta);font-size:10px;letter-spacing:.12em;opacity:0;transform:translateY(-4px);transition:opacity .6s ease,transform .6s ease;pointer-events:none;white-space:nowrap}
+.marcador.on{opacity:.85;transform:none}
 .marcador b{font-family:var(--f-disp);font-weight:850;font-stretch:72%;font-size:15px;letter-spacing:0;margin-right:2px}
 .idioma span{opacity:.4;transition:opacity .3s}
 .idioma span.on{opacity:1}
@@ -108,7 +109,7 @@ img{display:block;max-width:100%}
 .hero-t{position:absolute;left:var(--lado);right:var(--lado-d);top:50%;transform:translateY(-50%);font-size:clamp(46px,9.6vw,168px);pointer-events:none}
 .hero-t .l1,.hero-t .l2{display:block;will-change:transform}
 .hero-t .l2{text-align:right}
-.s2{display:inline-block;transition:transform .9s cubic-bezier(.7,0,.2,1),color .5s ease .45s}
+.s2{display:inline-block;transition:transform 1.6s cubic-bezier(.65,0,.25,1),color .9s ease .8s}
 .l2.giro .s2{transform:rotateY(180deg);color:var(--klein)}
 
 /* Frenazo: la línea entra a toda velocidad, se clava y cabecea */
@@ -454,7 +455,7 @@ img{display:block;max-width:100%}
 .vert-cab p{max-width:32ch}
 .vert-fila{display:flex;gap:clamp(12px,1.4vw,20px);width:max-content;will-change:transform;padding-bottom:clamp(36px,4vw,60px)}
 .vcard{width:clamp(130px,14vw,220px);flex:none;margin:0}
-.vcard:nth-child(even){transform:translateY(clamp(18px,3vw,44px))}
+.vcard.baja{transform:translateY(clamp(18px,3vw,44px))}
 .vcard video{display:block;width:100%;aspect-ratio:9/16;max-width:100%;object-fit:cover;background:#1a1a19;border-radius:4px}
 .vcard figcaption{margin-top:10px;font-size:11px;color:var(--gris)}
 
@@ -595,8 +596,9 @@ img{display:block;max-width:100%}
 
 
 /* ---------- v23: landing más corta ---------- */
-.hero-que{position:absolute;left:var(--lado);top:calc(env(safe-area-inset-top,0px) + 84px);z-index:3;opacity:0;transition:opacity .9s ease .5s;pointer-events:none;color:var(--tinta)}
-.rebano.ya .hero-que{opacity:.72}
+.hero-que{position:absolute;left:var(--lado);right:var(--lado-d);top:72%;z-index:3;text-align:right;pointer-events:none;color:var(--tinta);font-family:var(--f-mono);font-size:clamp(13px,1.2vw,18px);letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:opacity .7s ease}
+.hero-que span{display:inline-block;opacity:0}
+.hero-que.entra span{animation:frenaI 1.05s both}
 .rebano.fin-juego .hero-que{opacity:.12}
 .manifiesto .remate.lead{margin-top:0;font-size:clamp(42px,6.6vw,108px);line-height:.98;white-space:normal;max-width:16ch}
 .manifiesto .promesa{max-width:30ch;margin-top:clamp(18px,2vw,28px)}
@@ -616,18 +618,13 @@ img{display:block;max-width:100%}
 .reel-banda::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6));z-index:1;pointer-events:none}
 .reel-txt{position:absolute;left:var(--lado);right:var(--lado-d);bottom:clamp(24px,5vw,64px);z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .reel-txt .gigante{font-size:clamp(72px,15vw,250px)}
-.reel-ver{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;background:var(--papel);color:var(--tinta);font-weight:750;font-size:clamp(16px,1.4vw,19px);transition:background .25s,color .25s}
-.reel-banda:hover .reel-ver,.reel-banda:focus-visible .reel-ver{background:var(--klein);color:#fff}
+.reel-banda:hover .reel-ver::before,.reel-banda:focus-visible .reel-ver::before{transform:scaleX(-1) translateY(-7%) rotate(6deg);background:var(--klein)}
+.reel-banda:hover .reel-ver,.reel-banda:focus-visible .reel-ver{color:#fff}
 /* marcas */
 .marcas{padding-block:clamp(72px,9vw,130px);border-bottom:1.5px solid var(--tinta)}
 .marcas-cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap}
 .marcas-cab h2{font-weight:500}
 .marcas .logos{margin-top:clamp(40px,5vw,72px)}
-/* botones de texto */
-.boton{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:var(--tinta);color:var(--papel);text-decoration:none;font-weight:700;font-size:clamp(15px,1.2vw,17px);border:1.5px solid var(--tinta);transition:background .25s,color .25s,border-color .25s}
-.boton:hover,.boton:focus-visible{background:var(--klein);border-color:var(--klein);color:#fff}
-.boton.claro{background:transparent;color:var(--tinta)}
-.boton.claro:hover,.boton.claro:focus-visible{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
 /* trabajo: índice */
 .trabajo-sel{padding-block:clamp(80px,10vw,150px)}
 .trabajo-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:20px 40px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
@@ -663,9 +660,10 @@ img{display:block;max-width:100%}
 .serv-botones{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(28px,3vw,44px)}
 @media (max-width:760px){.serv-fila{grid-template-columns:minmax(0,1fr) 24px}.serv-fila .mono{grid-row:1;grid-column:1}.serv-fila .sv{grid-column:1}.serv-fila p{grid-column:1}.serv-fila i{grid-row:1/4;grid-column:2}}
 /* estudio: Gema da la cara */
-.personas{grid-template-columns:minmax(0,1.3fr) minmax(0,.85fr)}
-.persona.brazo{margin-top:clamp(0px,14vw,220px)}
-.persona.brazo h3{font-size:clamp(34px,3.6vw,56px)}
+.personas{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,6vw,120px)}
+.persona .persona-foto{width:min(100%,460px)}
+.persona.brazo .persona-foto{width:min(100%,400px)}
+.persona.brazo{margin-top:clamp(0px,9vw,150px)}
 @media (max-width:760px){.personas{grid-template-columns:minmax(0,1fr)}.persona.brazo{margin-top:0}.persona.brazo .persona-foto{max-width:70%}}
 /* contacto */
 .contacto-datos{grid-template-columns:repeat(2,minmax(0,1fr)) auto}
@@ -674,6 +672,107 @@ img{display:block;max-width:100%}
 .pie a{text-decoration:none}
 .pie a:hover{text-decoration:underline;text-underline-offset:3px}
 .pie-nav{display:flex;gap:8px 20px;flex-wrap:wrap}
+/* ---------- v25: manifiesto en una sola pieza negra ---------- */
+.manifiesto-uno .portada{height:160vh}
+.manifiesto-uno .manifiesto{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,96px);align-items:end;padding-block:clamp(24px,4vw,64px) clamp(140px,16vw,240px)}
+.manifiesto-uno .promesa{margin:0;font-size:clamp(34px,4.6vw,76px);line-height:.95;max-width:14ch}
+.manifiesto-uno .manifiesto-texto{margin:0;display:block;max-width:44ch}
+.manifiesto-uno .manifiesto-texto p{font-size:clamp(18px,1.55vw,22px);line-height:1.55}
+.manifiesto-uno .manifiesto-texto p:first-child::first-letter{all:unset}
+@media (max-width:760px){.manifiesto-uno .manifiesto{grid-template-columns:minmax(0,1fr)}}
+/* marcas: entran una a una */
+.marcas{border-bottom:0!important;padding-block:clamp(110px,13vw,200px) clamp(70px,8vw,120px)}
+.marcas-cab h2{font-size:clamp(40px,5.6vw,96px);font-weight:850}
+.marcas-cab .mono{align-self:flex-end}
+.marcas .logos>*{opacity:0;transform:translateY(26px) scale(.94);filter:blur(6px);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),filter .7s ease;transition-delay:calc(var(--i,0) * 85ms)}
+.marcas.ya .logos>*{opacity:.82;transform:none;filter:none}
+.marcas.ya .logos>img:hover{opacity:1;transform:scale(1.06);transition-delay:0s}
+@media (prefers-reduced-motion:reduce){.marcas .logos>*{opacity:.82;transform:none;filter:none;transition:none}}
+/* ---------- v25: índice de trabajo ---------- */
+.trabajo-sel{padding-block:clamp(110px,13vw,200px)}
+.trabajo-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,72px)}
+.grupos{display:flex;gap:clamp(18px,2.4vw,40px);align-items:baseline}
+.grupos button{position:relative;padding:6px 0;font-weight:750;font-size:clamp(18px,1.7vw,26px);color:#a9a9a3;transition:color .3s}
+.grupos button .serif{font-weight:400;margin-right:3px}
+.grupos button::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--klein);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.65,0,.25,1)}
+.grupos button[aria-selected="true"]{color:var(--tinta)}
+.grupos button[aria-selected="true"]::after{transform:scaleX(1)}
+.grupos button:not([aria-selected="true"]):hover{color:var(--tinta)}
+.indice{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--tinta);transition:opacity .3s ease}
+.indice.cambia{opacity:0}
+.fila{border-bottom:1.5px solid var(--tinta);overflow:visible}
+.fila a{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:16px 28px;padding:clamp(12px,1.4vw,22px) clamp(4px,.6vw,10px);text-decoration:none;isolation:isolate}
+.fila a::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tinta);clip-path:inset(0 100% 0 0);transition:clip-path .55s cubic-bezier(.65,0,.25,1)}
+.f-nom{font-weight:850;font-stretch:70%;text-transform:uppercase;font-size:clamp(44px,7vw,124px);line-height:.9;letter-spacing:-.025em;transition:transform .55s cubic-bezier(.2,.8,.2,1),color .35s}
+.f-quien{font-family:var(--f-serif);font-style:italic;font-size:clamp(15px,1.25vw,19px);color:var(--gris);text-align:right;max-width:28ch;transition:color .35s,opacity .35s}
+.f-cuenta{display:flex;flex-direction:column;align-items:flex-end;min-width:4.2ch;transition:color .35s}
+.f-cuenta b{font-weight:850;font-stretch:66%;font-size:clamp(34px,3.6vw,60px);line-height:.85;font-variant-numeric:tabular-nums}
+.f-cuenta small{color:var(--gris);font-size:10px;margin-top:4px}
+.f-medio{position:absolute;right:28%;top:50%;width:clamp(200px,21vw,340px);aspect-ratio:16/10;z-index:2;overflow:hidden;border-radius:4px;background:#1a1a19;pointer-events:none;opacity:0;transform:translateY(-50%) scale(.6) rotate(-6deg);transition:opacity .35s ease,transform .6s cubic-bezier(.2,.9,.25,1.15);box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+.f-medio img,.f-medio video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (hover:hover) and (pointer:fine){
+  .fila a:hover::before,.fila a:focus-visible::before{clip-path:inset(0 0 0 0)}
+  .fila a:hover,.fila a:focus-visible{color:var(--papel)}
+  .fila a:hover .f-nom,.fila a:focus-visible .f-nom{transform:translateX(clamp(14px,2vw,34px));color:var(--papel)}
+  .fila a:hover .f-quien{color:#cfcfca}
+  .fila a:hover .f-cuenta{color:var(--klein-claro)}
+  .fila a:hover .f-cuenta small{color:#9a9a95}
+  .fila a:hover .f-medio{opacity:1;transform:translateY(-50%) scale(1) rotate(-3deg)}
+}
+.fila{opacity:0;transform:translateY(34px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0) * 70ms)}
+.indice.ya .fila{opacity:1;transform:none}
+.trabajo-pie{display:flex;justify-content:flex-end;margin-top:clamp(32px,4vw,56px)}
+@media (max-width:760px){
+  .fila a{grid-template-columns:minmax(0,1fr) auto}
+  .f-quien{grid-column:1;grid-row:2;text-align:left;font-size:14px}
+  .f-cuenta{grid-row:1/3;grid-column:2}
+  .f-medio{display:none}
+  .grupos{width:100%}.grupos button{flex:1;padding:10px 8px}
+}
+@media (prefers-reduced-motion:reduce){.fila{opacity:1;transform:none;transition:none}}
+/* ---------- v25: hacemos que, demostrado ---------- */
+.servicios-corto{padding-block:clamp(110px,13vw,200px)}
+.demos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin-top:clamp(28px,3vw,48px)}
+.demo{display:flex;flex-direction:column;gap:14px;text-decoration:none;padding-top:18px;border-top:1.5px solid var(--tinta);min-width:0}
+.demo .sv{font-size:clamp(40px,4.8vw,84px);line-height:.9;transition:color .35s}
+.demo:hover .sv,.demo:focus-visible .sv{color:var(--klein)}
+.demo-et{color:var(--gris);margin-top:6px}
+.demo-tx{font-size:clamp(16px,1.25vw,19px);line-height:1.45;max-width:34ch}
+.escena{position:relative;display:block;height:clamp(300px,28vw,420px);background:#EAEAE6;overflow:hidden;border-radius:4px}
+/* te vean */
+.escena-vean{display:grid;place-items:center}
+.movil{position:relative;display:block;height:88%;aspect-ratio:9/18.5;border-radius:22px;border:6px solid var(--tinta);background:var(--tinta);overflow:hidden;box-shadow:0 30px 50px -26px rgba(0,0,0,.55);transform:translateY(30px) rotate(-4deg);opacity:0;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.demo.ya .movil{transform:rotate(-3deg);opacity:1}
+.movil video{width:100%;height:100%;object-fit:cover}
+.vistas{position:absolute;left:8px;bottom:10px;padding:4px 8px;border-radius:999px;background:rgba(11,11,10,.6);color:#fff;font-size:10px}
+.vistas b{font-family:var(--f-disp);font-weight:850;font-stretch:70%;font-size:15px;letter-spacing:0;font-variant-numeric:tabular-nums}
+.vistas i{font-style:normal}
+.corazones{position:absolute;inset:0;pointer-events:none}
+.corazon{position:absolute;right:12px;bottom:40px;width:18px;height:16px;background:var(--klein-claro);-webkit-mask:var(--oveja-mask) center/contain no-repeat;mask:var(--oveja-mask) center/contain no-repeat;animation:sube-corazon 2.2s ease-out forwards}
+@keyframes sube-corazon{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx,-20px),-190px) scale(1.1);opacity:0}}
+/* te compren */
+.escena-chat{background:#E9E7DF;padding:18px 16px}
+.chat{display:flex;flex-direction:column;gap:9px;height:100%;justify-content:flex-end}
+.burbuja{max-width:82%;padding:9px 12px;border-radius:14px;font-size:clamp(13px,1vw,15px);line-height:1.35;opacity:0;transform:translateY(12px) scale(.96);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.9,.25,1.2)}
+.burbuja.cli{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
+.burbuja.marca{align-self:flex-end;background:var(--klein);color:#fff;border-bottom-right-radius:4px}
+.burbuja.ver{opacity:1;transform:none}
+.sello{position:absolute;right:18px;top:22px;padding:8px 16px;border:3px solid var(--klein);color:var(--klein);font-weight:850;font-stretch:70%;font-size:clamp(24px,2.2vw,34px);text-transform:uppercase;letter-spacing:.02em;border-radius:6px;transform:rotate(-8deg) scale(2.2);opacity:0;transition:transform .35s cubic-bezier(.3,1.4,.5,1),opacity .2s}
+.sello.ver{opacity:1;transform:rotate(-8deg) scale(1)}
+/* crezcas */
+.escena-crece{display:block;padding:24px 18px 14px}
+.escena-crece svg{width:100%;height:100%;overflow:visible}
+.escena-crece .base{stroke:var(--tinta);stroke-width:1.5}
+.escena-crece .barra{fill:var(--tinta);transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * .45s)}
+.escena-crece .barra:last-of-type{fill:var(--klein)}
+.demo.ya .escena-crece .barra{transform:scaleY(1)}
+.escena-crece .tendencia{fill:none;stroke:var(--klein-claro);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:320;stroke-dashoffset:320;transition:stroke-dashoffset 2.9s ease .2s}
+.demo.ya .escena-crece .tendencia{stroke-dashoffset:0}
+.mes{position:absolute;left:18px;top:14px;font-size:11px}
+.mes b{font-family:var(--f-disp);font-weight:850;font-stretch:70%;font-size:26px;letter-spacing:0;vertical-align:-3px;font-variant-numeric:tabular-nums}
+.mes i{font-style:normal}
+.serv-botones{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:clamp(36px,4vw,60px)}
+@media (max-width:900px){.demos{grid-template-columns:minmax(0,1fr)}.escena{height:340px}}
 @media (prefers-reduced-motion:reduce){
   .cinta>span,.pin .halo{animation:none}
   .auto-d,.auto-i,.tinta-in{opacity:1!important;animation:none!important}
@@ -703,14 +802,14 @@ img{display:block;max-width:100%}
   <img src="img/oveja-tinta.webp" alt="">
   <span class="firma-texto" id="firmaTexto">Black Sheep<br>Studios<span class="sx">S</span></span>
 </a>
-<div class="marcador mono" id="marcador" aria-live="polite"></div>
 <button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
 
 <main id="inicio">
 <!-- Entrada -->
 <section class="rebano" id="rebano" aria-label="Entrada" data-escribenos-desde>
   <canvas id="rebanoCanvas" aria-hidden="true"></canvas>
-  <p class="hero-que mono">Estudio creativo y asesoría comercial</p>
+  <div class="marcador mono" id="marcador" aria-live="polite"></div>
+  <p class="hero-que" id="heroQue"><span>Estudio creativo y asesoría comercial</span></p>
   <div class="carga" id="carga" aria-live="polite"><b id="cargaN">000</b><span class="mono">Saliendo del rebaño</span></div>
   <h1 class="hero-t gigante">
     <span class="l1" id="l1"><span class="auto-d" style="--d:.2s">Todos van para allá.</span></span>
@@ -719,28 +818,22 @@ img{display:block;max-width:100%}
   <div class="juego mono" id="juego" aria-live="polite"></div>
 </section>
 
-<!-- Portada -->
-<section class="portada" id="portada" aria-label="Resultados de negocio, no solo piezas bonitas">
-  <div class="portada-fija">
-    <h2 class="gigante env">
-      <span class="ln">Resultados</span>
-      <span class="ln"><span class="serif escribe" style="--d:.15s">de negocio,</span></span>
-      <span class="ln der">no solo</span>
-      <span class="ln der"><span class="serif escribe" style="--d:1.15s">piezas</span> bonitas.</span>
-    </h2>
-  </div>
-</section>
-
-<!-- Manifiesto -->
-<section class="mancha" id="manifiesto">
+<!-- Manifiesto: la frase eje y la promesa, todo sobre la tinta -->
+<section class="mancha manifiesto-uno" id="manifiesto">
   <div class="tinta-fondo"></div>
-  <div class="env seccion aparece manifiesto">
-    <p class="remate lead serif"><span class="escribe" style="--d:.2s">Creatividad con calculadora.</span></p>
-    <p class="promesa">Un video bonito que no vende es un gasto. Si no es distinto y no vende, no sale de aquí.</p>
-    <div class="manifiesto-texto">
-      <p>Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.</p>
-      <p>Detrás estamos Gema e Issac. Ella da la cara y piensa la estrategia; él está detrás de la cámara, del código y de los números. <a class="conocenos" href="#estudio">Conócenos ↓</a></p>
+  <div class="portada" id="portada" aria-label="Resultados de negocio, no solo piezas bonitas">
+    <div class="portada-fija">
+      <h2 class="gigante env">
+        <span class="ln">Resultados</span>
+        <span class="ln"><span class="serif escribe" style="--d:.15s">de negocio,</span></span>
+        <span class="ln der">no solo</span>
+        <span class="ln der"><span class="serif escribe" style="--d:1.15s">piezas</span> bonitas.</span>
+      </h2>
     </div>
+  </div>
+  <div class="env manifiesto aparece">
+    <p class="promesa">Un video bonito que no vende es un gasto.</p>
+    <div class="manifiesto-texto"><p>Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.</p></div>
   </div>
 </section>
 
@@ -756,13 +849,13 @@ img{display:block;max-width:100%}
 <!-- Reel -->
 <a class="reel-banda" id="reel" href="https://youtu.be/5V4N6tu1d54" target="_blank" rel="noopener" data-medir="reel_clic" aria-label="Ver el reel completo en YouTube">
   <video muted loop playsinline preload="none" data-poster="vid/reel.jpg" src="vid/reel.mp4"></video>
-  <span class="reel-txt"><span class="gigante">Reel<span class="serif">.</span></span><span class="reel-ver">Ver reel <span aria-hidden="true">↗</span></span></span>
+  <span class="reel-txt"><span class="gigante">Reel<span class="serif">.</span></span><span class="reel-ver boton fantasma"><span>Ver reel ↗</span></span></span>
 </a>
 
 <!-- Marcas -->
-<section class="marcas" id="marcas" aria-label="Marcas que ya confiaron en nosotros">
+<section class="marcas" id="marcas" aria-label="Marcas que ya salieron del rebaño">
   <div class="env">
-    <div class="marcas-cab"><h2 class="mono">Marcas que ya confiaron en nosotros</h2><span class="mono ph">La promesa, con firma.</span></div>
+    <div class="marcas-cab"><h2 class="gigante">Marcas que ya salieron <span class="serif">del rebaño.</span></h2><span class="mono ph">Y confiaron en nosotros</span></div>
     <div class="logos" aria-label="Marcas con las que hemos trabajado">
       <img src="img/logos/brother.png" alt="Brother Valencia" loading="lazy">
       <img src="img/logos/podimo.png" alt="Podimo" loading="lazy">
@@ -780,34 +873,65 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- Trabajo: un índice por tipo de proyecto -->
+<!-- Trabajo: un índice que se recorre por tipo o por vertical -->
 <section class="trabajo-sel" id="trabajo" aria-label="Trabajo">
   <div class="env">
-    <div class="trabajo-cab"><h2 class="gigante">Trabajo<span class="serif">.</span></h2><p>Marcas que dejaron de seguir al rebaño.</p></div>
-    <ul class="tipos" id="tipos"></ul>
-    <a class="boton" href="trabajo.html" data-medir="trabajo_todo">Ver todo el trabajo <span aria-hidden="true">→</span></a>
+    <div class="trabajo-cab">
+      <h2 class="gigante">Trabajo<span class="serif">.</span></h2>
+      <div class="grupos" role="tablist" aria-label="Recorrer el trabajo">
+        <button type="button" role="tab" aria-selected="true" data-g="tipos"><span class="serif">por</span> <span>tipo de proyecto</span></button>
+        <button type="button" role="tab" aria-selected="false" data-g="sectores"><span class="serif">por</span> <span>vertical</span></button>
+      </div>
+    </div>
+    <ul class="indice" id="indice" role="tabpanel"></ul>
+    <div class="trabajo-pie"><a class="boton" href="trabajo.html" data-medir="trabajo_todo"><span>Ver todo el trabajo</span></a></div>
   </div>
-  <div class="vista-previa" id="vistaPrevia" aria-hidden="true"><img alt=""></div>
 </section>
 
 <!-- Verticales -->
 <section class="verticales" id="verticales" aria-label="Contenido vertical">
-  <div class="env vert-cab"><h2 class="gigante">En <span class="serif">vertical.</span></h2><p class="mono ph">Reels, historias y cierres. Para la pantalla que más se mira.</p></div>
+  <div class="env vert-cab"><h2 class="gigante">En <span class="serif">vertical.</span></h2><p class="mono ph">Para la pantalla que más se mira.</p></div>
   <div class="vert-fila" id="vertA"></div>
   <div class="vert-fila" id="vertB"></div>
-  <div class="env vert-ig"><a class="boton claro" href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">Ver más en Instagram <span aria-hidden="true">↗</span></a></div>
+  <div class="env vert-ig"><a class="boton claro" href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener"><span>Ver más en Instagram ↗</span></a></div>
 </section>
 
-<!-- Servicios -->
+<!-- Servicios: cada verbo se demuestra -->
 <section class="servicios-corto" id="servicios" aria-label="Servicios">
   <div class="env">
     <h2 class="gigante serv-titulo">Hacemos que</h2>
-    <div class="serv-filas">
-      <a class="serv-fila" href="servicios.html#contenido"><span class="gigante sv">te vean.</span><span class="mono">Contenido</span><p>Video, foto y redes con un objetivo medible, no con un calendario.</p><i aria-hidden="true">→</i></a>
-      <a class="serv-fila" href="servicios.html#ventas"><span class="gigante sv">te compren.</span><span class="mono">Ventas</span><p>Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.</p><i aria-hidden="true">→</i></a>
-      <a class="serv-fila" href="servicios.html#consultoria"><span class="gigante sv">crezcas.</span><span class="mono">Consultoría</span><p>Un plan con números y alguien que lo revise contigo cada mes.</p><i aria-hidden="true">→</i></a>
+    <div class="demos">
+      <a class="demo" id="demoVean" href="servicios.html#contenido">
+        <span class="gigante sv">te vean.</span>
+        <span class="escena escena-vean" aria-hidden="true">
+          <span class="movil"><video muted loop playsinline preload="none" data-poster="vid/v-crepe.jpg" src="vid/v-crepe.mp4"></video><span class="vistas mono"><b>0</b> <i>vistas</i></span><span class="corazones"></span></span>
+        </span>
+        <span class="mono demo-et">Contenido</span>
+        <span class="demo-tx">Video, foto y redes con un objetivo medible, no con un calendario.</span>
+      </a>
+      <a class="demo" id="demoCompren" href="servicios.html#ventas">
+        <span class="gigante sv">te compren.</span>
+        <span class="escena escena-chat" aria-hidden="true"><span class="chat">
+          <span class="burbuja cli">Hola, vi su reel. ¿Tienen lugar este sábado?</span>
+          <span class="burbuja marca">¡Hola! Nos quedan dos. ¿Te aparto uno?</span>
+          <span class="burbuja cli">Sí, apártamelo.</span>
+          <span class="burbuja marca">Listo. Te mando el enlace de pago.</span>
+          <span class="sello">Vendido</span>
+        </span></span>
+        <span class="mono demo-et">Ventas</span>
+        <span class="demo-tx">Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.</span>
+      </a>
+      <a class="demo" id="demoCrezcas" href="servicios.html#consultoria">
+        <span class="gigante sv">crezcas.</span>
+        <span class="escena escena-crece" aria-hidden="true">
+          <svg viewBox="0 0 300 200"><line class="base" x1="8" y1="182" x2="292" y2="182"/><rect class="barra" x="18" y="148" width="30" height="34" style="--i:0"/><rect class="barra" x="64" y="134" width="30" height="48" style="--i:1"/><rect class="barra" x="110" y="116" width="30" height="66" style="--i:2"/><rect class="barra" x="156" y="94" width="30" height="88" style="--i:3"/><rect class="barra" x="202" y="66" width="30" height="116" style="--i:4"/><rect class="barra" x="248" y="32" width="30" height="150" style="--i:5"/><polyline class="tendencia" points="33,140 79,126 125,108 171,86 217,58 263,24"/></svg>
+          <span class="mes mono"><i>Mes</i> <b>1</b></span>
+        </span>
+        <span class="mono demo-et">Consultoría</span>
+        <span class="demo-tx">Un plan con números y alguien que lo revise contigo cada mes.</span>
+      </a>
     </div>
-    <div class="serv-botones"><a class="boton" href="servicios.html">Ver servicios <span aria-hidden="true">→</span></a><a class="boton claro" href="como-trabajamos.html">Cómo trabajamos</a></div>
+    <div class="serv-botones"><a class="boton" href="servicios.html"><span>Ver servicios</span></a><a class="boton claro" href="como-trabajamos.html"><span>Cómo trabajamos</span></a></div>
   </div>
 </section>
 
@@ -918,6 +1042,9 @@ img{display:block;max-width:100%}
     var juego = $("#juego"), J = {estado: "intro", t0: 0, volteadas: 0, ultHud: 0, tFirma: 0}, spriteT = null, manchas = [], manchaImg = new Image(), DUR = 10000;
     manchaImg.src = "img/mancha.webp";
     function L(es, en){ return typeof idioma !== "undefined" && idioma === "en" ? en : es; }
+    var heroQue = $("#heroQue"), heroT = $(".hero-t");
+    function ponerQue(){ var r = heroT.getBoundingClientRect(), rc = caja.getBoundingClientRect(); heroQue.style.top = (r.bottom - rc.top + Math.max(16, r.height * .1)) + "px"; }
+    ponerQue(); window.addEventListener("resize", ponerQue); if (document.fonts) document.fonts.ready.then(ponerQue);
     var spanL = [l1.querySelector(".auto-d"), l2.querySelector(".auto-i")], letras = [], centroL = 0, impacto = [false, false], golpe = false;
     function medirLetras(){
       letras = []; golpe = false;
@@ -940,6 +1067,8 @@ img{display:block;max-width:100%}
       });
       // el centro del título no cambia mientras entran las líneas (solo se mueven en horizontal): así ninguna oveja cambia de lado a medio camino
       if (letras.length) { var y0 = 1e9, y1 = -1e9; letras.forEach(function(l){ y0 = Math.min(y0, l.y0); y1 = Math.max(y1, l.y1); }); centroL = (y0 + y1) / 2; }
+      // la línea de debajo cuenta como parte del bloque, sin mover el centro
+      if (letras.length && heroQue.classList.contains("entra")) { var rq = heroQue.firstChild.getBoundingClientRect(), Lu = letras[letras.length - 1]; Lu.y1 = Math.max(Lu.y1, rq.bottom - rc.top); }
     }
     function suave(t){ t = t < 0 ? 0 : t > 1 ? 1 : t; return t * t * (3 - 2 * t); }
     // las letras empujan como el ratón: abren un claro amplio arriba y abajo de cada línea.
@@ -1022,7 +1151,9 @@ img{display:block;max-width:100%}
     }
     function pintarNegra(dt){
       negra.f += .11 * dt; negra.x -= .55 * dt; if (negra.x < -negra.s * 1.5) negra.x = w + negra.s;
-      if (listo && performance.now() - tListo > 2350) { if (negra.a === 0) { l2.classList.add("giro"); setTimeout(function(){ document.getElementById("firma").classList.add("ver"); J.tFirma = performance.now(); }, 2200); } negra.a = Math.min(1, negra.a + .035 * dt); }
+      var tl = listo ? performance.now() - tListo : 0;
+      if (listo && tl > 2150 && !l2.classList.contains("giro")) l2.classList.add("giro");
+      if (listo && tl > 3700) { if (negra.a === 0) { setTimeout(function(){ heroQue.classList.add("entra"); }, 900); setTimeout(function(){ document.getElementById("firma").classList.add("ver"); J.tFirma = performance.now(); }, 2300); } negra.a = Math.min(1, negra.a + .03 * dt); }
       if (!tintaImg.complete || !tintaImg.naturalWidth || negra.a <= 0) return;
       var cn = letras.length ? campoLetras(negra, negra.x + negra.s / 2, negra.y + negra.s * .4, negra.s * .45, negra.s * .35)[1] * .55 : 0;
       negra.ly = (negra.ly || 0) + (cn - (negra.ly || 0)) * Math.min(1, .14 * dt);
@@ -1116,8 +1247,9 @@ img{display:block;max-width:100%}
     ];
     var marcador = $("#marcador"), REG = {rondas: 0, mejor: 0, total: 0, frase: Math.floor(Math.random() * 10)};
     try { var g = JSON.parse(localStorage.getItem("bss-rebano") || "null"); if (g && g.rondas) { REG = g; if (REG.frase === undefined) REG.frase = REG.rondas; } } catch (e) {}
+    function jugoSesion(){ try { return sessionStorage.getItem("bss-jugo") === "1"; } catch (e) { return false; } }
     function pintarMarcador(){
-      if (!REG.rondas) return;
+      if (!REG.rondas || !jugoSesion()) return;
       marcador.innerHTML = "<b></b>"; marcador.querySelector("b").textContent = REG.mejor;
       marcador.appendChild(document.createTextNode(L(" récord · ", " best · ") + REG.total + L(" convertidas · ", " converted · ") + REG.rondas + (REG.rondas === 1 ? L(" ronda", " round") : L(" rondas", " rounds"))));
       marcador.classList.add("on");
@@ -1127,7 +1259,7 @@ img{display:block;max-width:100%}
       if (J.estado !== "juego") return; J.estado = "fin"; if (window.BSS) BSS.medir("juego_fin", {convertidas: J.volteadas});
       var n = J.volteadas, tasa = (n / ovejas.length * 100).toFixed(1).replace(".", L(",", "."));
       REG.rondas++; REG.total += n; REG.mejor = Math.max(REG.mejor, n);
-      try { localStorage.setItem("bss-rebano", JSON.stringify(REG)); } catch (e) {}
+      try { localStorage.setItem("bss-rebano", JSON.stringify(REG)); sessionStorage.setItem("bss-jugo", "1"); } catch (e) {}
       pintarMarcador();
       // situación y remate: cada partida toca uno distinto (con 0 y 1 hay frases propias)
       var par;
@@ -1162,7 +1294,7 @@ img{display:block;max-width:100%}
       }
       J.volteadas += n;
     });
-    if (reducido || scrollY > 40) { terminar(); l2.classList.add("giro"); document.getElementById("firma").classList.add("ver"); } else { document.documentElement.style.overflow = "hidden"; setTimeout(terminar, 9000); }
+    if (reducido || scrollY > 40) { terminar(); l2.classList.add("giro"); heroQue.classList.add("entra"); document.getElementById("firma").classList.add("ver"); } else { document.documentElement.style.overflow = "hidden"; setTimeout(terminar, 9000); }
     if (fino) { caja.addEventListener("mousemove", function(e){ var r = caja.getBoundingClientRect(); rx = e.clientX - r.left; ry = e.clientY - r.top; }, {passive: true}); caja.addEventListener("mouseleave", function(){ rx = ry = -9999; }); }
     medir(); sembrar();
     tintaImg.addEventListener("load", function(){ hacerTinta(); if (!corre) cuadro(performance.now()); });
@@ -1273,7 +1405,7 @@ img{display:block;max-width:100%}
     visible(caja, function(v){
       if (v && !dentro) { dentro = true; if (ligero || M) soltar(); else cargarMatter(function(m){ M = m; soltar(); }); }
       else if (!v) dentro = false;
-    }, .4);
+    }, .55);
     window.addEventListener("resize", function(){ if (!vivo) reposo(); });
   });
 
@@ -1293,34 +1425,58 @@ img{display:block;max-width:100%}
     if (!reducido) autoplay(v);
   })();
 
-  /* ---------- Trabajo: índice por tipo; cada fila lleva a su sección en trabajo.html ---------- */
+  /* ---------- Marcas: entran una a una cuando ya se ven ---------- */
   (function(){
-    var ul = $("#tipos"), vp = $("#vistaPrevia"), img = vp.querySelector("img"), iv = 0, mx = 0, my = 0, pend = false;
-    function nombreTipo(t){ return idioma === "en" ? t.en : t.es; }
-    BSS.TIPOS.forEach(function(t){
-      var ps = BSS.porTipo(t.id); if (!ps.length) return;
-      var li = document.createElement("li");
-      li.innerHTML = '<a href="trabajo.html#' + t.id + '"><span class="t-nom"></span><span class="t-quien"></span><span class="t-n mono"></span></a>';
-      var a = li.firstChild;
-      a.querySelector(".t-nom").textContent = t.es; a.querySelector(".t-quien").textContent = ps.map(function(p){ return p.nombre; }).join(" · ");
-      a.querySelector(".t-n").textContent = ("0" + ps.length).slice(-2);
-      a.setAttribute("data-medir", "trabajo_tipo"); a.setAttribute("data-origen", t.id);
-      a._t = t; a._ps = ps;
-      if (fino) {
-        a.addEventListener("mouseenter", function(){
-          var k = 0; clearInterval(iv);
-          function poner(){ img.src = ps[k % ps.length].img; k++; }
-          poner(); vp.classList.add("ver"); if (ps.length > 1 && !reducido) iv = setInterval(poner, 900);
-        });
-        a.addEventListener("mouseleave", function(){ clearInterval(iv); vp.classList.remove("ver"); });
-      }
-      ul.appendChild(li);
-    });
-    if (fino) window.addEventListener("mousemove", function(e){
-      mx = e.clientX; my = e.clientY; if (pend) return; pend = true;
-      requestAnimationFrame(function(){ pend = false; vp.style.left = mx + 24 + "px"; vp.style.top = my + "px"; });
-    }, {passive: true});
-    BSS.alCambiarIdioma(function(){ [].forEach.call(ul.querySelectorAll("a"), function(a){ a.querySelector(".t-nom").textContent = nombreTipo(a._t); }); });
+    var m = $("#marcas"); [].forEach.call(m.querySelectorAll(".logos > *"), function(el, i){ el.style.setProperty("--i", i); });
+    visible(m.querySelector(".logos"), function(v){ if (v) m.classList.add("ya"); }, .35);
+  })();
+
+  /* ---------- Trabajo: índice por tipo o por vertical; la tinta barre la fila y aparece el proyecto ---------- */
+  (function(){
+    var ul = $("#indice"), botones = [].slice.call(document.querySelectorAll("#trabajo .grupos button")), grupo = "tipos", visto = false;
+    var vid = document.createElement("video"); vid.muted = true; vid.loop = true; vid.playsInline = true; vid.setAttribute("playsinline", ""); vid.preload = "none"; vid.setAttribute("aria-hidden", "true");
+    function nom(t){ return idioma === "en" ? t.en : t.es; }
+    function contar(b, fin){
+      if (reducido) { b.textContent = ("0" + fin).slice(-2); return; }
+      var t0 = performance.now();
+      (function paso(t){ var k = cl((t - t0) / 900, 0, 1), v = Math.round(fin * (1 - Math.pow(1 - k, 3))); b.textContent = ("0" + v).slice(-2); if (k < 1) requestAnimationFrame(paso); })(t0);
+    }
+    function pintar(){
+      ul.innerHTML = ""; ul.classList.remove("ya");
+      (grupo === "tipos" ? BSS.TIPOS : BSS.SECTORES).forEach(function(t, i){
+        var ps = BSS.porTipo(t.id); if (!ps.length) return;
+        var li = document.createElement("li"); li.className = "fila"; li.style.setProperty("--i", i);
+        li.innerHTML = '<a href="trabajo.html#' + t.id + '"><span class="f-nom"></span><span class="f-quien"></span><span class="f-cuenta"><b>00</b><small class="mono"></small></span><span class="f-medio" aria-hidden="true"><img alt="" loading="lazy" decoding="async"></span></a>';
+        var a = li.firstChild; a._t = t; a._ps = ps;
+        a.querySelector(".f-nom").textContent = nom(t);
+        a.querySelector(".f-quien").textContent = ps.map(function(p){ return p.nombre; }).join(" · ");
+        a.querySelector(".f-cuenta small").textContent = ps.length === 1 ? T("proyecto") : T("proyectos");
+        a.setAttribute("data-medir", "trabajo_tipo"); a.setAttribute("data-origen", t.id);
+        var conVideo = ps.filter(function(p){ return p.video; })[0];
+        a.querySelector(".f-medio img").src = (conVideo || ps[0]).img;
+        if (fino) {
+          a.addEventListener("mouseenter", function(){
+            if (!conVideo || reducido) return;
+            var m = a.querySelector(".f-medio"); m.appendChild(vid);
+            if (vid.getAttribute("src") !== conVideo.video) { vid.src = conVideo.video; vid.poster = conVideo.img; }
+            var pr = vid.play(); if (pr) pr.catch(function(){});
+          });
+          a.addEventListener("mouseleave", function(){ vid.pause(); });
+        }
+        ul.appendChild(li);
+      });
+      if (visto) mostrar();
+    }
+    function mostrar(){ ul.classList.add("ya"); [].forEach.call(ul.querySelectorAll(".f-cuenta b"), function(b){ contar(b, b.parentNode.parentNode._ps.length); }); }
+    botones.forEach(function(b){ b.addEventListener("click", function(){
+      if (b.getAttribute("data-g") === grupo) return;
+      grupo = b.getAttribute("data-g"); botones.forEach(function(o){ o.setAttribute("aria-selected", o === b ? "true" : "false"); });
+      ul.classList.add("cambia"); setTimeout(function(){ ul.classList.remove("cambia"); pintar(); }, reducido ? 0 : 320);
+      BSS.medir("trabajo_grupo", {grupo: grupo});
+    }); });
+    pintar();
+    visible(ul, function(v){ if (v && !visto) { visto = true; mostrar(); } }, .25);
+    BSS.alCambiarIdioma(function(){ pintar(); });
   })();
 
   /* ---------- Estudio: la red en un mapa chico y las cifras, calculadas desde los proyectos ---------- */
@@ -1337,6 +1493,47 @@ img{display:block;max-width:100%}
     cuandoCerca($("#mapaMini"), function(){ BSS.pintarMapa($("#mapaMini"), {grande: false, nombre: function(n){ return T(n); }}); });
   })();
 
+  /* ---------- Hacemos que: cada verbo, demostrado en pantalla ---------- */
+  (function(){
+    var vean = $("#demoVean"), compren = $("#demoCompren"), crezcas = $("#demoCrezcas");
+    cuandoCerca(vean, function(){ ponerPosters(vean); });
+    // te vean: el reel corre, las vistas suben y salen ovejitas
+    (function(){
+      var v = vean.querySelector("video"), b = vean.querySelector(".vistas b"), cor = vean.querySelector(".corazones"), n = 0, iv = 0, iv2 = 0;
+      function fmt(x){ return x >= 1000 ? (x / 1000).toFixed(1).replace(".", idioma === "en" ? "." : ",") + "k" : String(x); }
+      visible(vean, function(on){
+        clearInterval(iv); clearInterval(iv2);
+        if (!on) { v.pause(); return; }
+        vean.classList.add("ya"); var pr = v.play(); if (pr) pr.catch(function(){});
+        if (reducido) { b.textContent = fmt(12400); return; }
+        iv = setInterval(function(){ n += Math.round(40 + Math.random() * 160 + n * .015); b.textContent = fmt(n); }, 120);
+        iv2 = setInterval(function(){ var c = document.createElement("i"); c.className = "corazon"; c.style.setProperty("--dx", (-10 - Math.random() * 40) + "px"); cor.appendChild(c); setTimeout(function(){ c.remove(); }, 2300); }, 650);
+      }, .45);
+    })();
+    // te compren: la conversación avanza sola y termina en venta
+    (function(){
+      var bs = [].slice.call(compren.querySelectorAll(".burbuja")), sello = compren.querySelector(".sello"), tm = [];
+      function limpiar(){ tm.forEach(clearTimeout); tm = []; bs.forEach(function(x){ x.classList.remove("ver"); }); sello.classList.remove("ver"); }
+      function correr(){
+        limpiar();
+        bs.forEach(function(x, i){ tm.push(setTimeout(function(){ x.classList.add("ver"); }, reducido ? 0 : 500 + i * 1100)); });
+        tm.push(setTimeout(function(){ sello.classList.add("ver"); }, reducido ? 0 : 500 + bs.length * 1100 + 300));
+        if (!reducido) tm.push(setTimeout(correr, 500 + bs.length * 1100 + 3800));
+      }
+      visible(compren, function(on){ if (on) { compren.classList.add("ya"); correr(); } else limpiar(); }, .45);
+    })();
+    // crezcas: las barras suben mes a mes
+    (function(){
+      var mes = crezcas.querySelector(".mes b"), tm = [];
+      function correr(){
+        tm.forEach(clearTimeout); tm = []; crezcas.classList.remove("ya"); crezcas.getBoundingClientRect(); crezcas.classList.add("ya");
+        for (var k = 0; k < 6; k++) (function(k){ tm.push(setTimeout(function(){ mes.textContent = k + 1; }, reducido ? 0 : k * 450)); })(k);
+        if (!reducido) tm.push(setTimeout(correr, 7000));
+      }
+      visible(crezcas, function(on){ if (on) correr(); else { tm.forEach(clearTimeout); tm = []; } }, .45);
+    })();
+  })();
+
   /* ---------- Verticales ---------- */
   (function(){
     var filas = [$("#vertA"), $("#vertB")], sec = $("#verticales");
@@ -1347,14 +1544,28 @@ img{display:block;max-width:100%}
       if (!ligero) autoplay(f.querySelector("video"));
       return f;
     }
-    VERTICALES.forEach(function(it, i){ filas[0].appendChild(tarjeta(it)); });
-    VERTICALES.slice(3).concat(VERTICALES.slice(0, 3)).forEach(function(it){ filas[1].appendChild(tarjeta(it)); });
+    VERTICALES.forEach(function(it, i){ var c = tarjeta(it); if (i % 2) c.classList.add("baja"); filas[0].appendChild(c); });
+    VERTICALES.slice(3).concat(VERTICALES.slice(0, 3)).forEach(function(it, i){ var c = tarjeta(it); if (i % 2) c.classList.add("baja"); filas[1].appendChild(c); });
     cuandoCerca(sec, function(){ ponerPosters(sec); });
-    registrar(sec, function(){
-      var r = sec.getBoundingClientRect(), H = innerHeight, p = cl((H - r.top) / (H + r.height), 0, 1);
-      filas[0].style.transform = "translateX(" + (-p * 32 + 4).toFixed(2) + "vw)";
-      filas[1].style.transform = "translateX(" + (p * 32 - 30).toFixed(2) + "vw)";
-    });
+    // las tiras corren solas, una hacia cada lado; frenan cuando el ratón se acerca
+    var tiras = filas.map(function(f, k){ return {el: f, x: 0, dir: k ? 1 : -1, vel: 1, cerca: false}; }), corre = false, ult = 0, my = -9999, mx = -9999;
+    function ancho(el){ var g = parseFloat(getComputedStyle(el.parentNode).columnGap || getComputedStyle(el.parentNode).gap) || 16; return el.getBoundingClientRect().width + g; }
+    function paso(t){
+      var dt = ult ? Math.min(50, t - ult) / 16.67 : 1; ult = t;
+      tiras.forEach(function(ti){
+        var r = ti.el.getBoundingClientRect(), d = my < r.top ? r.top - my : my > r.bottom ? my - r.bottom : 0, obj = fino && my > -9000 ? (d < 40 ? .12 : d < 220 ? .12 + (d - 40) / 180 * .88 : 1) : 1;
+        ti.vel += (obj - ti.vel) * Math.min(1, .06 * dt);
+        ti.x += ti.dir * .55 * ti.vel * dt;
+        var pri = ti.el.firstElementChild, ult2 = ti.el.lastElementChild;
+        if (ti.dir < 0 && pri) { var w = ancho(pri); if (-ti.x > w) { ti.x += w; ti.el.appendChild(pri); } }
+        if (ti.dir > 0 && ult2 && ti.x > 0) { var w2 = ancho(ult2); ti.x -= w2; ti.el.insertBefore(ult2, ti.el.firstElementChild); }
+        ti.el.style.transform = "translate3d(" + ti.x.toFixed(1) + "px,0,0)";
+      });
+      if (corre) requestAnimationFrame(paso);
+    }
+    sec.addEventListener("mousemove", function(e){ mx = e.clientX; my = e.clientY; }, {passive: true});
+    sec.addEventListener("mouseleave", function(){ my = mx = -9999; });
+    if (!reducido) visible(sec, function(v){ if (v && !corre) { corre = true; ult = 0; requestAnimationFrame(paso); } else if (!v) corre = false; }, 0);
   })();
 
   /* ---------- Copiar datos ---------- */
@@ -1402,7 +1613,7 @@ img{display:block;max-width:100%}
     document.addEventListener("mouseenter", function(){ capaCursor.style.opacity = ""; });
   } else { $("#cursor").style.display = "none"; }
 
-  var EN = {"Más": "More", "escríbeno": "write to u", "Estudio creativo y asesoría comercial": "Creative studio and sales advisory", "Creatividad con calculadora.": "Creativity with a calculator.", "Un video bonito que no vende es un gasto. Si no es distinto y no vende, no sale de aquí.": "A pretty video that doesn't sell is an expense. If it isn't different and doesn't sell, it doesn't leave the studio.", "Detrás estamos Gema e Issac. Ella da la cara y piensa la estrategia; él está detrás de la cámara, del código y de los números.": "Behind it are Gema and Issac. She's the face and the strategy; he's behind the camera, the code and the numbers.", "Conócenos ↓": "Meet us ↓", "Ver reel": "Watch the reel", "Ver el reel completo en YouTube": "Watch the full reel on YouTube", "Marcas que ya confiaron en nosotros": "Brands that already trusted us", "La promesa, con firma.": "The promise, signed.", "Ver todo el trabajo": "See all our work", "Ver más en Instagram": "More on Instagram", "Video, foto y redes con un objetivo medible, no con un calendario.": "Video, photo and social with a measurable goal, not a calendar.", "Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.": "Scripts, processes and training so your team closes what content opens.", "Un plan con números y alguien que lo revise contigo cada mes.": "A plan with numbers and someone to review it with you every month.", "Ver servicios": "See services", "Cómo trabajamos": "How we work", "La cara del estudio: marketing y clientes": "The face of the studio: marketing and clients", "El brazo técnico: producción y dirección": "The technical arm: production and direction", "Detrás de la cámara, del código y de los números.": "Behind the camera, the code and the numbers.", "años de experiencia comercial": "years of sales experience", "De Mérida a Copenhague": "From Mérida to Copenhagen", "Una red en tres países.": "A network in three countries.", "Una red en cinco países.": "A network in five countries.", "Una red en seis países.": "A network in six countries.", "Conoce el estudio": "Meet the studio", "Estudio": "Studio", "Escríbenos": "Write to us", "Páginas": "Pages", "Mapa con las ciudades donde hemos trabajado": "Map of the cities where we've worked", "Valladolid": "Valladolid", "Saliendo del rebaño": "Leaving the herd", "Todos van para allá.": "Everyone's going that way.", "Nosotro": "Not u", "no.": ".", "Resultados": "Business", "de negocio,": "results,", "no solo": "not just", "piezas": "pretty", "bonitas.": "pieces.", "Copenhague": "Copenhagen", "Tánger": "Tangier", "Copenhague.": "Copenhagen.", "Creatividad": "Creativity", "con": "with a", "calculadora.": "calculator.", "Un video bonito que no vende es un gasto.": "A pretty video that doesn't sell is an expense.", "Si no es distinto y no vende, no sale de aquí.": "If it isn't different and doesn't sell, it doesn't leave the studio.", "Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.": "Most agencies deliver pieces. We deliver sales. Before we turn on a camera, we define what has to happen in your business and which number we'll measure it with: messages, appointments, bookings or sales.", "Gema viene del marketing y vive dentro de las redes. Issac viene de vender más de un millón de euros al año. Juntos hacemos lo que pocas productoras saben hacer: contenido que se ve bien y además cierra. Publicamos, medimos y ajustamos hasta que funciona.": "Gema comes from marketing and lives inside social media. Issac comes from selling over a million euros a year. Together we do what few production companies can: content that looks good and also closes. We publish, measure and adjust until it works.", "Lo": "Pretty", "bonito": "things", "se": "fall", "cae.": "apart.", "El resultado": "The result", "se queda.": "stays.", "Carrusel": "Carousel", "Paleta": "Palette", "Filtro": "Filter", "Tipografía": "Typeface", "ventas": "sales", "Trabajo": "Work", "Marcas que dejaron de seguir al rebaño.": "Brands that stopped following the herd.", "Una web tan peligrosa como su escuela": "A website as dangerous as its school", "brother · escuela de creativos": "brother · school for creatives", "Escritorio": "Desktop", "Móvil": "Mobile", "2026 · Valencia · Diseño y desarrollo web": "2026 · Valencia · Web design and development", "Ver caso": "See case", "Veinte años de marca, en la misma onda": "Twenty years of brand, on the same wavelength", "2025 · México · Video corporativo": "2025 · Mexico · Corporate video", "Un día en las nubes, en horizontal y en vertical": "A day in the clouds, horizontal and vertical", "2023 · Dinamarca · Evento y contenido para redes": "2023 · Denmark · Event and social content", "Una taberna de leyenda, contada como una película": "A legendary tavern, told like a film", "2022 · Valladolid, Yucatán · Campaña de apertura": "2022 · Valladolid, Yucatán · Launch campaign", "Lo que hacemos, sin pausa": "What we do, non-stop", "Ver reel completo ↗": "Watch the full reel ↗", "Cada noche, un cartel que nadie olvida": "Every night, a poster no one forgets", "2025 · Valencia · Dirección de arte y carteles": "2025 · Valencia · Art direction and posters", "Belleza con integridad, a contraluz": "Beauty with integrity, backlit", "2023 · Cosmética natural · Video de producto": "2023 · Natural cosmetics · Product video", "En": "Gone", "vertical.": "vertical.", "Reels, historias y cierres. Para la pantalla que más se mira.": "Reels, stories and closers. For the screen people look at most.", "Innvictus · Reto": "Innvictus · Challenge", "Brother · Clase": "Brother · Class", "Brother · Cierre": "Brother · Wrap-up", "De Mérida": "From Mérida", "a": "to", "Hacemos que": "We make sure", "te vean.": "they see you.", "te compren.": "they buy.", "crezcas.": "you grow.", "Contenido": "Content", "Video y foto con dirección": "Directed video and photo", "Redes con estrategia, no con calendario": "Social with a strategy, not a calendar", "Campañas con un objetivo medible": "Campaigns with a measurable goal", "Producción de principio a fin": "Production from start to finish", "Ventas": "Sales", "Diagnóstico de cómo vendes hoy": "A diagnosis of how you sell today", "Guiones y procesos de venta": "Sales scripts and processes", "Formación de equipos": "Team training", "Materiales que el vendedor sí usa": "Materials salespeople actually use", "Consultoría": "Consulting", "Marca y negocio, juntos": "Brand and business, together", "Plan de crecimiento con números": "A growth plan with numbers", "Acompañamiento mes a mes": "Month-to-month support", "Dos ovejas negras.": "Two black sheep.", "Una red en cuatro países.": "A network in four countries.", "Marketing y relaciones públicas": "Marketing and public relations", "Mercadóloga titulada e influencer profesional.": "Certified marketer and professional influencer.", "Sé qué hacer para que alguien deje de hacer scroll.": "I know what makes someone stop scrolling.", "años en marketing": "years in marketing", "personas la siguen": "people follow her", "Producción y consultoría empresarial": "Production and business consulting", "Productor audiovisual y vendedor de carrera.": "Audiovisual producer and career salesman.", "El ojo de director y colmillo de vendedor.": "A director's eye and a salesman's instinct.", "años vendiendo": "years selling", "1,2M": "1.2M", "en ventas": "in sales", "desde": "since", "ciudades": "cities", "países": "countries", "proyectos": "projects", "Si quieres parecerte a los demás, hay muchas opciones.": "If you want to look like everyone else, there are plenty of options.", "Si no,": "If not,", "escríbenos.": "write to us.", "Correo": "Email", "Copiar número": "Copy number", "Copiar correo": "Copy email", "Respuesta": "Reply", "En menos de 24 h": "In under 24 h", "Cotización por proyecto": "Quoted per project", "Escanea y escríbenos": "Scan and message us", "Black Sheep Studioss · Mérida, México · © 2026": "Black Sheep Studioss · Mérida, Mexico · © 2026", "Aviso de privacidad": "Privacy notice", "Black Sheep Studioss (Mérida, Yucatán) es responsable de los datos que nos compartas por WhatsApp o correo: tu nombre y tus datos de contacto. Los usamos solo para responderte y preparar tu cotización. No los vendemos ni los compartimos con nadie.": "Black Sheep Studioss (Mérida, Yucatán) is responsible for the data you share with us by WhatsApp or email: your name and contact details. We only use them to reply and prepare your quote. We never sell or share them.", "Esta web no tiene formularios ni cookies de seguimiento.": "This website has no forms and no tracking cookies.", "Para consultar, corregir o borrar tus datos, escríbenos a blacksheepstudiosmid@gmail.com.": "To see, correct or delete your data, write to blacksheepstudiosmid@gmail.com.", "Cerrar": "Close", "Caso": "Case", "[Proyecto]": "[Project]", "[Frase con un dato]": "[A line with a data point]", "El reto": "The challenge", "[Qué le pasaba a la marca, en una o dos líneas.]": "[What was happening to the brand, in one or two lines.]", "Lo que hicimos": "What we did", "[3 a 5 acciones: estrategia, rodaje, contenido, pauta, proceso de venta.]": "[3 to 5 actions: strategy, shoot, content, ads, sales process.]", "Equipo": "Team", "[Black Sheep y colaboradores]": "[Black Sheep and collaborators]", "[El resultado de negocio, con su contexto]": "[The business result, in context]", "[Foto]": "[Photo]", "¿Ya te vas? La oveja negra se queda aquí.": "Leaving already? The black sheep stays here.", "Black Sheep Studioss, inicio": "Black Sheep Studioss, home", "Entrada": "Intro", "Resultados de negocio, no solo piezas bonitas": "Business results, not just pretty pieces", "Ciudades donde hemos trabajado": "Cities where we've worked", "Lo bonito se cae, el resultado se queda": "Pretty things fall apart, the result stays", "Carteles de Spook: siguiente": "Spook posters: next", "Contenido vertical": "Vertical content", "Mapa con las ocho ciudades donde hemos trabajado": "Map of the eight cities where we've worked", "Servicios": "Services", "Gema Solis con los brazos cruzados": "Gema Solis with her arms crossed", "Issac Asley de pie en un campo, a contraluz": "Issac Asley standing in a field, backlit", "Marcas con las que hemos trabajado": "Brands we've worked with", "Código QR para escribirnos por WhatsApp": "QR code to message us on WhatsApp", "Presentación comercial de Cactus": "Cactus sales presentation", "Cambiar idioma": "Change language"};
+  var EN = {"Más": "More", "Contenido": "Content", "Ventas": "Sales", "Consultoría": "Consulting", "vistas": "views", "Mes": "Month", "Hola, vi su reel. ¿Tienen lugar este sábado?": "Hi, I saw your reel. Any spots this Saturday?", "¡Hola! Nos quedan dos. ¿Te aparto uno?": "Hi! We have two left. Want me to save you one?", "Sí, apártamelo.": "Yes, save it for me.", "Listo. Te mando el enlace de pago.": "Done. Sending you the payment link.", "Vendido": "Sold", "Sal del rebaño": "Leave the herd", "Para la pantalla que más se mira.": "For the screen people look at most.", "por": "by", "tipo de proyecto": "type of project", "vertical": "industry", "proyecto": "project", "Recorrer el trabajo": "Browse the work", "escríbeno": "write to u", "Estudio creativo y asesoría comercial": "Creative studio and sales advisory", "Creatividad con calculadora.": "Creativity with a calculator.", "Un video bonito que no vende es un gasto. Si no es distinto y no vende, no sale de aquí.": "A pretty video that doesn't sell is an expense. If it isn't different and doesn't sell, it doesn't leave the studio.", "Detrás estamos Gema e Issac. Ella da la cara y piensa la estrategia; él está detrás de la cámara, del código y de los números.": "Behind it are Gema and Issac. She's the face and the strategy; he's behind the camera, the code and the numbers.", "Conócenos ↓": "Meet us ↓", "Ver reel": "Watch the reel", "Ver el reel completo en YouTube": "Watch the full reel on YouTube", "Marcas que ya salieron": "Brands that already left", "del rebaño.": "the herd.", "Y confiaron en nosotros": "And trusted us", "Marcas que ya salieron del rebaño": "Brands that already left the herd", "La promesa, con firma.": "The promise, signed.", "Ver todo el trabajo": "See all our work", "Ver más en Instagram": "More on Instagram", "Video, foto y redes con un objetivo medible, no con un calendario.": "Video, photo and social with a measurable goal, not a calendar.", "Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.": "Scripts, processes and training so your team closes what content opens.", "Un plan con números y alguien que lo revise contigo cada mes.": "A plan with numbers and someone to review it with you every month.", "Ver servicios": "See services", "Cómo trabajamos": "How we work", "La cara del estudio: marketing y clientes": "The face of the studio: marketing and clients", "El brazo técnico: producción y dirección": "The technical arm: production and direction", "Detrás de la cámara, del código y de los números.": "Behind the camera, the code and the numbers.", "años de experiencia comercial": "years of sales experience", "De Mérida a Copenhague": "From Mérida to Copenhagen", "Una red en tres países.": "A network in three countries.", "Una red en cinco países.": "A network in five countries.", "Una red en seis países.": "A network in six countries.", "Conoce el estudio": "Meet the studio", "Estudio": "Studio", "Escríbenos": "Write to us", "Páginas": "Pages", "Mapa con las ciudades donde hemos trabajado": "Map of the cities where we've worked", "Valladolid": "Valladolid", "Saliendo del rebaño": "Leaving the herd", "Todos van para allá.": "Everyone's going that way.", "Nosotro": "Not u", "no.": ".", "Resultados": "Business", "de negocio,": "results,", "no solo": "not just", "piezas": "pretty", "bonitas.": "pieces.", "Copenhague": "Copenhagen", "Tánger": "Tangier", "Copenhague.": "Copenhagen.", "Creatividad": "Creativity", "con": "with a", "calculadora.": "calculator.", "Un video bonito que no vende es un gasto.": "A pretty video that doesn't sell is an expense.", "Si no es distinto y no vende, no sale de aquí.": "If it isn't different and doesn't sell, it doesn't leave the studio.", "Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.": "Most agencies deliver pieces. We deliver sales. Before we turn on a camera, we define what has to happen in your business and which number we'll measure it with: messages, appointments, bookings or sales.", "Gema viene del marketing y vive dentro de las redes. Issac viene de vender más de un millón de euros al año. Juntos hacemos lo que pocas productoras saben hacer: contenido que se ve bien y además cierra. Publicamos, medimos y ajustamos hasta que funciona.": "Gema comes from marketing and lives inside social media. Issac comes from selling over a million euros a year. Together we do what few production companies can: content that looks good and also closes. We publish, measure and adjust until it works.", "Lo": "Pretty", "bonito": "things", "se": "fall", "cae.": "apart.", "El resultado": "The result", "se queda.": "stays.", "Carrusel": "Carousel", "Paleta": "Palette", "Filtro": "Filter", "Tipografía": "Typeface", "ventas": "sales", "Trabajo": "Work", "Marcas que dejaron de seguir al rebaño.": "Brands that stopped following the herd.", "Una web tan peligrosa como su escuela": "A website as dangerous as its school", "brother · escuela de creativos": "brother · school for creatives", "Escritorio": "Desktop", "Móvil": "Mobile", "2026 · Valencia · Diseño y desarrollo web": "2026 · Valencia · Web design and development", "Ver caso": "See case", "Veinte años de marca, en la misma onda": "Twenty years of brand, on the same wavelength", "2025 · México · Video corporativo": "2025 · Mexico · Corporate video", "Un día en las nubes, en horizontal y en vertical": "A day in the clouds, horizontal and vertical", "2023 · Dinamarca · Evento y contenido para redes": "2023 · Denmark · Event and social content", "Una taberna de leyenda, contada como una película": "A legendary tavern, told like a film", "2022 · Valladolid, Yucatán · Campaña de apertura": "2022 · Valladolid, Yucatán · Launch campaign", "Lo que hacemos, sin pausa": "What we do, non-stop", "Ver reel completo ↗": "Watch the full reel ↗", "Cada noche, un cartel que nadie olvida": "Every night, a poster no one forgets", "2025 · Valencia · Dirección de arte y carteles": "2025 · Valencia · Art direction and posters", "Belleza con integridad, a contraluz": "Beauty with integrity, backlit", "2023 · Cosmética natural · Video de producto": "2023 · Natural cosmetics · Product video", "En": "Gone", "vertical.": "vertical.", "Reels, historias y cierres. Para la pantalla que más se mira.": "Reels, stories and closers. For the screen people look at most.", "Innvictus · Reto": "Innvictus · Challenge", "Brother · Clase": "Brother · Class", "Brother · Cierre": "Brother · Wrap-up", "De Mérida": "From Mérida", "a": "to", "Hacemos que": "We make sure", "te vean.": "they see you.", "te compren.": "they buy.", "crezcas.": "you grow.", "Contenido": "Content", "Video y foto con dirección": "Directed video and photo", "Redes con estrategia, no con calendario": "Social with a strategy, not a calendar", "Campañas con un objetivo medible": "Campaigns with a measurable goal", "Producción de principio a fin": "Production from start to finish", "Ventas": "Sales", "Diagnóstico de cómo vendes hoy": "A diagnosis of how you sell today", "Guiones y procesos de venta": "Sales scripts and processes", "Formación de equipos": "Team training", "Materiales que el vendedor sí usa": "Materials salespeople actually use", "Consultoría": "Consulting", "Marca y negocio, juntos": "Brand and business, together", "Plan de crecimiento con números": "A growth plan with numbers", "Acompañamiento mes a mes": "Month-to-month support", "Dos ovejas negras.": "Two black sheep.", "Una red en cuatro países.": "A network in four countries.", "Marketing y relaciones públicas": "Marketing and public relations", "Mercadóloga titulada e influencer profesional.": "Certified marketer and professional influencer.", "Sé qué hacer para que alguien deje de hacer scroll.": "I know what makes someone stop scrolling.", "años en marketing": "years in marketing", "personas la siguen": "people follow her", "Producción y consultoría empresarial": "Production and business consulting", "Productor audiovisual y vendedor de carrera.": "Audiovisual producer and career salesman.", "El ojo de director y colmillo de vendedor.": "A director's eye and a salesman's instinct.", "años vendiendo": "years selling", "1,2M": "1.2M", "en ventas": "in sales", "desde": "since", "ciudades": "cities", "países": "countries", "proyectos": "projects", "Si quieres parecerte a los demás, hay muchas opciones.": "If you want to look like everyone else, there are plenty of options.", "Si no,": "If not,", "escríbenos.": "write to us.", "Correo": "Email", "Copiar número": "Copy number", "Copiar correo": "Copy email", "Respuesta": "Reply", "En menos de 24 h": "In under 24 h", "Cotización por proyecto": "Quoted per project", "Escanea y escríbenos": "Scan and message us", "Black Sheep Studioss · Mérida, México · © 2026": "Black Sheep Studioss · Mérida, Mexico · © 2026", "Aviso de privacidad": "Privacy notice", "Black Sheep Studioss (Mérida, Yucatán) es responsable de los datos que nos compartas por WhatsApp o correo: tu nombre y tus datos de contacto. Los usamos solo para responderte y preparar tu cotización. No los vendemos ni los compartimos con nadie.": "Black Sheep Studioss (Mérida, Yucatán) is responsible for the data you share with us by WhatsApp or email: your name and contact details. We only use them to reply and prepare your quote. We never sell or share them.", "Esta web no tiene formularios ni cookies de seguimiento.": "This website has no forms and no tracking cookies.", "Para consultar, corregir o borrar tus datos, escríbenos a blacksheepstudiosmid@gmail.com.": "To see, correct or delete your data, write to blacksheepstudiosmid@gmail.com.", "Cerrar": "Close", "Caso": "Case", "[Proyecto]": "[Project]", "[Frase con un dato]": "[A line with a data point]", "El reto": "The challenge", "[Qué le pasaba a la marca, en una o dos líneas.]": "[What was happening to the brand, in one or two lines.]", "Lo que hicimos": "What we did", "[3 a 5 acciones: estrategia, rodaje, contenido, pauta, proceso de venta.]": "[3 to 5 actions: strategy, shoot, content, ads, sales process.]", "Equipo": "Team", "[Black Sheep y colaboradores]": "[Black Sheep and collaborators]", "[El resultado de negocio, con su contexto]": "[The business result, in context]", "[Foto]": "[Photo]", "¿Ya te vas? La oveja negra se queda aquí.": "Leaving already? The black sheep stays here.", "Black Sheep Studioss, inicio": "Black Sheep Studioss, home", "Entrada": "Intro", "Resultados de negocio, no solo piezas bonitas": "Business results, not just pretty pieces", "Ciudades donde hemos trabajado": "Cities where we've worked", "Lo bonito se cae, el resultado se queda": "Pretty things fall apart, the result stays", "Carteles de Spook: siguiente": "Spook posters: next", "Contenido vertical": "Vertical content", "Mapa con las ocho ciudades donde hemos trabajado": "Map of the eight cities where we've worked", "Servicios": "Services", "Gema Solis con los brazos cruzados": "Gema Solis with her arms crossed", "Issac Asley de pie en un campo, a contraluz": "Issac Asley standing in a field, backlit", "Marcas con las que hemos trabajado": "Brands we've worked with", "Código QR para escribirnos por WhatsApp": "QR code to message us on WhatsApp", "Presentación comercial de Cactus": "Cactus sales presentation", "Cambiar idioma": "Change language"};
   var REGLAS_EN = [[/^Caso (\d+)$/, "Case $1"], [/^Copiado: (.*)$/, "Copied: $1"], [/^Cartel de Spook: (.*)$/, "Spook poster: $1"]];
   /* ---------- Idioma: el español es la base; el inglés se pone sobre el mismo texto, sin tocar la estructura ---------- */
   var idioma = "es", ORIG = new WeakMap(), ATTRS = ["aria-label", "alt"];
@@ -1490,7 +1701,7 @@ img{display:block;max-width:100%}
       ps.forEach(function(el){
         var r = el.getBoundingClientRect(), dir = el.classList.contains("izq") ? -1 : 1;
         var p = reducido ? 1 : cl((H * 1.2 - r.top) / (H * 1.35), 0, 1), e = 1 - Math.pow(1 - p, 2);
-        el.style.transform = "translateX(" + (dir * (1 - e) * 24).toFixed(2) + "vw) rotate(" + (dir * (1 - e) * 4).toFixed(2) + "deg)";
+        el.style.transform = "translateY(" + ((1 - e) * 70).toFixed(1) + "px)";
         el.style.opacity = (.15 + .85 * e).toFixed(2);
       });
     });

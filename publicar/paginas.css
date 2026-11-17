@@ -48,15 +48,6 @@ img,video{display:block;max-width:100%}
 .sub-hero h1{font-size:clamp(64px,12vw,210px)}
 .sub-hero .bajada{margin-top:clamp(20px,2.4vw,34px);font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,2.4vw,34px);line-height:1.15;max-width:30ch}
 
-/* botones */
-.boton{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:var(--tinta);color:var(--papel);text-decoration:none;font-weight:700;font-size:clamp(15px,1.2vw,17px);border:1.5px solid var(--tinta);transition:background .25s,color .25s,border-color .25s}
-.boton:hover,.boton:focus-visible{background:var(--klein);border-color:var(--klein);color:#fff}
-.boton.claro{background:transparent;color:var(--tinta)}
-.boton.claro:hover,.boton.claro:focus-visible{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
-.boton.klein{background:var(--klein);border-color:var(--klein);color:#fff}
-.boton.klein:hover,.boton.klein:focus-visible{background:var(--papel);border-color:var(--papel);color:var(--tinta)}
-.boton.fantasma{background:transparent;border-color:rgba(244,244,242,.5);color:var(--papel)}
-.boton.fantasma:hover,.boton.fantasma:focus-visible{background:var(--papel);color:var(--tinta);border-color:var(--papel)}
 
 /* pie con el cierre de siempre */
 .pie-sub{background:var(--tinta);color:var(--papel);padding-block:clamp(80px,10vw,150px) calc(28px + env(safe-area-inset-bottom,0px));margin-top:clamp(80px,10vw,150px)}

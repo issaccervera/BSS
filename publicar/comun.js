@@ -49,7 +49,8 @@
   function flotante(){
     var b = document.createElement("a");
     b.className = "escribenos"; b.target = "_blank"; b.rel = "noopener"; b.setAttribute("data-wa", "flotante"); b.setAttribute("data-origen", "flotante");
-    b.innerHTML = '<i aria-hidden="true"></i><span data-en="Write to us">Escríbenos</span>';
+    b.setAttribute("aria-label", "Escríbenos por WhatsApp"); b.setAttribute("data-en-aria", "Message us on WhatsApp");
+    b.innerHTML = '<span data-en="Leave the herd">Sal del rebaño</span>';
     document.body.appendChild(b);
     var desde = document.querySelector("[data-escribenos-desde]"), tapas = [].slice.call(document.querySelectorAll("[data-sin-escribenos]")), quieto = true, tapado = false, t = 0;
     function pasado(){ if (!desde) return scrollY > innerHeight * .5; return desde.getBoundingClientRect().bottom < innerHeight * .35; }
@@ -97,8 +98,52 @@
   }
   BSS.pintarIdioma = pintarIdioma;
 
+  /* ---------- Firma: tinta sobre claro, papel sobre oscuro; así la S azul se ve siempre ---------- */
+  function colorFirma(){
+    var f = document.querySelector(".firma"), idi = document.getElementById("idioma"), pend = false; if (!f) return;
+    function propio(el){ return f.contains(el) || (idi && idi.contains(el)) || (el.closest && el.closest(".escribenos,.aviso,.vista-previa")); }
+    function luz(x, y){
+      var els = document.elementsFromPoint ? document.elementsFromPoint(x, y) : [];
+      for (var i = 0; i < els.length; i++) {
+        if (propio(els[i])) continue;
+        for (var n = els[i]; n && n !== document.documentElement; n = n.parentElement) {
+          if (n.tagName === "VIDEO" || n.tagName === "IFRAME") return .1;
+          if (n.classList && n.classList.contains("oscuro")) return 0;
+          var m = getComputedStyle(n).backgroundColor.match(/rgba?\(([^)]+)\)/);
+          if (m) { var v = m[1].split(",").map(parseFloat); if (v.length < 4 || v[3] > .5) return (.299 * v[0] + .587 * v[1] + .114 * v[2]) / 255; }
+        }
+        break;
+      }
+      return 1;
+    }
+    function revisar(){
+      pend = false; var r = f.getBoundingClientRect(); f.classList.toggle("claro", luz(r.left + 22, r.top + r.height / 2) < .5);
+      if (idi) { var ri = idi.getBoundingClientRect(); idi.classList.toggle("claro", luz(ri.left + ri.width / 2, ri.top + ri.height / 2) < .5); }
+    }
+    window.addEventListener("scroll", function(){ if (!pend) { pend = true; requestAnimationFrame(revisar); } }, {passive: true});
+    window.addEventListener("resize", revisar); revisar(); setInterval(revisar, 1200);
+  }
+
+  /* ---------- Scroll suave en escritorio: la web se desliza en vez de dar saltos ---------- */
+  function scrollSuave(){
+    var fino = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches, reducido = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fino || reducido) return;
+    var sc = document.createElement("script"); sc.src = "https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"; sc.async = true;
+    sc.onload = function(){
+      if (!window.Lenis) return;
+      // si la entrada todavía bloquea el scroll, se espera a que termine
+      (function esperar(){
+        if (document.documentElement.style.overflow === "hidden") { setTimeout(esperar, 200); return; }
+        var l = new Lenis({lerp: .1, wheelMultiplier: .9, anchors: true});
+        BSS.lenis = l;
+        (function bucle(t){ l.raf(t); requestAnimationFrame(bucle); })(performance.now());
+      })();
+    };
+    document.head.appendChild(sc);
+  }
+
   function iniciar(){
-    flotante(); firmaMovil();
+    flotante(); firmaMovil(); colorFirma(); scrollSuave();
     // el cierre: la última s de "escríbenos" gira cuando llegas
     var pieS = document.querySelector(".pie-sub");
     if (pieS && "IntersectionObserver" in window) { var iop = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { pieS.classList.add("ya"); iop.disconnect(); } }, {threshold: .35}); iop.observe(pieS); }

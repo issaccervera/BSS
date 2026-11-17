@@ -5,51 +5,59 @@
 (function(){
   var BSS = window.BSS = window.BSS || {};
 
+  // dos maneras de recorrer el trabajo: qué hicimos (tipo) y para quién (vertical)
   BSS.TIPOS = [
     {id: "webs", es: "Webs", en: "Websites"},
     {id: "videos", es: "Videos", en: "Videos"},
-    {id: "inmobiliario", es: "Inmobiliario", en: "Real estate"},
-    {id: "corporativo", es: "Corporativo", en: "Corporate"},
     {id: "campanas", es: "Campañas", en: "Campaigns"},
+    {id: "corporativo", es: "Corporativo", en: "Corporate"},
     {id: "eventos", es: "Eventos", en: "Events"},
-    {id: "arte", es: "Dirección de arte", en: "Art direction"},
-    {id: "producto", es: "Producto", en: "Product"}
+    {id: "arte", es: "Dirección de arte", en: "Art direction"}
+  ];
+  BSS.SECTORES = [
+    {id: "inmobiliario", es: "Inmobiliario", en: "Real estate"},
+    {id: "salud", es: "Salud y bienestar", en: "Health and wellness"},
+    {id: "hosteleria", es: "Hostelería", en: "Hospitality"},
+    {id: "entretenimiento", es: "Entretenimiento", en: "Entertainment"},
+    {id: "belleza", es: "Belleza", en: "Beauty"},
+    {id: "educacion", es: "Educación", en: "Education"},
+    {id: "tecnologia", es: "Tecnología", en: "Technology"}
   ];
 
   BSS.PROYECTOS = [
-    {id: "brother", nombre: "Brother", anio: 2026, ciudad: "Valencia", tipos: ["webs"],
+    {id: "brother", nombre: "Brother", anio: 2026, ciudad: "Valencia", tipos: ["webs"], sectores: ["educacion"],
      linea: "Una web tan peligrosa como su escuela", lineaEn: "A website as dangerous as its school",
      rol: "Diseño y desarrollo web", rolEn: "Web design and development",
      web: "brother-mini.html", img: "img/brother/portada.webp", fondo: ["#0B0B0A", "#F4F4F2"]},
-    {id: "halvo", nombre: "Halvo", anio: 2026, ciudad: "Mérida", tipos: ["inmobiliario", "webs", "videos"],
+    {id: "halvo", nombre: "Halvo", anio: 2026, ciudad: "Mérida", tipos: ["webs", "videos", "campanas"], sectores: ["inmobiliario"],
      linea: "El edificio ya existe. Faltaba contarlo", lineaEn: "The building already exists. It needed a story",
      rol: "Concepto, web de venta y video", rolEn: "Concept, sales website and video",
      video: "vid/halvo.mp4", img: "vid/halvo.jpg", fondo: ["#1E1E1C", "#F4F4F2"]},
-    {id: "arqena", nombre: "Arqena", anio: 2026, ciudad: "Mérida", tipos: ["inmobiliario", "corporativo", "webs", "videos"],
+    {id: "arqena", nombre: "Arqena", anio: 2026, ciudad: "Mérida", tipos: ["corporativo", "webs", "videos"], sectores: ["inmobiliario"],
      linea: "Del primer trazo a la obra", lineaEn: "From the first line to the building",
      rol: "Web, videos y presentación comercial", rolEn: "Website, videos and sales deck",
      video: "vid/arqena.mp4", img: "vid/arqena.jpg", fondo: ["#1C2A22", "#F4F4F2"]},
-    {id: "habitus", nombre: "Hábit·us", anio: 2026, ciudad: "Mérida", tipos: ["webs", "videos", "campanas"],
+    {id: "habitus", nombre: "Hábit·us", anio: 2026, ciudad: "Mérida", tipos: ["webs", "videos", "campanas"], sectores: ["salud"],
      linea: "Nadie cambia en un día. Se cambia un punto a la vez", lineaEn: "Nobody changes in a day. You change one dot at a time",
      rol: "Concepto, web y serie de videos", rolEn: "Concept, website and video series",
      video: "vid/habitus.mp4", img: "vid/habitus.jpg", fondo: ["#F2F0E6", "#0B0B0A"]},
-    {id: "duoson", nombre: "Duoson", anio: 2025, ciudad: "Mérida", tipos: ["corporativo", "videos"],
+    {id: "duoson", nombre: "Duoson", anio: 2025, ciudad: "Mérida", tipos: ["corporativo", "videos"], sectores: ["tecnologia"],
      linea: "Veinte años de marca, en la misma onda", lineaEn: "Twenty years of brand, on the same wavelength",
      rol: "Video corporativo", rolEn: "Corporate video",
      video: "vid/duoson.mp4", img: "vid/duoson.jpg", fondo: ["#F4F4F2", "#0B0B0A"]},
-    {id: "podimo", nombre: "Podimo", anio: 2023, ciudad: "Copenhague", tipos: ["eventos", "videos"],
+    {id: "podimo", nombre: "Podimo", anio: 2023, ciudad: "Copenhague", tipos: ["eventos", "videos"], sectores: ["entretenimiento"],
      linea: "Un día en las nubes, en horizontal y en vertical", lineaEn: "A day in the clouds, horizontal and vertical",
      rol: "Evento y contenido para redes", rolEn: "Event and social content",
      video: "vid/podimo.mp4", img: "vid/podimo.jpg", dual: "vid/v-podimo.mp4", fondo: ["#DCDCD6", "#0B0B0A"]},
-    {id: "skol", nombre: "Sköl", anio: 2022, ciudad: "Valladolid", tipos: ["campanas", "videos"],
+    {id: "skol", nombre: "Sköl", anio: 2022, ciudad: "Valladolid", tipos: ["campanas", "videos"], sectores: ["hosteleria"],
      linea: "Una taberna de leyenda, contada como una película", lineaEn: "A legendary tavern, told like a film",
      rol: "Campaña de apertura", rolEn: "Launch campaign",
      video: "vid/skol.mp4", img: "vid/skol.jpg", fondo: ["#1E1E1C", "#F4F4F2"]},
-    {id: "spook", nombre: "Spook", anio: 2025, ciudad: "Valencia", tipos: ["arte", "eventos"],
+    {id: "spook", nombre: "Spook", anio: 2025, ciudad: "Valencia", tipos: ["arte", "eventos"], sectores: ["entretenimiento"],
      linea: "Cada noche, un cartel que nadie olvida", lineaEn: "Every night, a poster no one forgets",
      rol: "Dirección de arte y carteles", rolEn: "Art direction and posters",
      carteles: ["giulia", "niama", "autum", "outrun", "grito", "faces", "mimi", "ely"], img: "img/spook/giulia.webp", fondo: ["#0B0B0A", "#F4F4F2"]},
-    {id: "skinlee", nombre: "Skin Lee", anio: 2023, ciudad: null, tipos: ["producto", "videos"],
+    {id: "skinlee", nombre: "Skin Lee", anio: 2023, ciudad: null, tipos: ["videos"], sectores: ["belleza"],
      linea: "Belleza con integridad, a contraluz", lineaEn: "Beauty with integrity, backlit",
      rol: "Video de producto", rolEn: "Product video",
      video: "vid/skinlee.mp4", img: "vid/skinlee.jpg", fondo: ["#E9DCCF", "#0B0B0A"]}
@@ -91,5 +99,6 @@
     return {desde: BSS.ANIO_INICIO, ciudades: cs.length, paises: Object.keys(paises).length, proyectos: 40};
   };
 
-  BSS.porTipo = function(id){ return BSS.PROYECTOS.filter(function(p){ return p.tipos.indexOf(id) >= 0; }); };
+  BSS.porTipo = function(id){ return BSS.PROYECTOS.filter(function(p){ return p.tipos.indexOf(id) >= 0 || (p.sectores || []).indexOf(id) >= 0; }); };
+  BSS.etiqueta = function(id){ return BSS.TIPOS.concat(BSS.SECTORES).filter(function(t){ return t.id === id; })[0]; };
 })();

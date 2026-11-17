@@ -24,7 +24,9 @@
 <meta name="description" content="Webs, videos, campañas, eventos y dirección de arte de Black Sheep Studioss. Marcas que dejaron de seguir al rebaño.">
 <style>
 /* Trabajo: un filtro por tipo y una rejilla donde cada proyecto trae su propio color. */
-.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(28px,3.4vw,48px)}
+.filtros{display:grid;gap:14px;margin-top:clamp(28px,3.4vw,48px)}
+.filtros .grupo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filtros .grupo>span{width:100%;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
 .filtros button{display:inline-flex;align-items:baseline;gap:8px;padding:10px 16px;border:1.5px solid var(--tinta);border-radius:999px;font-weight:650;font-size:15px;transition:background .25s,color .25s}
 .filtros button sup{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;opacity:.6}
 .filtros button:hover{background:var(--tinta);color:var(--papel)}
@@ -87,7 +89,7 @@
     <div class="rejilla" id="rejilla"></div>
     <div class="cierre-trabajo">
       <p data-en="Want your brand to be the next one?">¿Quieres que tu marca sea la siguiente?</p>
-      <a class="boton" href="https://wa.me/529999046145" data-wa="trabajo" target="_blank" rel="noopener" data-en="Tell us about it ↗">Cuéntanos ↗</a>
+      <a class="boton" href="https://wa.me/529999046145" data-wa="trabajo" target="_blank" rel="noopener" data-en="Tell us ↗">Cuéntanos ↗</a>
     </div>
   </section>
 </main>
@@ -149,15 +151,19 @@
       var p = t.p, el = t.el;
       el.querySelector(".t-linea").textContent = L(p.linea, p.lineaEn);
       el.querySelector(".t-meta").textContent = [p.anio, p.ciudad ? nombreCiudad(p.ciudad) : null, L(p.rol, p.rolEn)].filter(Boolean).join(" · ");
-      el.querySelector(".t-tipos").innerHTML = p.tipos.map(function(id){ var t = BSS.TIPOS.filter(function(x){ return x.id === id; })[0]; return "<span>" + L(t.es, t.en) + "</span>"; }).join("");
+      el.querySelector(".t-tipos").innerHTML = p.tipos.concat(p.sectores || []).map(function(id){ var t = BSS.etiqueta(id); return "<span>" + L(t.es, t.en) + "</span>"; }).join("");
     });
     filtros.innerHTML = "";
-    [{id: "todo", es: "Todo", en: "All"}].concat(BSS.TIPOS).forEach(function(t){
-      var n = t.id === "todo" ? BSS.PROYECTOS.length : BSS.porTipo(t.id).length; if (!n) return;
-      var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", t.id === actual ? "true" : "false"); b.setAttribute("data-tipo", t.id);
-      b.innerHTML = '<span></span><sup>' + ("0" + n).slice(-2) + '</sup>'; b.firstChild.textContent = L(t.es, t.en);
-      b.addEventListener("click", function(){ filtrar(t.id, true); BSS.medir("trabajo_filtro", {tipo: t.id}); });
-      filtros.appendChild(b);
+    [[L("Tipo de proyecto", "Type of project"), [{id: "todo", es: "Todo", en: "All"}].concat(BSS.TIPOS)], [L("Vertical", "Industry"), BSS.SECTORES]].forEach(function(gr){
+      var g = document.createElement("div"); g.className = "grupo"; g.innerHTML = "<span></span>"; g.firstChild.textContent = gr[0];
+      gr[1].forEach(function(t){
+        var n = t.id === "todo" ? BSS.PROYECTOS.length : BSS.porTipo(t.id).length; if (!n) return;
+        var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", t.id === actual ? "true" : "false"); b.setAttribute("data-tipo", t.id);
+        b.innerHTML = '<span></span><sup>' + ("0" + n).slice(-2) + '</sup>'; b.firstChild.textContent = L(t.es, t.en);
+        b.addEventListener("click", function(){ filtrar(t.id, true); BSS.medir("trabajo_filtro", {tipo: t.id}); });
+        g.appendChild(b);
+      });
+      filtros.appendChild(g);
     });
     vacio.textContent = L("Nada por aquí todavía.", "Nothing here yet.");
   }
@@ -165,16 +171,16 @@
   function filtrar(id, desdeClic){
     actual = id; var k = 0;
     tarjetas.forEach(function(t){
-      var ok = id === "todo" || t.p.tipos.indexOf(id) >= 0;
+      var ok = id === "todo" || t.p.tipos.indexOf(id) >= 0 || (t.p.sectores || []).indexOf(id) >= 0;
       t.el.hidden = !ok; if (ok) { t.el.classList.toggle("ancha", k % 3 === 0); k++; }
     });
     vacio.hidden = k > 0;
-    [].forEach.call(filtros.children, function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-tipo") === id ? "true" : "false"); });
+    [].forEach.call(filtros.querySelectorAll("button"), function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-tipo") === id ? "true" : "false"); });
     if (desdeClic) { try { history.replaceState(null, "", id === "todo" ? location.pathname : "#" + id); } catch (e) {} }
   }
   function desdeHash(){
     var h = decodeURIComponent(location.hash.slice(1));
-    if (BSS.TIPOS.some(function(t){ return t.id === h; })) { filtrar(h); return; }
+    if (BSS.etiqueta(h)) { filtrar(h); return; }
     filtrar("todo");
     var el = h && document.getElementById(h);
     if (el && el.classList.contains("tarjeta")) setTimeout(function(){ el.scrollIntoView({behavior: reducido ? "auto" : "smooth", block: "start"}); el.classList.add("ya"); }, 120);
