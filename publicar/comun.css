@@ -1,0 +1,54 @@
+/* Piezas compartidas por todas las páginas: Escríbenos, firma en el teléfono y mapa. */
+
+/* ---------- Escríbenos: aparece solo cuando dejas de moverte ---------- */
+.escribenos{position:fixed;right:calc(var(--lado-d,16px) + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--tinta,#0B0B0A);color:var(--papel,#F4F4F2);text-decoration:none;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 10px 30px -12px rgba(0,0,0,.45);opacity:0;transform:translateY(12px) scale(.96);pointer-events:none;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1),background .25s}
+.escribenos.ver{opacity:1;transform:none;pointer-events:auto}
+.escribenos i{width:22px;height:18px;background:currentColor;-webkit-mask:url("img/oveja-mascara.webp") center/contain no-repeat;mask:url("img/oveja-mascara.webp") center/contain no-repeat;transform:scaleX(-1)}
+.escribenos:hover,.escribenos:focus-visible{background:var(--klein,#0A3BFF)}
+@media (prefers-reduced-motion:reduce){.escribenos{transition:opacity .2s}}
+
+/* ---------- Firma en el teléfono: se esconde al bajar y se reduce a la oveja ---------- */
+@media (max-width:760px){
+  .firma{transition:opacity .3s ease,transform .35s ease!important}
+  .firma.escondida{opacity:0!important;transform:translateY(-14px)!important;pointer-events:none}
+  .firma.escondida ~ .idioma{opacity:0!important}
+  .firma.compacta .firma-texto{display:none}
+  .firma.compacta img{width:38px}
+}
+
+/* ---------- Mapa ---------- */
+.mapa-svg{display:block;width:100%;height:auto;overflow:visible}
+.tierra{stroke:#3d3d39;stroke-width:4.6;stroke-linecap:round;fill:none}
+.arco{fill:none;stroke:var(--klein-claro,#2E5BFF);stroke-width:2.4;stroke-linecap:round;opacity:0;transition:opacity .6s ease}
+.arco.on{opacity:1}
+.cometa{fill:#fff;filter:drop-shadow(0 0 6px var(--klein-claro,#2E5BFF))}
+.pin .onda{fill:none;stroke:var(--klein-claro,#2E5BFF);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.pin.toca .onda{animation:onda 1s cubic-bezier(.2,.7,.2,1)}
+@keyframes onda{0%{transform:scale(.4);opacity:1}100%{transform:scale(3.4);opacity:0}}
+.pin{cursor:pointer}
+.chico .pin{cursor:default}
+.pin circle{fill:var(--papel,#F4F4F2)}
+.pin .halo{fill:none;stroke:var(--papel,#F4F4F2);stroke-width:1.5;opacity:.6;animation:halo 2.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes halo{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.pin text{fill:var(--papel,#F4F4F2);font-family:var(--f-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .3s;pointer-events:none}
+.chico .pin text{font-size:24px}
+.pin.on text,.pin.fija text{opacity:1}
+.pin.on circle{fill:var(--klein-claro,#2E5BFF)}
+.pin.on .halo{stroke:var(--klein-claro,#2E5BFF)}
+.pin.on text{fill:var(--klein-claro,#2E5BFF)}
+.chico .arco.on{opacity:.9}
+@media (prefers-reduced-motion:reduce){.pin .halo{animation:none;opacity:0}}
+.mapa-lista{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px}
+.mapa-lista button{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9a9a95;padding:4px 0;border-bottom:1.5px solid transparent}
+.mapa-lista button.on{color:var(--klein-claro,#2E5BFF);border-color:var(--klein-claro,#2E5BFF)}
+
+/* ---------- Red: mapa chico y cifras (landing y estudio) ---------- */
+.red-bloque{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.5px;background:var(--tinta,#0B0B0A);border:1.5px solid var(--tinta,#0B0B0A);margin-top:clamp(56px,7vw,110px)}
+.red-mapa{background:var(--tinta,#0B0B0A);color:var(--papel,#F4F4F2);padding:clamp(18px,2.4vw,32px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.red-mapa .mono{color:#9a9a95}
+.red-cifras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5px;min-width:0}
+.red-cifras>div,.red-cifras>a{background:var(--papel,#F4F4F2);padding:clamp(16px,2vw,28px);min-width:0;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.red-cifras b{display:block;font-size:clamp(48px,5.6vw,96px);font-weight:850;font-stretch:68%;line-height:.85;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.red-cifras .ir{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;text-decoration:none;font-weight:700;font-size:clamp(17px,1.5vw,21px);transition:background .25s,color .25s}
+.red-cifras .ir:hover,.red-cifras .ir:focus-visible{background:var(--tinta,#0B0B0A);color:var(--papel,#F4F4F2)}
+@media (max-width:860px){.red-bloque{grid-template-columns:minmax(0,1fr)}}

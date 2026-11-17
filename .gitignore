@@ -1,0 +1,7 @@
+# Solo se versiona lo que se publica
+/*
+!/publicar/
+!/wrangler.jsonc
+!/.gitignore
+!/LEEME.md
+.DS_Store

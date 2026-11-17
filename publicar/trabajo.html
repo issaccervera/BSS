@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz@1,6..72&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="paginas.css">
+<link rel="stylesheet" href="comun.css">
+<link rel="canonical" href="https://blacksheepstudioss.xyz/trabajo">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Black Sheep Studioss">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://blacksheepstudioss.xyz/trabajo">
+<meta property="og:title" content="Trabajo · Black Sheep Studioss">
+<meta property="og:description" content="Webs, videos, campañas, eventos y dirección de arte de Black Sheep Studioss. Marcas que dejaron de seguir al rebaño.">
+<meta property="og:image" content="https://blacksheepstudioss.xyz/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Trabajo · Black Sheep Studioss</title>
+<meta name="description" content="Webs, videos, campañas, eventos y dirección de arte de Black Sheep Studioss. Marcas que dejaron de seguir al rebaño.">
+<style>
+/* Trabajo: un filtro por tipo y una rejilla donde cada proyecto trae su propio color. */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(28px,3.4vw,48px)}
+.filtros button{display:inline-flex;align-items:baseline;gap:8px;padding:10px 16px;border:1.5px solid var(--tinta);border-radius:999px;font-weight:650;font-size:15px;transition:background .25s,color .25s}
+.filtros button sup{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;opacity:.6}
+.filtros button:hover{background:var(--tinta);color:var(--papel)}
+.filtros button[aria-pressed="true"]{background:var(--klein);border-color:var(--klein);color:#fff}
+.rejilla{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
+.tarjeta{grid-column:span 6;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;gap:clamp(16px,1.8vw,24px);padding:clamp(16px,2vw,28px);min-width:0;scroll-margin-top:90px}
+.tarjeta.ancha{grid-column:span 12;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);align-items:end;gap:clamp(20px,3vw,48px)}
+.tarjeta[hidden]{display:none}
+.tarjeta.ancha .t-texto{order:-1;align-self:end}
+.t-medio{position:relative;aspect-ratio:16/10;max-width:100%;background:rgba(127,127,120,.18);overflow:hidden}
+.t-medio video,.t-medio>img{width:100%;height:100%;object-fit:cover}
+.t-dual{position:absolute;right:4%;bottom:6%;width:22%;aspect-ratio:9/16;border-radius:10px;overflow:hidden;box-shadow:0 18px 40px -16px rgba(0,0,0,.6)}
+.t-dual video{width:100%;height:100%;object-fit:cover}
+.t-texto{display:flex;flex-direction:column;gap:12px;min-width:0}
+.t-nombre{font-size:clamp(46px,6.2vw,104px)}
+.tarjeta:not(.ancha) .t-nombre{font-size:clamp(40px,4.6vw,76px)}
+.t-linea{font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,1.9vw,28px);line-height:1.12;max-width:24ch}
+.t-meta{opacity:.7;line-height:1.7}
+.t-tipos{display:flex;flex-wrap:wrap;gap:6px}
+.t-tipos span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border:1px solid currentColor;border-radius:999px;opacity:.75}
+/* Brother: su web, de verdad */
+.navegador{background:#111;border-radius:10px;overflow:hidden;color:#f4f4f2}
+.nav-barra{display:flex;align-items:center;gap:7px;padding:10px 12px;background:#1d1d1c}
+.nav-barra i{width:10px;height:10px;border-radius:50%;background:#3a3a38;flex:none}
+.nav-barra .url{flex:1;margin-left:10px;background:#111;border-radius:6px;padding:5px 10px;font-size:10px;color:#9a9a95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.modos{display:flex;gap:2px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+.modos button{padding:5px 9px;border-radius:5px;color:#9a9a95}
+.modos button.on{background:#f4f4f2;color:#111}
+.pantalla{display:flex;justify-content:center;background:#0b0b0a;height:min(62vh,560px);padding:0}
+.pantalla iframe{border:0;width:100%;height:100%;background:#0C0C0C;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.navegador.tab .pantalla{padding:18px 0}
+.navegador.tab iframe{width:min(620px,94%);border:10px solid #2a2a28;border-radius:16px}
+.navegador.mov .pantalla{padding:18px 0}
+.navegador.mov iframe{width:min(300px,80%);border:7px solid #2a2a28;border-radius:24px}
+/* Spook: los carteles se turnan */
+.carteles{display:flex;justify-content:center;align-items:center;height:100%;gap:0;background:#0B0B0A}
+.carteles img{position:absolute;top:8%;height:84%;width:auto;aspect-ratio:3300/5100;object-fit:cover;box-shadow:0 26px 50px -20px rgba(0,0,0,.8);transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.cierre-trabajo{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:clamp(56px,7vw,100px);padding-top:28px;border-top:1.5px solid var(--tinta)}
+.cierre-trabajo p{font-family:var(--f-serif);font-style:italic;font-size:clamp(24px,2.6vw,38px);line-height:1.1}
+.vacio{grid-column:1/-1;padding:40px 0;color:var(--gris)}
+@media (max-width:860px){
+  .tarjeta,.tarjeta.ancha{grid-column:span 12;display:flex}
+  .tarjeta.ancha .t-texto{order:0}
+  .pantalla{height:min(70vh,520px)}
+  .modos button[data-m="esc"]{display:none}
+}
+</style>
+</head>
+<body data-sub data-titulo-en="Work · Black Sheep Studioss">
+<a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
+<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
+<main>
+  <header class="sub-hero env" data-escribenos-desde>
+    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Work">Trabajo</span></p>
+    <h1 class="gigante"><span data-en="Work">Trabajo</span><span class="serif">.</span></h1>
+    <p class="bajada" data-en="Brands that stopped following the herd.">Marcas que dejaron de seguir al rebaño.</p>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar por tipo de proyecto" data-en-aria="Filter by type of project"></div>
+  </header>
+  <section class="env" aria-label="Proyectos" data-en-aria="Projects">
+    <div class="rejilla" id="rejilla"></div>
+    <div class="cierre-trabajo">
+      <p data-en="Want your brand to be the next one?">¿Quieres que tu marca sea la siguiente?</p>
+      <a class="boton" href="https://wa.me/529999046145" data-wa="trabajo" target="_blank" rel="noopener" data-en="Tell us about it ↗">Cuéntanos ↗</a>
+    </div>
+  </section>
+</main>
+<footer class="pie-sub" id="contacto" data-sin-escribenos>
+  <div class="env">
+    <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
+    <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
+    <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" aria-current="page" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
+  </div>
+</footer>
+<script src="proyectos.js"></script>
+<script src="comun.js"></script>
+<script>
+(function(){
+  "use strict";
+  var reducido = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var rejilla = document.getElementById("rejilla"), filtros = document.getElementById("filtros"), L = BSS.L, actual = "todo", tarjetas = [];
+  function nombreCiudad(n){ return BSS.idioma() === "en" && BSS.NOMBRES_EN[n] ? BSS.NOMBRES_EN[n] : n; }
+  function autoplay(v){ new IntersectionObserver(function(e){ if (e[0].isIntersecting) { v.preload = "auto"; var p = v.play(); if (p) p.catch(function(){}); } else v.pause(); }, {threshold: .2}).observe(v); }
+
+  function medio(p){
+    if (p.web) return '<div class="navegador tab"><div class="nav-barra"><i></i><i></i><i></i><span class="url mono">brother · escuela de creativos</span><div class="modos"><button type="button" data-m="esc">Escritorio</button><button type="button" data-m="tab" class="on">Tablet</button><button type="button" data-m="mov">Móvil</button></div></div><div class="pantalla"><iframe src="' + p.web + '" loading="lazy" title="Web de Brother, versión mínima"></iframe></div></div>';
+    if (p.carteles) return '<div class="t-medio" style="aspect-ratio:4/3"><div class="carteles">' + p.carteles.map(function(n){ return '<img loading="lazy" src="img/spook/' + n + '.webp" alt="Cartel de Spook: ' + n + '">'; }).join("") + '</div></div>';
+    var v = '<div class="t-medio"><video muted loop playsinline preload="none" poster="' + p.img + '" src="' + p.video + '"></video>';
+    if (p.dual) v += '<div class="t-dual"><video muted loop playsinline preload="none" poster="' + p.dual.replace(".mp4", ".jpg") + '" src="' + p.dual + '"></video></div>';
+    return v + '</div>';
+  }
+  // los carteles de Spook se turnan: el de delante se va al fondo
+  function carteles(caja){
+    var ims = [].slice.call(caja.querySelectorAll("img")), orden = ims.map(function(_, i){ return i; }), iv = 0;
+    var POS = [[0, 0, 1, 1], [34, 5, .9, 1], [-34, -5, .9, 1], [60, 9, .8, .9], [-60, -9, .8, .9]];
+    function pintar(){ orden.forEach(function(k, p){ var d = POS[p] || [0, 0, .7, 0], im = ims[k]; im.style.zIndex = 20 - p; im.style.opacity = d[3]; im.style.transform = "translateX(" + d[0] + "%) rotate(" + d[1] + "deg) scale(" + d[2] + ")"; }); }
+    pintar();
+    new IntersectionObserver(function(e){ clearInterval(iv); if (e[0].isIntersecting && !reducido) iv = setInterval(function(){ orden.push(orden.shift()); pintar(); }, 2200); }, {threshold: .3}).observe(caja);
+  }
+  function navegador(n){
+    var modos = [].slice.call(n.querySelectorAll(".modos button")), ifr = n.querySelector("iframe");
+    modos.forEach(function(b){ b.addEventListener("click", function(){ var m = b.getAttribute("data-m"); n.classList.toggle("tab", m === "tab"); n.classList.toggle("mov", m === "mov"); modos.forEach(function(o){ o.classList.toggle("on", o === b); }); try { ifr.contentWindow.postMessage({bro: "inicio"}, "*"); } catch (e) {} }); });
+  }
+
+  BSS.PROYECTOS.forEach(function(p){
+    var a = document.createElement("article");
+    a.className = "tarjeta sube"; a.id = p.id; a.setAttribute("data-tipos", p.tipos.join(" "));
+    a.style.setProperty("--bg", p.fondo[0]); a.style.setProperty("--fg", p.fondo[1]);
+    a.innerHTML = medio(p) + '<div class="t-texto"><h2 class="gigante t-nombre"></h2><p class="t-linea"></p><p class="mono t-meta"></p><div class="t-tipos"></div></div>';
+    a.querySelector(".t-nombre").textContent = p.nombre;
+    tarjetas.push({el: a, p: p});
+    [].forEach.call(a.querySelectorAll("video"), autoplay);
+    var cs = a.querySelector(".carteles"); if (cs) carteles(cs);
+    var nv = a.querySelector(".navegador"); if (nv) navegador(nv);
+    rejilla.appendChild(a);
+  });
+  var vacio = document.createElement("p"); vacio.className = "vacio"; vacio.hidden = true; rejilla.appendChild(vacio);
+
+  function textos(){
+    tarjetas.forEach(function(t){
+      var p = t.p, el = t.el;
+      el.querySelector(".t-linea").textContent = L(p.linea, p.lineaEn);
+      el.querySelector(".t-meta").textContent = [p.anio, p.ciudad ? nombreCiudad(p.ciudad) : null, L(p.rol, p.rolEn)].filter(Boolean).join(" · ");
+      el.querySelector(".t-tipos").innerHTML = p.tipos.map(function(id){ var t = BSS.TIPOS.filter(function(x){ return x.id === id; })[0]; return "<span>" + L(t.es, t.en) + "</span>"; }).join("");
+    });
+    filtros.innerHTML = "";
+    [{id: "todo", es: "Todo", en: "All"}].concat(BSS.TIPOS).forEach(function(t){
+      var n = t.id === "todo" ? BSS.PROYECTOS.length : BSS.porTipo(t.id).length; if (!n) return;
+      var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", t.id === actual ? "true" : "false"); b.setAttribute("data-tipo", t.id);
+      b.innerHTML = '<span></span><sup>' + ("0" + n).slice(-2) + '</sup>'; b.firstChild.textContent = L(t.es, t.en);
+      b.addEventListener("click", function(){ filtrar(t.id, true); BSS.medir("trabajo_filtro", {tipo: t.id}); });
+      filtros.appendChild(b);
+    });
+    vacio.textContent = L("Nada por aquí todavía.", "Nothing here yet.");
+  }
+  // una tarjeta ancha y dos medianas, en ese orden, sobre lo que quede visible
+  function filtrar(id, desdeClic){
+    actual = id; var k = 0;
+    tarjetas.forEach(function(t){
+      var ok = id === "todo" || t.p.tipos.indexOf(id) >= 0;
+      t.el.hidden = !ok; if (ok) { t.el.classList.toggle("ancha", k % 3 === 0); k++; }
+    });
+    vacio.hidden = k > 0;
+    [].forEach.call(filtros.children, function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-tipo") === id ? "true" : "false"); });
+    if (desdeClic) { try { history.replaceState(null, "", id === "todo" ? location.pathname : "#" + id); } catch (e) {} }
+  }
+  function desdeHash(){
+    var h = decodeURIComponent(location.hash.slice(1));
+    if (BSS.TIPOS.some(function(t){ return t.id === h; })) { filtrar(h); return; }
+    filtrar("todo");
+    var el = h && document.getElementById(h);
+    if (el && el.classList.contains("tarjeta")) setTimeout(function(){ el.scrollIntoView({behavior: reducido ? "auto" : "smooth", block: "start"}); el.classList.add("ya"); }, 120);
+  }
+  textos(); desdeHash();
+  window.addEventListener("hashchange", desdeHash);
+  BSS.alCambiarIdioma(function(){ textos(); filtrar(actual); });
+})();
+</script>
+</body>
+</html>

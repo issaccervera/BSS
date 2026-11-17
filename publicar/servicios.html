@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz@1,6..72&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="paginas.css">
+<link rel="stylesheet" href="comun.css">
+<link rel="canonical" href="https://blacksheepstudioss.xyz/servicios">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Black Sheep Studioss">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://blacksheepstudioss.xyz/servicios">
+<meta property="og:title" content="Servicios · Black Sheep Studioss">
+<meta property="og:description" content="Contenido, ventas y consultoría: tres ofertas cerradas con entregables y plazos. Hacemos que te vean, que te compren y que crezcas.">
+<meta property="og:image" content="https://blacksheepstudioss.xyz/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Servicios · Black Sheep Studioss</title>
+<meta name="description" content="Contenido, ventas y consultoría: tres ofertas cerradas con entregables y plazos. Hacemos que te vean, que te compren y que crezcas.">
+<style>
+/* Servicios: cada oferta es una ficha de la calculadora: para quién, qué recibes, cuánto tarda y cómo empieza. */
+.oferta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,4vw,72px);padding-block:clamp(48px,6vw,96px);border-top:1.5px solid var(--tinta);scroll-margin-top:80px}
+.oferta-cab{display:flex;flex-direction:column;gap:14px;align-self:start;position:sticky;top:96px}
+.oferta-cab .verbo{font-size:clamp(52px,7.6vw,128px)}
+.oferta-cab .verbo .serif{display:block;font-size:.5em;line-height:1;margin-bottom:.15em}
+.oferta-cab .mono{color:var(--gris)}
+.oferta-cab p{font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,1.9vw,27px);line-height:1.15;max-width:24ch}
+.oferta-cuerpo{display:grid;gap:clamp(22px,2.4vw,32px)}
+.bloque-o h3{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;color:var(--gris);margin-bottom:10px}
+.bloque-o p{font-size:clamp(17px,1.4vw,20px);line-height:1.45;max-width:46ch}
+.recibes{list-style:none;padding:0;border-top:1.5px solid var(--tinta)}
+.recibes li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid var(--linea);font-size:clamp(17px,1.4vw,20px);line-height:1.35}
+.recibes li::before{content:counter(item,decimal-leading-zero);counter-increment:item;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--gris);padding-top:5px}
+.recibes{counter-reset:item}
+.datos-o{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5px;background:var(--tinta);border:1.5px solid var(--tinta)}
+.datos-o>div{background:var(--papel);padding:16px 18px}
+.datos-o b{display:block;font-weight:750;font-size:clamp(17px,1.4vw,20px);line-height:1.3;margin-top:6px}
+.acciones-o{display:flex;gap:12px;flex-wrap:wrap}
+.oferta.invertida{background:var(--tinta);color:var(--papel);border-top-color:var(--tinta);margin-inline:calc(-1 * var(--lado));padding-inline:var(--lado)}
+.oferta.invertida .mono,.oferta.invertida .bloque-o h3,.oferta.invertida .recibes li::before{color:#9a9a95}
+.oferta.invertida .recibes{border-top-color:var(--papel)}
+.oferta.invertida .recibes li{border-bottom-color:#2a2a28}
+.oferta.invertida .datos-o{background:var(--papel);border-color:var(--papel)}
+.oferta.invertida .datos-o>div{background:var(--tinta)}
+.oferta.invertida .boton.claro{color:var(--papel);border-color:rgba(244,244,242,.5)}
+.oferta.invertida .boton.claro:hover{background:var(--papel);color:var(--tinta)}
+.puntuales{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,4vw,72px);padding-block:clamp(48px,6vw,96px);border-top:1.5px solid var(--tinta)}
+.puntuales h2{font-size:clamp(40px,5vw,84px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips a{padding:10px 16px;border:1.5px solid var(--tinta);border-radius:999px;text-decoration:none;font-weight:650;transition:background .25s,color .25s}
+.chips a:hover{background:var(--tinta);color:var(--papel)}
+.faq{padding-block:clamp(48px,6vw,96px);border-top:1.5px solid var(--tinta)}
+.faq h2{font-size:clamp(40px,5vw,84px);margin-bottom:clamp(20px,3vw,40px)}
+.faq details{border-bottom:1px solid var(--linea)}
+.faq details:first-of-type{border-top:1.5px solid var(--tinta)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:18px 0;font-weight:700;font-size:clamp(18px,1.6vw,23px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-weight:400;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;max-width:62ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:#3d3d39}
+@media (max-width:860px){.oferta,.puntuales{grid-template-columns:minmax(0,1fr)}.oferta-cab{position:static}.datos-o{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body data-sub data-titulo-en="Services · Black Sheep Studioss">
+<a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
+<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
+<main>
+  <header class="sub-hero env" data-escribenos-desde>
+    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Services">Servicios</span></p>
+    <h1 class="gigante"><span data-en="Services">Servicios</span><span class="serif">.</span></h1>
+    <p class="bajada" data-en="We make sure they see you, they buy from you and you grow. Three offers with clear deliverables and timelines.">Hacemos que te vean, que te compren y que crezcas. Tres ofertas con entregables y plazos claros.</p>
+  </header>
+
+  <div class="env">
+    <section class="oferta sube" id="contenido" aria-labelledby="t-contenido">
+      <div class="oferta-cab">
+        <span class="mono" data-en="01 · Content">01 · Contenido</span>
+        <h2 class="gigante verbo" id="t-contenido"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="they see you.">te vean.</span></h2>
+        <p data-en="Video, photo and social with a measurable goal, not a calendar.">Video, foto y redes con un objetivo medible, no con un calendario.</p>
+      </div>
+      <div class="oferta-cuerpo">
+        <div class="bloque-o"><h3 data-en="Who it's for">Para quién</h3><p data-en="Brands that post but don't sell, or that don't post because they don't know what to say.">Marcas que publican pero no venden, o que no publican porque no saben qué decir.</p></div>
+        <div class="bloque-o"><h3 data-en="What you get">Qué recibes</h3>
+          <ol class="recibes">
+            <li data-en="A diagnosis of your social channels and one target number.">Diagnóstico de tus redes y un número objetivo.</li>
+            <li data-en="A monthly content plan with ideas of our own, not trends copied from others.">Plan mensual de contenido con ideas propias, no tendencias copiadas.</li>
+            <li data-en="One shoot a month: reels, photos and pieces for ads.">Un rodaje al mes: reels, fotos y piezas para anuncios.</li>
+            <li data-en="Editing, copy and publishing.">Edición, textos y publicación.</li>
+            <li data-en="A monthly report: what worked and what we change.">Reporte mensual: qué funcionó y qué cambiamos.</li>
+          </ol>
+        </div>
+        <div class="datos-o">
+          <div><span class="mono" data-en="How long">Cuánto tarda</span><b data-en="We start in 2 weeks. Monthly cycles; we recommend at least 3.">Arrancamos en 2 semanas. Ciclos mensuales; recomendamos un mínimo de 3.</b></div>
+          <div><span class="mono" data-en="How it starts">Cómo empieza</span><b data-en="With a 20-minute diagnosis. Free.">Con un diagnóstico de 20 minutos. Gratis.</b></div>
+        </div>
+        <div class="acciones-o"><a class="boton" href="https://wa.me/529999046145" data-wa="contenido" target="_blank" rel="noopener" data-en="I want to be seen ↗">Quiero que me vean ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
+      </div>
+    </section>
+
+    <section class="oferta invertida sube" id="ventas" aria-labelledby="t-ventas">
+      <div class="oferta-cab">
+        <span class="mono" data-en="02 · Sales">02 · Ventas</span>
+        <h2 class="gigante verbo" id="t-ventas"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="they buy.">te compren.</span></h2>
+        <p data-en="Scripts, processes and training so your team closes what content opens.">Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.</p>
+      </div>
+      <div class="oferta-cuerpo">
+        <div class="bloque-o"><h3 data-en="Who it's for">Para quién</h3><p data-en="Businesses that get messages or visits and don't close as many as they should.">Negocios que reciben mensajes o visitas y no cierran lo que deberían.</p></div>
+        <div class="bloque-o"><h3 data-en="What you get">Qué recibes</h3>
+          <ol class="recibes">
+            <li data-en="A diagnosis of how you sell today: WhatsApp, calls and in store.">Diagnóstico de cómo vendes hoy: WhatsApp, llamadas y tienda.</li>
+            <li data-en="Scripts and ready answers for every stage of the sale.">Guiones y respuestas tipo para cada etapa de la venta.</li>
+            <li data-en="A clear sales process, from the first message to the close.">Un proceso de venta claro, del primer mensaje al cierre.</li>
+            <li data-en="Materials salespeople actually use: deck, catalogue and proposals.">Materiales que el vendedor sí usa: presentación, catálogo y propuestas.</li>
+            <li data-en="Team training and 30 days of follow-up.">Formación del equipo y 30 días de seguimiento.</li>
+          </ol>
+        </div>
+        <div class="datos-o">
+          <div><span class="mono" data-en="How long">Cuánto tarda</span><b data-en="4 to 6 weeks, plus one month of follow-up.">De 4 a 6 semanas, más un mes de seguimiento.</b></div>
+          <div><span class="mono" data-en="How it starts">Cómo empieza</span><b data-en="We listen to how you sell today. No judgement.">Escuchando cómo vendes hoy. Sin juicios.</b></div>
+        </div>
+        <div class="acciones-o"><a class="boton klein" href="https://wa.me/529999046145" data-wa="ventas" target="_blank" rel="noopener" data-en="I want people to buy ↗">Quiero que me compren ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
+      </div>
+    </section>
+
+    <section class="oferta sube" id="consultoria" aria-labelledby="t-consultoria">
+      <div class="oferta-cab">
+        <span class="mono" data-en="03 · Consulting">03 · Consultoría</span>
+        <h2 class="gigante verbo" id="t-consultoria"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="you grow.">crezcas.</span></h2>
+        <p data-en="A plan with numbers and someone to review it with you every month.">Un plan con números y alguien que lo revise contigo cada mes.</p>
+      </div>
+      <div class="oferta-cuerpo">
+        <div class="bloque-o"><h3 data-en="Who it's for">Para quién</h3><p data-en="Owners who want to grow with a plan, not on gut feeling.">Dueños que quieren crecer con un plan y no a base de intuiciones.</p></div>
+        <div class="bloque-o"><h3 data-en="What you get">Qué recibes</h3>
+          <ol class="recibes">
+            <li data-en="A diagnosis session on your brand and your business.">Sesión de diagnóstico de marca y negocio.</li>
+            <li data-en="A growth plan with goals, numbers and priorities.">Plan de crecimiento con objetivos, números y prioridades.</li>
+            <li data-en="Brand and sales aligned: what to say, to whom and where.">Marca y ventas alineadas: qué decir, a quién y dónde.</li>
+            <li data-en="A review every two weeks.">Una revisión cada dos semanas.</li>
+            <li data-en="Adjustments based on data, not opinions.">Ajustes con datos, no con opiniones.</li>
+          </ol>
+        </div>
+        <div class="datos-o">
+          <div><span class="mono" data-en="How long">Cuánto tarda</span><b data-en="Plan ready in 3 weeks; support month to month.">Plan listo en 3 semanas; acompañamiento mes a mes.</b></div>
+          <div><span class="mono" data-en="How it starts">Cómo empieza</span><b data-en="With your numbers on the table, even if they're ugly.">Con tus números sobre la mesa, aunque sean feos.</b></div>
+        </div>
+        <div class="acciones-o"><a class="boton" href="https://wa.me/529999046145" data-wa="consultoria" target="_blank" rel="noopener" data-en="I want to grow ↗">Quiero crecer ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
+      </div>
+    </section>
+
+    <section class="puntuales sube" aria-labelledby="t-puntuales">
+      <div><span class="mono ph" data-en="One-off projects">Proyectos puntuales</span><h2 class="gigante" id="t-puntuales" style="margin-top:12px" data-en="Also one at a time.">También de uno en uno.</h2></div>
+      <div>
+        <p style="font-size:clamp(17px,1.4vw,20px);max-width:46ch" data-en="Not everything is monthly. We also make websites, launch campaigns, corporate videos and events, with the same calculator.">No todo es mensual. También hacemos webs, campañas de lanzamiento, videos corporativos y eventos, con la misma calculadora.</p>
+        <div class="chips"><a href="trabajo.html#webs" data-en="Websites">Webs</a><a href="trabajo.html#campanas" data-en="Campaigns">Campañas</a><a href="trabajo.html#corporativo" data-en="Corporate">Corporativo</a><a href="trabajo.html#inmobiliario" data-en="Real estate">Inmobiliario</a><a href="trabajo.html#eventos" data-en="Events">Eventos</a></div>
+      </div>
+    </section>
+
+    <section class="faq sube" aria-labelledby="t-faq">
+      <h2 class="gigante" id="t-faq" data-en="Questions">Preguntas</h2>
+      <details><summary data-en="How much does it cost?">¿Cuánto cuesta?</summary><p data-en="We quote per project after the diagnosis, because it depends on your goal and on what you already have. The diagnosis is free.">Cotizamos por proyecto después del diagnóstico, porque depende de tu objetivo y de lo que ya tienes. El diagnóstico no se cobra.</p></details>
+      <details><summary data-en="Do I have to hire all three?">¿Tengo que contratar las tres cosas?</summary><p data-en="No. You can start with one. Many brands start with content and add sales once messages start coming in.">No. Puedes empezar por una. Muchas marcas empiezan por contenido y suman ventas cuando ya entran mensajes.</p></details>
+      <details><summary data-en="Do you only work in Mérida?">¿Trabajan solo en Mérida?</summary><p data-en="We're based in Mérida and work remotely with brands from other cities. We've shot in four countries.">Estamos en Mérida y trabajamos en remoto con marcas de otras ciudades. Hemos rodado en cuatro países.</p></details>
+      <details><summary data-en="When will I see results?">¿Cuándo se ven resultados?</summary><p data-en="We set the target number on day one and review it every month. You'll know early whether it's working, and if it isn't, we change it.">Fijamos el número objetivo desde el primer día y lo revisamos cada mes. Sabrás pronto si funciona, y si no, lo cambiamos.</p></details>
+      <details><summary data-en="Who shoots and who edits?">¿Quién graba y quién edita?</summary><p data-en="We do: direction, shooting, editing and publishing. When a project needs it, we bring in people from our network.">Nosotros: dirección, rodaje, edición y publicación. Cuando el proyecto lo pide, sumamos gente de nuestra red.</p></details>
+      <details><summary data-en="What do you need from me?">¿Qué necesitan de mí?</summary><p data-en="One person on your side who decides quickly, access to your numbers and the will not to look like everyone else.">Una persona de tu lado que decida rápido, acceso a tus números y ganas de no parecerte a los demás.</p></details>
+    </section>
+  </div>
+</main>
+<footer class="pie-sub" id="contacto" data-sin-escribenos>
+  <div class="env">
+    <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
+    <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
+    <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" aria-current="page" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
+  </div>
+</footer>
+<script src="proyectos.js"></script>
+<script src="comun.js"></script>
+</body>
+</html>

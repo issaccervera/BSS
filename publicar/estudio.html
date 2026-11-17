@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz@1,6..72&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="paginas.css">
+<link rel="stylesheet" href="comun.css">
+<link rel="canonical" href="https://blacksheepstudioss.xyz/estudio">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Black Sheep Studioss">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://blacksheepstudioss.xyz/estudio">
+<meta property="og:title" content="Estudio · Black Sheep Studioss">
+<meta property="og:description" content="Gema Solis e Issac Asley: dos ovejas negras y una red en cuatro países. Estudio creativo y asesoría comercial nacido en Mérida.">
+<meta property="og:image" content="https://blacksheepstudioss.xyz/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Estudio · Black Sheep Studioss</title>
+<meta name="description" content="Gema Solis e Issac Asley: dos ovejas negras y una red en cuatro países. Estudio creativo y asesoría comercial nacido en Mérida.">
+<style>
+/* Estudio: Gema da la cara, Issac es el brazo técnico; debajo, el mapa de todo lo que hemos hecho. */
+.duo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.85fr);gap:clamp(32px,5vw,96px);align-items:start}
+.quien{display:flex;flex-direction:column;gap:clamp(18px,2vw,28px);min-width:0}
+.quien.brazo{margin-top:clamp(0px,14vw,220px)}
+.quien figure{aspect-ratio:4/5;max-width:100%;overflow:hidden;background:var(--tinta)}
+.quien figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.quien h2{font-size:clamp(46px,5.6vw,92px)}
+.quien.brazo h2{font-size:clamp(36px,4vw,64px)}
+.quien .rol{font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,1.8vw,26px);line-height:1.15}
+.quien p.bio{font-size:clamp(17px,1.35vw,20px);line-height:1.55;max-width:46ch}
+.quien .s-inv{display:inline-block;transform:rotateY(180deg);color:var(--klein)}
+.quien .ig{color:var(--gris);text-underline-offset:4px}
+.no-hacemos{padding-block:clamp(64px,8vw,130px)}
+.no-hacemos h2{font-size:clamp(44px,6vw,100px)}
+.no-lista{list-style:none;padding:0;margin-top:clamp(24px,3vw,40px);border-top:1.5px solid var(--tinta)}
+.no-lista li{display:flex;gap:18px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--linea);font-size:clamp(20px,2vw,30px);font-weight:650;line-height:1.2}
+.no-lista li::before{content:"✕";font-family:var(--f-mono);font-size:.6em;color:var(--klein)}
+.red-sec{background:var(--tinta);color:var(--papel);padding-block:clamp(72px,9vw,140px)}
+.red-sec h2{font-size:clamp(50px,8vw,132px)}
+.red-sec .bajada-red{margin-top:18px;font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,2vw,28px);color:#cfcfca;max-width:40ch}
+.mapa-grande{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.7fr);gap:clamp(24px,3vw,48px);align-items:start;margin-top:clamp(36px,5vw,64px)}
+.detalle-ciudad{border-top:1.5px solid rgba(244,244,242,.4);padding-top:18px;min-height:220px}
+.detalle-ciudad h3{font-size:clamp(40px,4.4vw,72px);color:var(--klein-claro)}
+.detalle-ciudad .mono{color:#9a9a95;margin-top:8px}
+.detalle-ciudad ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:10px}
+.detalle-ciudad li a{display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:10px 0;border-bottom:1px solid #2a2a28}
+.detalle-ciudad li a:hover b{color:var(--klein-claro)}
+.detalle-ciudad li b{font-size:clamp(20px,1.8vw,26px);font-weight:750}
+.detalle-ciudad li span{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#9a9a95}
+.detalle-ciudad li.extra{font-family:var(--f-serif);font-style:italic;font-size:clamp(18px,1.6vw,22px);color:#cfcfca;padding-top:6px}
+.cifras-e{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;background:var(--tinta);border:1.5px solid var(--tinta);margin-top:clamp(64px,8vw,120px)}
+.cifras-e>div{background:var(--papel);padding:clamp(18px,2.4vw,32px)}
+.cifras-e b{display:block;font-size:clamp(56px,7vw,116px);font-weight:850;font-stretch:68%;line-height:.85;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.red-texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,72px);margin-top:clamp(64px,8vw,120px);align-items:start}
+.red-texto h2{font-size:clamp(40px,5vw,84px)}
+.red-texto p{font-size:clamp(17px,1.4vw,20px);line-height:1.55;max-width:50ch}
+@media (max-width:860px){.duo,.mapa-grande,.red-texto{grid-template-columns:minmax(0,1fr)}.quien.brazo{margin-top:0}.quien.brazo figure{max-width:70%}.cifras-e{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body data-sub data-titulo-en="Studio · Black Sheep Studioss">
+<a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
+<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
+<main>
+  <header class="sub-hero env" data-escribenos-desde>
+    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Studio">Estudio</span></p>
+    <h1 class="gigante"><span data-en="Studio">Estudio</span><span class="serif">.</span></h1>
+    <p class="bajada" id="bajadaRed">Dos ovejas negras y una red en cuatro países.</p>
+  </header>
+
+  <section class="env duo" aria-label="Quiénes somos" data-en-aria="Who we are">
+    <article class="quien cara sube">
+      <figure><img src="img/gema.webp" alt="Gema Solis con los brazos cruzados" loading="lazy"></figure>
+      <h2 class="gigante">Gema Soli<span class="s-inv">s</span></h2>
+      <span class="rol" data-en="The face of the studio: marketing and clients">La cara del estudio: marketing y clientes</span>
+      <p class="bio" data-en="A certified marketer with more than seven years in marketing and over 100,000 people following her on Instagram and TikTok. She's the face of the studio: you talk to her, she understands your business and turns what you need into a strategy. She knows what makes someone stop scrolling, because she does it every day.">Mercadóloga titulada, con más de siete años en marketing y más de cien mil personas que la siguen en Instagram y TikTok. Es la cara del estudio: con ella hablas, ella entiende tu negocio y convierte lo que necesitas en una estrategia. Sabe qué hace que alguien deje de hacer scroll, porque lo hace todos los días.</p>
+      <a class="ig mono" href="https://www.instagram.com/gemademar/" target="_blank" rel="noopener">@GemadeMar ↗</a>
+    </article>
+    <article class="quien brazo sube">
+      <figure><img src="img/issac.webp" alt="Issac Asley de pie en un campo, a contraluz" loading="lazy"></figure>
+      <h2 class="gigante">Is<span class="s-inv">s</span>ac Asley</h2>
+      <span class="rol" data-en="The technical arm: production and direction">El brazo técnico: producción y dirección</span>
+      <p class="bio" data-en="Audiovisual producer, photographer, designer and a career salesman, with more than ten years selling in Mexico and Spain. He's the technical arm: he directs the shoots, edits, builds the websites and puts together the numbers that show whether something worked.">Productor audiovisual, fotógrafo, diseñador y vendedor de carrera, con más de diez años vendiendo en México y en España. Es el brazo técnico: dirige los rodajes, edita, construye las webs y arma los números que demuestran si algo funcionó.</p>
+      <a class="ig mono" href="https://www.instagram.com/asley.sinh/" target="_blank" rel="noopener">@asley.sinH ↗</a>
+    </article>
+  </section>
+
+  <section class="env no-hacemos sube" aria-labelledby="t-no">
+    <h2 class="gigante" id="t-no" data-en="What we don't do">Lo que no hacemos</h2>
+    <ul class="no-lista">
+      <li data-en="Pieces for the sake of pieces.">Piezas por hacer piezas.</li>
+      <li data-en="Trends copied from someone else.">Tendencias copiadas de otro.</li>
+      <li data-en="Promises we can't measure.">Promesas que no se pueden medir.</li>
+    </ul>
+  </section>
+
+  <section class="red-sec" aria-labelledby="t-red">
+    <div class="env">
+      <h2 class="gigante" id="t-red"><span data-en="From Mérida">De Mérida</span><br><span data-en="to">a</span> <span class="serif" data-en="Copenhagen.">Copenhague.</span></h2>
+      <p class="bajada-red" data-en="Every pin is a project or a shoot. Hover over a city to see what we did there.">Cada pin es un proyecto o un rodaje. Pasa por una ciudad para ver qué hicimos ahí.</p>
+      <div class="mapa-grande">
+        <div><svg class="mapa-svg" id="mapaGrande" role="img" aria-label="Mapa con las ciudades donde hemos trabajado" data-en-aria="Map of the cities where we've worked"></svg><div class="mapa-lista" id="mapaLista"></div></div>
+        <div class="detalle-ciudad" id="detalleCiudad" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="env" aria-label="Cifras" data-en-aria="Numbers">
+    <div class="cifras-e" id="cifras"></div>
+    <div class="red-texto sube">
+      <h2 class="gigante" data-en="A network, not a payroll.">Una red, no una nómina.</h2>
+      <p data-en="We're two, and that's on purpose: you talk to the people who do the work. When a project needs it, we bring in cinematography, sound, design, programming and talent from our network in the countries where we've worked.">Somos dos, y es a propósito: hablas con quien hace el trabajo. Cuando un proyecto lo pide, sumamos dirección de fotografía, sonido, diseño, programación y talento de nuestra red en los países donde hemos trabajado.</p>
+    </div>
+  </section>
+</main>
+<footer class="pie-sub" id="contacto" data-sin-escribenos>
+  <div class="env">
+    <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
+    <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
+    <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" aria-current="page" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
+  </div>
+</footer>
+<script src="mapa-datos.js"></script>
+<script src="proyectos.js"></script>
+<script src="comun.js"></script>
+<script src="mapa.js"></script>
+<script>
+(function(){
+  "use strict";
+  var c = BSS.cifras(), L = BSS.L;
+  var PAL = ["cero", "una", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"], PAL_EN = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+  function nombre(n){ return BSS.idioma() === "en" && BSS.NOMBRES_EN[n] ? BSS.NOMBRES_EN[n] : n; }
+  function textos(){
+    document.getElementById("bajadaRed").textContent = L("Dos ovejas negras y una red en " + (PAL[c.paises] || c.paises) + " países.", "Two black sheep and a network in " + (PAL_EN[c.paises] || c.paises) + " countries.");
+    document.getElementById("cifras").innerHTML =
+      '<div><b>' + c.desde + '</b><span class="mono">' + L("desde", "since") + '</span></div>' +
+      '<div><b>' + c.ciudades + '</b><span class="mono">' + L("ciudades", "cities") + '</span></div>' +
+      '<div><b>' + c.paises + '</b><span class="mono">' + L("países", "countries") + '</span></div>' +
+      '<div><b>+' + c.proyectos + '</b><span class="mono">' + L("proyectos", "projects") + '</span></div>';
+  }
+  textos();
+  var svg = document.getElementById("mapaGrande"), lista = document.getElementById("mapaLista"), det = document.getElementById("detalleCiudad"), mapa = null;
+  function pintar(){
+    svg.innerHTML = ""; lista.innerHTML = "";
+    mapa = BSS.pintarMapa(svg, {grande: true, lista: lista, detalle: det, L: L, nombre: nombre});
+  }
+  pintar();
+  BSS.alCambiarIdioma(function(){ textos(); pintar(); });
+})();
+</script>
+</body>
+</html>

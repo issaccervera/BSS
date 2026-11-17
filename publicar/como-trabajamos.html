@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz@1,6..72&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="paginas.css">
+<link rel="stylesheet" href="comun.css">
+<link rel="canonical" href="https://blacksheepstudioss.xyz/como-trabajamos">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Black Sheep Studioss">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://blacksheepstudioss.xyz/como-trabajamos">
+<meta property="og:title" content="Cómo trabajamos · Black Sheep Studioss">
+<meta property="og:description" content="Diagnóstico, número objetivo, producción y medir y ajustar: los cuatro pasos de Black Sheep Studioss para que el contenido se mida en ventas.">
+<meta property="og:image" content="https://blacksheepstudioss.xyz/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Cómo trabajamos · Black Sheep Studioss</title>
+<meta name="description" content="Diagnóstico, número objetivo, producción y medir y ajustar: los cuatro pasos de Black Sheep Studioss para que el contenido se mida en ventas.">
+<style>
+/* Cómo trabajamos: los pasos a la izquierda y, al lado, el ticket de la calculadora que se va imprimiendo. */
+.proceso{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:clamp(28px,5vw,96px);align-items:start}
+.pasos{list-style:none;padding:0;counter-reset:paso}
+.paso{padding-block:clamp(36px,5vw,72px);border-top:1.5px solid var(--tinta);display:grid;grid-template-columns:clamp(70px,9vw,140px) minmax(0,1fr);gap:clamp(14px,2vw,32px)}
+.paso::before{counter-increment:paso;content:counter(paso,decimal-leading-zero);font-weight:850;font-stretch:66%;font-size:clamp(56px,8vw,128px);line-height:.8;letter-spacing:-.03em;color:#cfcfca;transition:color .5s}
+.paso.activo::before{color:var(--klein)}
+.paso h2{font-size:clamp(40px,5.4vw,92px)}
+.paso .que{margin-top:14px;font-size:clamp(18px,1.5vw,21px);line-height:1.45;max-width:44ch}
+.paso dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5px;background:var(--tinta);border:1.5px solid var(--tinta);margin:22px 0 0}
+.paso dl>div{background:var(--papel);padding:14px 16px}
+.paso dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.paso dd{margin:6px 0 0;font-weight:700;font-size:clamp(16px,1.3vw,19px);line-height:1.3}
+.ticket{position:sticky;top:110px;background:var(--blanco);font-family:var(--f-mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:26px 22px 30px;box-shadow:0 30px 60px -36px rgba(0,0,0,.35);-webkit-mask:radial-gradient(circle at 8px 100%,transparent 6px,#000 6.5px) 0 0/16px 100% repeat-x;mask:radial-gradient(circle at 8px 100%,transparent 6px,#000 6.5px) 0 0/16px 100% repeat-x}
+.ticket h3{font:inherit;text-align:center;margin-bottom:6px}
+.ticket .t-sub{text-align:center;color:var(--gris);font-size:11px;margin-bottom:18px}
+.ticket ul{list-style:none;padding:0;margin:0;border-top:1px dashed #9a9a95}
+.ticket li{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px dashed #cfcfca;color:#b4b4ae;transition:color .4s}
+.ticket li.ya{color:var(--tinta)}
+.ticket li span:last-child{text-align:right}
+.ticket .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:12px;border-top:2px solid var(--tinta);font-size:15px;font-weight:600}
+.ticket .total b{font-family:var(--f-disp);font-weight:850;font-stretch:70%;font-size:clamp(30px,3vw,42px);letter-spacing:-.01em;text-transform:uppercase;color:#cfcfca;transition:color .6s}
+.ticket.listo .total b{color:var(--klein)}
+.ticket .gracias{text-align:center;margin-top:18px;color:var(--gris);font-size:11px}
+.empieza{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:clamp(56px,7vw,100px);padding:clamp(24px,3vw,40px);background:var(--tinta);color:var(--papel)}
+.empieza p{font-family:var(--f-serif);font-style:italic;font-size:clamp(24px,2.8vw,40px);line-height:1.1;max-width:22ch}
+@media (max-width:860px){.proceso{grid-template-columns:minmax(0,1fr)}.ticket{position:static;order:-1}.paso{grid-template-columns:minmax(0,1fr)}.paso dl{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body data-sub data-titulo-en="How we work · Black Sheep Studioss">
+<a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
+<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
+<main>
+  <header class="sub-hero env" data-escribenos-desde>
+    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="How we work">Cómo trabajamos</span></p>
+    <h1 class="gigante"><span data-en="How we">Cómo</span> <span class="serif" data-en="work.">trabajamos.</span></h1>
+    <p class="bajada" data-en="The calculator, step by step. Four steps so content is measured in sales, not likes.">La calculadora, paso a paso. Cuatro pasos para que el contenido se mida en ventas, no en likes.</p>
+  </header>
+  <div class="env proceso">
+    <ol class="pasos">
+      <li class="paso" data-paso="0">
+        <div>
+          <h2 class="gigante" data-en="Diagnosis">Diagnóstico</h2>
+          <p class="que" data-en="Twenty minutes to understand your business: what you sell, to whom and which number you want to move. Free, no strings attached.">Veinte minutos para entender tu negocio: qué vendes, a quién y qué número quieres mover. Gratis y sin compromiso.</p>
+          <dl><div><dt data-en="You get">Recibes</dt><dd data-en="An honest read of where you are and what we'd do first.">Una lectura honesta de dónde estás y qué haríamos primero.</dd></div><div><dt data-en="Takes">Dura</dt><dd data-en="20 minutes">20 minutos</dd></div></dl>
+        </div>
+      </li>
+      <li class="paso" data-paso="1">
+        <div>
+          <h2 class="gigante" data-en="Target number">Número objetivo</h2>
+          <p class="que" data-en="Before producing anything, we agree on one number and how we'll measure it: messages, appointments, bookings or sales.">Antes de producir nada acordamos un número y cómo lo vamos a medir: mensajes, citas, reservas o ventas.</p>
+          <dl><div><dt data-en="You get">Recibes</dt><dd data-en="A proposal with the goal, the plan and the quote.">Una propuesta con el objetivo, el plan y la cotización.</dd></div><div><dt data-en="Takes">Dura</dt><dd data-en="1 week">1 semana</dd></div></dl>
+        </div>
+      </li>
+      <li class="paso" data-paso="2">
+        <div>
+          <h2 class="gigante" data-en="Production">Producción</h2>
+          <p class="que" data-en="Direction, shooting, editing, websites or sales scripts. We make it different, because the same thing goes unseen.">Dirección, rodaje, edición, webs o guiones de venta. Lo hacemos distinto, porque lo igual no se ve.</p>
+          <dl><div><dt data-en="You get">Recibes</dt><dd data-en="The pieces, ready to publish or use.">Las piezas, listas para publicar o usar.</dd></div><div><dt data-en="Takes">Dura</dt><dd data-en="Depends on the project">Según el proyecto</dd></div></dl>
+        </div>
+      </li>
+      <li class="paso" data-paso="3">
+        <div>
+          <h2 class="gigante" data-en="Measure and adjust">Medir y ajustar</h2>
+          <p class="que" data-en="We publish, measure and adjust. Every month we review the number with you and decide what's next.">Publicamos, medimos y ajustamos. Cada mes revisamos el número contigo y decidimos qué sigue.</p>
+          <dl><div><dt data-en="You get">Recibes</dt><dd data-en="A short monthly report: what worked and what we changed.">Un reporte mensual corto: qué funcionó y qué cambiamos.</dd></div><div><dt data-en="Takes">Dura</dt><dd data-en="Every month">Cada mes</dd></div></dl>
+        </div>
+      </li>
+    </ol>
+    <aside class="ticket" id="ticket" aria-label="Resumen del proceso" data-en-aria="Process summary">
+      <h3>Black Sheep Studioss</h3>
+      <p class="t-sub" data-en="Mérida · ticket no. 0001">Mérida · ticket n.º 0001</p>
+      <ul>
+        <li><span data-en="01 Diagnosis">01 Diagnóstico</span><span data-en="20 min">20 min</span></li>
+        <li><span data-en="02 Target number">02 Número objetivo</span><span data-en="1 wk">1 sem</span></li>
+        <li><span data-en="03 Production">03 Producción</span><span data-en="as needed">a medida</span></li>
+        <li><span data-en="04 Measure and adjust">04 Medir y ajustar</span><span data-en="monthly">mensual</span></li>
+      </ul>
+      <div class="total"><span>Total</span><b data-en="More sales">Más ventas</b></div>
+      <p class="gracias" data-en="Thanks for not following the herd">Gracias por no seguir al rebaño</p>
+    </aside>
+  </div>
+  <div class="env">
+    <div class="empieza sube">
+      <p data-en="Start with step 01. It's 20 minutes and it's free.">Empieza por el paso 01. Son 20 minutos y no cuesta.</p>
+      <a class="boton klein" href="https://wa.me/529999046145" data-wa="diagnostico" target="_blank" rel="noopener" data-medir="diagnostico_clic" data-en="I want my diagnosis ↗">Quiero mi diagnóstico ↗</a>
+    </div>
+  </div>
+</main>
+<footer class="pie-sub" id="contacto" data-sin-escribenos>
+  <div class="env">
+    <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
+    <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
+    <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" aria-current="page" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
+  </div>
+</footer>
+<script src="proyectos.js"></script>
+<script src="comun.js"></script>
+<script>
+(function(){
+  "use strict";
+  // cada paso que lees se imprime en el ticket; con el último, el total se pone azul
+  var pasos = [].slice.call(document.querySelectorAll(".paso")), lineas = [].slice.call(document.querySelectorAll("#ticket li")), ticket = document.getElementById("ticket"), max = -1;
+  function marcar(i){ if (i <= max) return; max = i; lineas.forEach(function(l, k){ l.classList.toggle("ya", k <= max); }); pasos.forEach(function(p, k){ p.classList.toggle("activo", k === i); }); if (max === lineas.length - 1) ticket.classList.add("listo"); }
+  if (!("IntersectionObserver" in window)) { marcar(lineas.length - 1); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { marcar(+e.target.getAttribute("data-paso")); pasos.forEach(function(p){ p.classList.toggle("activo", p === e.target); }); } }); }, {rootMargin: "-35% 0px -45% 0px"});
+  pasos.forEach(function(p){ io.observe(p); });
+})();
+</script>
+</body>
+</html>
