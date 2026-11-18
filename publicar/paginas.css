@@ -66,4 +66,19 @@ img,video{display:block;max-width:100%}
 /* aparición suave al entrar en pantalla */
 .sube{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .sube.ya{opacity:1;transform:none}
+/* teléfono: la forma principal en que verán la web */
+@media (max-width:760px){
+  body{font-size:16px}
+  .sub-hero{padding-top:112px;padding-bottom:36px}
+  .sub-hero .miga{margin-bottom:16px;font-size:10.5px}
+  .sub-hero h1{font-size:clamp(52px,15.4vw,74px)}
+  .sub-hero .bajada{margin-top:16px;font-size:19px;max-width:28ch}
+  .pie-sub{padding-block:76px calc(22px + env(safe-area-inset-bottom,0px));margin-top:72px}
+  .pie-a{font-size:17px}
+  .pie-b{font-size:clamp(52px,15.4vw,74px);margin-top:16px}
+  .pie-acciones{gap:4px;margin-top:26px}
+  .pie-fila{margin-top:48px;padding-top:18px;font-size:10.5px}
+  .pie-c{font-size:10.5px}
+  .sube{transform:translateY(16px)}
+}
 @media (prefers-reduced-motion:reduce){.sube{opacity:1;transform:none;transition:none}}

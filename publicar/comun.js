@@ -155,7 +155,7 @@
   function telon(){
     var raiz = document.documentElement, reducido = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     var t = document.createElement("div"); t.className = "telon"; t.setAttribute("aria-hidden", "true");
-    t.innerHTML = '<img src="img/oveja-tinta.webp" alt=""><b></b><i></i>'; document.body.appendChild(t);
+    t.innerHTML = '<img src="img/oveja-tinta-blanca.webp" alt=""><b></b><i></i>'; document.body.appendChild(t);
     function mover(de, a, ms, fin){
       if (reducido || !t.animate) { fin(); return; }
       var an = t.animate([{transform: de}, {transform: a}], {duration: ms, easing: "cubic-bezier(.7,0,.2,1)", fill: "forwards"}), hecho = false;
@@ -163,12 +163,13 @@
       an.onfinish = f; setTimeout(f, ms + 400);
     }
     function retirar(){
-      raiz.classList.remove("telon-llega");
-      mover("translateY(0)", "translateY(-100%)", 760, function(){ t.classList.remove("cubre"); t.getAnimations && t.getAnimations().forEach(function(a){ a.cancel(); }); BSS.telonFuera = true; document.dispatchEvent(new Event("bss-telon-fuera")); });
+      if (reducido) { raiz.classList.remove("telon-llega"); fuera(); return; }
+      raiz.classList.add("telon-sale");
+      setTimeout(function(){ raiz.classList.remove("telon-llega", "telon-sale"); fuera(); }, 820);
     }
+    function fuera(){ BSS.telonFuera = true; document.dispatchEvent(new Event("bss-telon-fuera")); }
     if (raiz.classList.contains("telon-llega")) {
-      t.querySelector("b").textContent = raiz.getAttribute("data-telon") || "Black Sheep Studioss";
-      t.classList.add("cubre"); var t0 = performance.now(), ido = false;
+      var t0 = performance.now(), ido = false;
       function listo(){ if (ido) return; ido = true; setTimeout(retirar, Math.max(0, 650 - (performance.now() - t0))); }
       if (document.readyState === "complete") listo(); else window.addEventListener("load", listo);
       setTimeout(listo, 2800);
@@ -185,7 +186,7 @@
       mover("translateY(100%)", "translateY(0)", 600, function(){ location.href = u.href; });
     });
     // al volver con el botón de atrás, la página no debe quedarse tapada
-    window.addEventListener("pageshow", function(ev){ if (ev.persisted) { t.classList.remove("cubre"); t.getAnimations && t.getAnimations().forEach(function(a){ a.cancel(); }); raiz.classList.remove("telon-llega"); BSS.telonFuera = true; } });
+    window.addEventListener("pageshow", function(ev){ if (ev.persisted) { t.classList.remove("cubre"); t.getAnimations && t.getAnimations().forEach(function(a){ a.cancel(); }); raiz.classList.remove("telon-llega", "telon-sale"); BSS.telonFuera = true; } });
   }
 
   /* ---------- Enlaces resaltados: el trazo se dibuja cuando entran en pantalla ---------- */

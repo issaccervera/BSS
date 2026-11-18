@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
+<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,6 +40,14 @@
 .aviso-en{margin-top:18px;color:var(--gris);font-size:15px}
 .fecha{margin-top:28px;color:var(--gris)}
 @media (max-width:860px){.legal{grid-template-columns:minmax(0,1fr)}.indice{position:static}}
+@media (max-width:760px){
+  .indice{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;margin-inline:calc(-1 * var(--lado));padding:0 var(--lado) 4px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 86%,transparent);mask:linear-gradient(90deg,#000 86%,transparent)}
+  .indice::-webkit-scrollbar{display:none}
+  .indice a{flex:none;padding:7px 11px;border:1px solid var(--linea);border-radius:999px;font-size:10.5px;color:var(--tinta);white-space:nowrap}
+  .texto-legal section{padding-block:24px}
+  .texto-legal h2{font-size:24px}
+  .texto-legal p,.texto-legal li{font-size:15.5px;line-height:1.58}
+}
 </style>
 </head>
 <body data-sub data-titulo-en="Privacy notice · Black Sheep Studioss">

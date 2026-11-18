@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
+<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,6 +65,28 @@
 .faq summary::after{content:"+";font-family:var(--f-mono);font-weight:400;transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{padding:0 0 22px;max-width:62ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:#3d3d39}
+.saltos{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:clamp(24px,3vw,40px)}
+.saltos a{font-weight:700;font-size:clamp(15px,1.2vw,18px);text-decoration:none;border-bottom:2px solid var(--klein);padding-bottom:2px}
+.saltos a .serif{font-weight:400;margin-right:4px;color:var(--gris)}
+@media (max-width:760px){
+  .saltos{gap:4px 16px}
+  .oferta{padding-block:48px 56px;gap:22px}
+  .oferta-cab{gap:10px}
+  .oferta-cab .verbo{font-size:clamp(46px,14vw,64px)}
+  .oferta-cab p{font-size:19px}
+  .oferta-cuerpo{gap:20px}
+  .bloque-o p{font-size:15.5px}
+  .recibes li{grid-template-columns:30px minmax(0,1fr);gap:8px;padding:10px 0;font-size:15.5px}
+  .recibes li::before{font-size:10px;padding-top:3px}
+  .datos-o>div{padding:12px 14px}
+  .datos-o b{font-size:15px}
+  .puntuales{padding-block:48px;gap:14px}
+  .puntuales h2,.faq h2{font-size:clamp(36px,11vw,50px)}
+  .chips a{padding:8px 13px;font-size:14px}
+  .faq{padding-block:48px}
+  .faq summary{font-size:16.5px;padding:15px 0}
+  .faq details p{font-size:15px}
+}
 @media (max-width:860px){.oferta,.puntuales{grid-template-columns:minmax(0,1fr)}.oferta-cab{position:static}.datos-o{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
@@ -76,6 +98,7 @@
     <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Services">Servicios</span></p>
     <h1 class="gigante"><span data-en="Services">Servicios</span><span class="serif">.</span></h1>
     <p class="bajada" data-en="We make sure they see you, they buy from you and you grow. Three offers with clear deliverables and timelines.">Hacemos que te vean, que te compren y que crezcas. Tres ofertas con entregables y plazos claros.</p>
+    <nav class="saltos" aria-label="Ofertas"><a href="#contenido"><span class="serif" data-en="01">01</span><span data-en="Be seen">Que te vean</span></a><a href="#ventas"><span class="serif">02</span><span data-en="Sell">Que te compren</span></a><a href="#consultoria"><span class="serif">03</span><span data-en="Grow">Que crezcas</span></a></nav>
   </header>
 
   <div class="env">

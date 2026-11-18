@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
+<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,8 +71,34 @@
 .vacio{grid-column:1/-1;padding:40px 0;color:var(--gris)}
 @media (max-width:860px){
   .tarjeta,.tarjeta.ancha{grid-column:span 12;display:flex}
+}
+@media (max-width:760px){
+  /* filtros: una fila que se desliza por grupo, no una pared de pastillas */
+  .filtros{gap:16px;margin-top:24px;margin-inline:calc(-1 * var(--lado));}
+  .filtros .grupo{flex-wrap:nowrap;overflow-x:auto;padding:0 var(--lado);gap:6px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 88%,transparent);mask:linear-gradient(90deg,#000 88%,transparent)}
+  .filtros .grupo::-webkit-scrollbar{display:none}
+  .filtros .grupo>span{width:auto;flex:none;margin-right:6px;writing-mode:horizontal-tb}
+  .filtros button{flex:none;padding:8px 13px;font-size:14px}
+  /* rejilla: una ancha a sangre y dos a media columna */
+  .rejilla{gap:10px}
+  .tarjeta{grid-column:span 6;display:flex;padding:0 0 14px;gap:12px}
+  .tarjeta.ancha{grid-column:span 12;padding:0 0 22px;gap:16px}
+  .tarjeta .t-texto{padding:0 12px;gap:6px}
+  .tarjeta.ancha .t-texto{padding:0 16px;gap:10px}
+  .tarjeta:not(.ancha) .t-medio{aspect-ratio:4/5}
+  .tarjeta:not(.ancha) .t-dual{display:none}
+  .tarjeta:not(.ancha) .t-nombre{font-size:clamp(24px,7.4vw,32px)}
+  .tarjeta.ancha .t-nombre{font-size:clamp(40px,12.4vw,56px)}
+  .tarjeta:not(.ancha) .t-linea{font-size:15px;line-height:1.15}
+  .tarjeta.ancha .t-linea{font-size:19px}
+  .tarjeta:not(.ancha) .t-meta{font-size:9.5px;line-height:1.5}
+  .tarjeta:not(.ancha) .t-tipos{display:none}
+  .t-meta{font-size:10.5px}
+  .navegador{border-radius:0}
+  .nav-barra .url{display:none}
+  .carteles img{top:10%;height:80%}
   .tarjeta.ancha .t-texto{order:0}
-  .pantalla{height:min(70vh,520px)}
+  .pantalla{height:min(62svh,520px)}
   .modos button[data-m="esc"]{display:none}
 }
 </style>
@@ -132,6 +158,8 @@
   function navegador(n){
     var modos = [].slice.call(n.querySelectorAll(".modos button")), ifr = n.querySelector("iframe");
     modos.forEach(function(b){ b.addEventListener("click", function(){ var m = b.getAttribute("data-m"); n.classList.toggle("tab", m === "tab"); n.classList.toggle("mov", m === "mov"); modos.forEach(function(o){ o.classList.toggle("on", o === b); }); try { ifr.contentWindow.postMessage({bro: "inicio"}, "*"); } catch (e) {} }); });
+    // en el teléfono, la web de Brother se enseña como se vería en uno
+    if (window.matchMedia && matchMedia("(max-width:760px)").matches) { var bm = n.querySelector('.modos button[data-m="mov"]'); if (bm) { n.classList.remove("tab"); n.classList.add("mov"); modos.forEach(function(o){ o.classList.toggle("on", o === bm); }); } }
   }
 
   BSS.PROYECTOS.forEach(function(p){

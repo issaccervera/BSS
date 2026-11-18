@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
+<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +61,30 @@
 .red-texto h2{font-size:clamp(40px,5vw,84px)}
 .red-texto p{font-size:clamp(17px,1.4vw,20px);line-height:1.55;max-width:50ch}
 @media (max-width:860px){.duo,.mapa-grande,.red-texto{grid-template-columns:minmax(0,1fr)}.quien.brazo{margin-top:0}.quien.brazo figure{max-width:70%}.cifras-e{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .duo{gap:56px}
+  .quien{gap:14px}
+  .quien figure{width:82%;aspect-ratio:4/5}
+  .quien.brazo figure{max-width:none;width:72%;margin-left:auto}
+  .quien h2{font-size:clamp(40px,12.4vw,56px)}
+  .quien .rol{font-size:18px}
+  .quien p.bio{font-size:15.5px}
+  .no-hacemos{padding-block:72px}
+  .no-hacemos h2{font-size:clamp(38px,11.6vw,52px)}
+  .no-lista li{font-size:18px;padding:14px 0;gap:12px}
+  .red-sec{padding-block:72px}
+  .red-sec h2{font-size:clamp(42px,12.8vw,58px)}
+  .red-sec .bajada-red{font-size:18px}
+  .detalle-ciudad{min-height:0}
+  .detalle-ciudad h3{font-size:40px}
+  .detalle-ciudad li b{font-size:18px}
+  .cifras-e{margin-top:56px}
+  .cifras-e>div{padding:16px}
+  .cifras-e b{font-size:52px}
+  .red-texto{margin-top:56px;gap:16px}
+  .red-texto h2{font-size:clamp(34px,10.4vw,46px)}
+  .red-texto p{font-size:15.5px}
+}
 </style>
 </head>
 <body data-sub data-titulo-en="Studio · Black Sheep Studioss">

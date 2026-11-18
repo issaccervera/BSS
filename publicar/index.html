@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
+<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Black Sheep Studioss</title>
 <meta name="description" content="Estudio creativo y comercial nacido en Mérida. Contenido, ventas y consultoría. Resultados de negocio, no solo piezas bonitas.">
@@ -821,7 +821,7 @@ img{display:block;max-width:100%}
 /* ---------- v26: reel, marcas, verticales ---------- */
 .reel-banda{height:100svh;max-height:none}
 .reel-banda.vertical video{object-position:center}
-@media (max-width:760px){.reel-banda{height:100svh}.reel-txt .gigante{font-size:clamp(84px,26vw,130px)}}
+@media (max-width:760px){.reel-banda{height:100svh}.reel-txt{bottom:calc(76px + env(safe-area-inset-bottom,0px))}.reel-txt .gigante{font-size:clamp(84px,26vw,130px)}}
 .marcas{min-height:100svh;display:flex;align-items:center}
 .marcas .env{width:100%}
 .marcas .logos>*{transition:opacity .5s ease,transform .7s cubic-bezier(.3,1.5,.5,1),filter .5s ease;transition-delay:calc(var(--i,0) * 170ms + .25s);transform:translateY(30px) scale(.8)}
@@ -923,6 +923,48 @@ img{display:block;max-width:100%}
   .juego .botones{flex-wrap:nowrap}
   .juego .ob span{font-size:11px}
 }
+/* ---------- v29: composición ---------- */
+/* hero en el teléfono: dos frases con aire */
+@media (max-width:760px){
+  .hero-t{top:43%;font-size:clamp(44px,13.4vw,66px)}
+  .hero-t .l2{margin-top:.5em}
+}
+/* manifiesto: "Resultados de negocio," y "no solo piezas bonitas." se leen como dos frases */
+.portada h2{gap:clamp(4px,.6vw,10px)!important;font-size:clamp(46px,8.8vw,150px)}
+.portada .frase2{margin-top:clamp(36px,6vh,90px)}
+.remate-azul{margin-top:clamp(40px,7vh,96px);padding-left:0;text-align:right}
+@media (max-width:760px){
+  .portada h2{font-size:clamp(46px,13.6vw,72px)!important;gap:2px!important}
+  .portada .frase2{margin-top:clamp(40px,8vh,80px)}
+  .remate-azul{margin-top:clamp(40px,7vh,70px);text-align:left}
+}
+/* marcas: título, subtítulo y logos con su espacio */
+.marcas-cab{flex-direction:column;align-items:flex-start;gap:clamp(16px,2vw,26px)}
+.marcas-cab .mono{align-self:flex-start}
+.marcas .logos{margin-top:clamp(60px,8vw,120px)!important}
+/* teléfono: cada sección con su respiro */
+@media (max-width:760px){
+  .marcas{padding-block:96px 90px!important}
+  .trabajo-sel{padding-top:80px!important}
+  .reel-banda{margin-bottom:0}
+  .verticales{padding-top:90px!important}
+  .ob{width:118px}
+  .ob span{font-size:12px}
+  .contacto .contacto-acciones{gap:14px}
+  .f-nom{transition:color .35s}
+  .f-medio{animation:flota 5s ease-in-out infinite alternate}
+  .fila:nth-child(even) .f-medio{animation-delay:-2.5s}
+}
+@keyframes flota{from{transform:rotate(-4deg) translateY(0)}to{transform:rotate(2deg) translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.f-medio{animation:none}}
+/* chats que fluyen */
+.chat{justify-content:flex-end}
+.burbuja{max-height:0;padding-block:0!important;margin:0;opacity:0;transform:translateY(10px) scale(.97);transition:max-height .45s cubic-bezier(.2,.8,.2,1),padding .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease .1s,transform .45s cubic-bezier(.2,.8,.2,1)!important;overflow:hidden}
+.burbuja.ver{max-height:160px;padding-block:9px!important;opacity:1;transform:none}
+.burbuja.escribe{display:inline-flex;gap:4px;align-items:center;width:max-content}
+.burbuja.escribe i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45;animation:punto 1s ease-in-out infinite}
+.burbuja.escribe i:nth-child(2){animation-delay:.15s}.burbuja.escribe i:nth-child(3){animation-delay:.3s}
+@keyframes punto{0%,60%,100%{transform:none;opacity:.35}30%{transform:translateY(-3px);opacity:.9}}
 @media (prefers-reduced-motion:reduce){
   .cinta>span,.pin .halo{animation:none}
   .auto-d,.auto-i,.tinta-in{opacity:1!important;animation:none!important}
@@ -977,7 +1019,7 @@ img{display:block;max-width:100%}
         <h2 class="gigante">
           <span class="ln"><span class="pal-res">Resultados</span></span>
           <span class="ln"><span class="serif escribe" style="--d:.05s">de negocio,</span></span>
-          <span class="ln der">no solo</span>
+          <span class="ln der frase2">no solo</span>
           <span class="ln der"><span class="serif escribe" style="--d:.2s">piezas</span> bonitas.</span>
         </h2>
         <p class="remate-azul serif"><span>Un video bonito que no vende es un gasto.</span></p>
@@ -1264,7 +1306,7 @@ img{display:block;max-width:100%}
       spriteT = document.createElement("canvas"); var s = spr * dpr; spriteT.width = Math.ceil(s); spriteT.height = Math.ceil(s * tintaImg.naturalHeight / tintaImg.naturalWidth);
       spriteT.getContext("2d").drawImage(tintaImg, 0, 0, spriteT.width, spriteT.height);
     }
-    function medir(){ var r = caja.getBoundingClientRect(); dpr = ligero ? 1 : Math.min(devicePixelRatio || 1, 1.5); w = r.width; h = r.height; lz.width = Math.round(w * dpr); lz.height = Math.round(h * dpr); hacerSprite(); hacerTinta(); }
+    function medir(){ var r = caja.getBoundingClientRect(); dpr = Math.min(devicePixelRatio || 1, ligero ? 2.5 : 1.75); w = r.width; h = r.height; spr = w < 640 ? 30 : 72; lz.width = Math.round(w * dpr); lz.height = Math.round(h * dpr); hacerSprite(); hacerTinta(); }
     function sembrar(){
       // reparto en rejilla con desorden: sin huecos ni montones
       var tam = w < 640 ? 20 : 42, n = ligero ? 120 : 200, ancho = w + 200, alto = h * .92, cols = Math.max(4, Math.round(Math.sqrt(n * ancho / alto))), filas = Math.ceil(n / cols);
@@ -1315,7 +1357,7 @@ img{display:block;max-width:100%}
     function cuadro(t){
       var dt = ult ? Math.min(50, t - ult) / 16.67 : 1; ult = t;
       avanzarCarga(t);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h); ctx.imageSmoothingQuality = "high";
       var empuje = sal * w * 1.1, alfa = 1 - sal * .9, negraDibujada = false, calma = J.estado !== "intro";
       medirLetras();
       for (var lq = 0; lq < letras.length; lq++) {
@@ -1641,6 +1683,10 @@ img{display:block;max-width:100%}
     }); });
     pintar();
     visible(ul, function(v){ if (v && !visto) { visto = true; mostrar(); } }, .25);
+    if (!reducido) registrar($("#trabajo"), function(){
+      var r = ul.getBoundingClientRect(), H = innerHeight, p = cl((H - r.top) / (H + r.height), 0, 1);
+      [].forEach.call(ul.querySelectorAll(".f-nom"), function(n, k){ var dir = k % 2 ? 1 : -1; n.style.translate = ((p - .5) * dir * (innerWidth < 760 ? 34 : 70)).toFixed(1) + "px 0"; });
+    });
     BSS.alCambiarIdioma(function(){ pintar(); });
   })();
 
@@ -1686,15 +1732,19 @@ img{display:block;max-width:100%}
       function limpiar(){ tm.forEach(clearTimeout); tm = []; }
       function correr(){
         limpiar(); sello.classList.remove("ver"); chat.innerHTML = "";
-        var e = ESC[turno % ESC.length]; turno++;
-        e.forEach(function(m, k){
-          tm.push(setTimeout(function(){
-            var b = document.createElement("span"); b.className = "burbuja " + (m[0] === "c" ? "cli" : "marca"); b.textContent = idioma === "en" ? m[2] : m[1];
-            chat.appendChild(b); b.getBoundingClientRect(); b.classList.add("ver");
-          }, reducido ? 0 : 400 + k * 1000));
+        var e = ESC[turno % ESC.length], t = 600; turno++;
+        function burbuja(clase, texto){ var b = document.createElement("span"); b.className = "burbuja " + clase; if (texto) b.textContent = texto; else b.innerHTML = "<i></i><i></i><i></i>"; chat.appendChild(b); b.getBoundingClientRect(); b.classList.add("ver"); return b; }
+        if (reducido) { e.forEach(function(m){ burbuja(m[0] === "c" ? "cli" : "marca", idioma === "en" ? m[2] : m[1]); }); sello.classList.add("ver"); return; }
+        // como en un chat de verdad: cada quien escribe, se ve el "escribiendo…" y luego llega el mensaje
+        e.forEach(function(m){
+          var clase = m[0] === "c" ? "cli" : "marca", texto = idioma === "en" ? m[2] : m[1], escribe = 700 + Math.min(1400, texto.length * 28), punt = null;
+          tm.push(setTimeout(function(){ punt = burbuja(clase + " escribe", ""); }, t));
+          t += escribe;
+          tm.push(setTimeout(function(){ if (punt) punt.remove(); burbuja(clase, texto); }, t));
+          t += 900;
         });
-        tm.push(setTimeout(function(){ sello.classList.add("ver"); }, reducido ? 0 : 400 + e.length * 1000 + 200));
-        if (!reducido) tm.push(setTimeout(correr, 400 + e.length * 1000 + 3400));
+        tm.push(setTimeout(function(){ sello.classList.add("ver"); }, t + 200));
+        tm.push(setTimeout(correr, t + 4200));
       }
       visible(compren, function(on){ if (on) { compren.classList.add("ya"); correr(); } else limpiar(); }, .45);
     })();
