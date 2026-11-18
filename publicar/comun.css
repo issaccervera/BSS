@@ -2,11 +2,11 @@
 
 /* ---------- Enlaces resaltados: texto con un trazo azul que se dibuja y respira; así se ve que se puede tocar ---------- */
 .boton{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:.45em;padding:.12em .08em;color:var(--tinta,#0B0B0A);text-decoration:none;font-family:var(--f-disp);font-weight:750;font-size:clamp(18px,1.55vw,24px);line-height:1.15;cursor:pointer;transition:color .3s ease}
-.boton::before{content:"";position:absolute;left:-.22em;right:-.22em;bottom:.06em;height:.36em;z-index:-1;background:var(--klein-claro,#2E5BFF);border-radius:2px;transform:skewX(-14deg) scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.65,0,.25,1),height .35s cubic-bezier(.2,.8,.2,1)}
+.boton::before{content:"";position:absolute;left:-.12em;right:-.12em;bottom:-.16em;height:.2em;z-index:-1;background:var(--klein-claro,#2E5BFF);border-radius:2px;transform:skewX(-14deg) scaleX(0);transform-origin:right;transition:transform .8s cubic-bezier(.65,0,.25,1),height .35s cubic-bezier(.2,.8,.2,1)}
 .boton.ya::before{transform:skewX(-14deg) scaleX(1);animation:respira 3.6s ease-in-out 1.2s infinite}
-.boton:hover::before,.boton:focus-visible::before{height:calc(100% - .06em);animation:none;transform:skewX(-14deg) scaleX(1)}
+.boton:hover::before,.boton:focus-visible::before{bottom:-.08em;height:calc(100% + .16em);animation:none;transform:skewX(-14deg) scaleX(1)}
 .boton:hover,.boton:focus-visible{color:#fff}
-@keyframes respira{0%,72%,100%{height:.36em}82%{height:.6em}}
+@keyframes respira{0%,72%,100%{height:.2em}82%{height:.3em}}
 .boton.fantasma,.boton.klein{color:var(--papel,#F4F4F2)}
 @media (prefers-reduced-motion:reduce){.boton::before{transform:skewX(-14deg) scaleX(1);transition:height .2s;animation:none}}
 
@@ -104,3 +104,7 @@ html.lenis,html.lenis body{height:auto}
 
 /* enlaces vecinos: que sus trazos no se toquen */
 .boton+.boton{margin-left:clamp(10px,1.4vw,22px)}
+
+/* la S del logo gira en 3D, pero no existe hasta que el logo ya está a la vista */
+.firma-texto .sx{opacity:0!important;transition:transform 1.1s cubic-bezier(.7,0,.2,1),color .6s ease .5s,opacity .35s ease!important}
+.firma.ver .firma-texto .sx{opacity:1!important;transition-delay:0s,.5s,.6s!important}

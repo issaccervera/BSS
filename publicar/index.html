@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}</style>
 <script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta"}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Black Sheep Studioss</title>
@@ -481,7 +482,7 @@ img{display:block;max-width:100%}
 .pin.on .halo{stroke:var(--klein-claro)}
 .pin.on text{fill:var(--klein-claro)}
 .s-inv{display:inline-block;transition:transform 2.6s cubic-bezier(.45,0,.15,1) .6s,color 1s ease 1.6s}
-.persona.s-ya .s-inv{transform:rotateY(540deg);color:var(--klein)}
+.persona.s-ya .s-inv,.titulo-negras.s-ya .s-inv{transform:rotateY(540deg);color:var(--klein)}
 .mapa-lista{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px}
 .mapa-lista button{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9a9a95;padding:4px 0;border-bottom:1.5px solid transparent}
 .mapa-lista button.on{color:var(--klein-claro);border-color:var(--klein-claro)}
@@ -619,8 +620,8 @@ img{display:block;max-width:100%}
 .reel-banda::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6));z-index:1;pointer-events:none}
 .reel-txt{position:absolute;left:var(--lado);right:var(--lado-d);bottom:clamp(24px,5vw,64px);z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .reel-txt .gigante{font-size:clamp(72px,15vw,250px)}
-.reel-banda:hover .reel-ver::before,.reel-banda:focus-visible .reel-ver::before{transform:scaleX(-1) translateY(-7%) rotate(6deg);background:var(--klein)}
-.reel-banda:hover .reel-ver,.reel-banda:focus-visible .reel-ver{color:#fff}
+.reel-banda:hover .reel-ver::before,.reel-banda:focus-visible .reel-ver::before{bottom:-.08em;height:calc(100% + .16em);animation:none}
+.reel-ver.boton{font-size:clamp(20px,1.9vw,28px)}
 /* marcas */
 .marcas{padding-block:clamp(72px,9vw,130px);border-bottom:1.5px solid var(--tinta)}
 .marcas-cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap}
@@ -872,6 +873,56 @@ img{display:block;max-width:100%}
 .servicios-corto>.env{width:100%}
 .trabajo-pie,.serv-botones,.vert-ig{gap:clamp(22px,3vw,44px)}
 @media (max-width:760px){.trabajo-sel,.servicios-corto,.marcas{min-height:auto}.fisica{height:max(92svh,600px)}}
+/* ---------- v27: manifiesto con aire; la tinta se ve llegar ---------- */
+.portada .ln{opacity:1!important;transform:none!important}
+.manifiesto-uno{transition:color .7s ease}
+.manifiesto-uno .portada{height:240vh}
+.portada h2{display:flex;flex-direction:column;gap:clamp(12px,2vw,34px)}
+.portada .ln{line-height:.95}
+.mf-titulo{font-size:clamp(46px,6.4vw,110px);line-height:.92}
+.mf-titulo .serif{color:var(--klein-claro)}
+.manifiesto-uno .manifiesto{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,7vw,140px);align-items:end;min-height:72svh;padding-block:clamp(60px,8vw,120px) clamp(110px,12vw,180px)}
+.manifiesto-uno .manifiesto-texto{max-width:40ch;padding-bottom:.4em}
+.manifiesto-uno .manifiesto-texto p{font-size:clamp(18px,1.6vw,23px);line-height:1.6}
+@media (max-width:760px){
+  .manifiesto-uno .portada{height:210svh}
+  .portada h2{gap:clamp(18px,5vh,46px);font-size:clamp(48px,14vw,76px)}
+  .manifiesto-uno .manifiesto{grid-template-columns:minmax(0,1fr);gap:36px;min-height:auto;align-items:start;padding-block:40px 110px}
+  .mf-titulo{font-size:clamp(46px,13vw,64px)}
+}
+/* ---------- v27 ---------- */
+.marcas{min-height:auto!important;padding-block:clamp(110px,12vw,180px) clamp(40px,5vw,70px)!important}
+.trabajo-sel{min-height:auto!important;padding-top:clamp(50px,6vw,90px)!important}
+@media (min-width:761px){.fila a{grid-template-columns:minmax(0,1fr)!important}}
+.escena-chat{position:relative}
+.chat{overflow:hidden}
+.escena-chat .sello{z-index:2}
+/* ---------- v27b: el título se invierte donde pasa la tinta ---------- */
+.manifiesto-uno,.manifiesto-uno.oscuro{background:var(--papel)}
+.ligero .manifiesto-uno.oscuro{background:var(--tinta)}
+.manifiesto-uno .portada-fija{mix-blend-mode:difference}
+.manifiesto-uno .portada h2,.manifiesto-uno .portada h2 .serif{color:#fff}
+.manifiesto-uno .pal-res.azul{color:var(--klein-claro)}
+.manifiesto-uno .manifiesto{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+.manifiesto-uno .mf-titulo{font-size:clamp(40px,4.9vw,86px)}
+@media (max-width:760px){.manifiesto-uno .manifiesto{grid-template-columns:minmax(0,1fr)}.manifiesto-uno .mf-titulo{font-size:clamp(42px,12vw,60px)}}
+/* ---------- v28: cerrar como oveja; marcador en su sitio ---------- */
+.juego .botones{flex-wrap:wrap}
+.juego .ob.cerrar-j{--mira:-1}
+.juego .ob.cerrar-j{color:#8a8a84}
+.juego .ob.cerrar-j span{color:#fff}
+.juego.cerrado{opacity:1;pointer-events:auto}
+.rejugar{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);padding:6px 2px;border-bottom:1.5px solid var(--klein);cursor:pointer}
+.rejugar:hover{color:var(--klein)}
+.marcador{max-width:calc(100% - 2 * var(--lado) - 90px)}
+@media (max-width:760px){
+  .marcador{top:calc(env(safe-area-inset-top,0px) + 66px);font-size:9px;letter-spacing:.08em;line-height:1.5}
+  .marcador b{font-size:13px}
+  .juego .botones{gap:8px}
+  .juego .ob{width:clamp(96px,27vw,118px)}
+  .juego .botones{flex-wrap:nowrap}
+  .juego .ob span{font-size:11px}
+}
 @media (prefers-reduced-motion:reduce){
   .cinta>span,.pin .halo{animation:none}
   .auto-d,.auto-i,.tinta-in{opacity:1!important;animation:none!important}
@@ -915,7 +966,6 @@ img{display:block;max-width:100%}
     <span class="l2" id="l2"><span class="auto-i" style="--d:1.05s">Nosotro<span class="s2">s</span> no.</span></span>
   </h1>
   <div class="juego mono" id="juego" aria-live="polite"></div>
-  <button type="button" class="salir-juego mono" id="salirJuego" hidden>Cerrar juego ✕</button>
 </section>
 
 <!-- Manifiesto: la frase eje y la promesa, todo sobre la tinta -->
@@ -935,10 +985,7 @@ img{display:block;max-width:100%}
     </div>
   </div>
   <div class="env manifiesto aparece">
-    <div class="mf-izq">
-      <p class="promesa">Primero, el número. <span class="serif">Luego, la cámara.</span></p>
-      <div class="embudo" id="embudo" aria-hidden="true"><i class="em-linea"></i><span>Mensajes</span><span>Citas</span><span>Reservas</span><span>Ventas</span><b class="em-oveja"></b></div>
-    </div>
+    <h2 class="gigante mf-titulo">Creatividad<br><span class="serif">con</span> calculadora.</h2>
     <div class="manifiesto-texto"><p>Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.</p></div>
   </div>
 </section>
@@ -955,7 +1002,7 @@ img{display:block;max-width:100%}
 <!-- Reel -->
 <a class="reel-banda" id="reel" href="https://youtu.be/5V4N6tu1d54" target="_blank" rel="noopener" data-medir="reel_clic" aria-label="Ver el reel completo en YouTube">
   <video muted loop playsinline preload="none" data-poster="vid/reel.jpg" src="vid/reel.mp4"></video>
-  <span class="reel-txt"><span class="gigante">Reel</span><span class="reel-ver boton fantasma"><span>Ver reel ↗</span></span></span>
+  <span class="reel-txt"><span class="gigante">Reel</span><span class="reel-ver boton fantasma"><span>Ver +</span></span></span>
 </a>
 
 <!-- Marcas -->
@@ -985,8 +1032,8 @@ img{display:block;max-width:100%}
     <div class="trabajo-cab">
       <h2 class="gigante">Trabajo<span class="serif">.</span></h2>
       <div class="grupos" role="tablist" aria-label="Recorrer el trabajo">
-        <button type="button" role="tab" aria-selected="true" data-g="tipos"><svg class="g-ico" viewBox="0 0 46 24" aria-hidden="true"><rect x="1" y="5" width="13" height="14" rx="1.5"/><path class="lleno" d="M5.5 9l5 3-5 3z"/><rect x="17" y="5" width="12" height="14" rx="1.5"/><path d="M17 8.5h12"/><rect x="32" y="2" width="13" height="20" rx="1.5"/><path d="M35 15h7M35 18h4"/></svg><span class="serif">por</span> <span>tipo de proyecto</span></button>
-        <button type="button" role="tab" aria-selected="false" data-g="sectores"><svg class="g-ico" viewBox="0 0 46 24" aria-hidden="true"><path d="M2 22V7l6-4 6 4v15M5.5 10h1M9.5 10h1M5.5 14h1M9.5 14h1M5.5 18h1M9.5 18h1"/><path d="M23 20.5s-6.5-4.2-6.5-8.6a3.4 3.4 0 0 1 6.5-1.6 3.4 3.4 0 0 1 6.5 1.6c0 4.4-6.5 8.6-6.5 8.6z"/><path d="M33 7h10v6a5 5 0 0 1-10 0zM38 18v3M35 21.5h6"/></svg><span class="serif">por</span> <span>vertical</span></button>
+        <button type="button" role="tab" aria-selected="true" data-g="tipos"><span class="serif">por</span> <span>tipo de proyecto</span></button>
+        <button type="button" role="tab" aria-selected="false" data-g="sectores"><span class="serif">por</span> <span>vertical</span></button>
       </div>
     </div>
     <ul class="indice" id="indice" role="tabpanel"></ul>
@@ -1010,20 +1057,14 @@ img{display:block;max-width:100%}
       <a class="demo" id="demoVean" href="servicios.html#contenido">
         <span class="gigante sv">te vean.</span>
         <span class="escena escena-vean" aria-hidden="true">
-          <span class="movil"><video muted loop playsinline preload="none" data-poster="vid/v-crepe.jpg" src="vid/v-crepe.mp4"></video><span class="vistas mono"><b>0</b> <i>vistas</i></span><span class="corazones"></span></span>
+          <span class="movil"><video muted loop playsinline preload="none" data-poster="vid/v-tigre.jpg" src="vid/v-tigre.mp4"></video><span class="vistas mono"><b>0</b> <i>vistas</i></span><span class="corazones"></span></span>
         </span>
         <span class="mono demo-et">Contenido</span>
         <span class="demo-tx">Video, foto y redes con un objetivo medible, no con un calendario.</span>
       </a>
       <a class="demo" id="demoCompren" href="servicios.html#ventas">
         <span class="gigante sv">te compren.</span>
-        <span class="escena escena-chat" aria-hidden="true"><span class="chat">
-          <span class="burbuja cli">Vi su reel tres veces. ¿Eso es normal?</span>
-          <span class="burbuja marca">Totalmente. Pasa en las mejores familias.</span>
-          <span class="burbuja cli">¿Me apartan mesa para el sábado?</span>
-          <span class="burbuja marca">Hecho: mesa para 4 a las 9. Te esperamos.</span>
-          <span class="sello"><i></i>Salió del rebaño</span>
-        </span></span>
+        <span class="escena escena-chat" aria-hidden="true"><span class="chat" id="chat"></span><span class="sello"><i></i>Salió del rebaño</span></span>
         <span class="mono demo-et">Ventas</span>
         <span class="demo-tx">Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.</span>
       </a>
@@ -1045,7 +1086,7 @@ img{display:block;max-width:100%}
 <!-- Estudio -->
 <section class="seccion estudio" id="estudio">
   <div class="env">
-    <h2 class="gigante">Dos ovejas negras. <span class="serif" id="redTitulo">Una red en cuatro países.</span></h2>
+    <h2 class="gigante titulo-negras">Dos ovejas negra<span class="s-inv">s</span>.</h2>
     <div class="personas">
       <article class="persona izq cara">
         <div class="persona-foto"><img class="real" src="img/gema.webp" alt="Gema Solis con los brazos cruzados" loading="lazy"></div>
@@ -1141,8 +1182,8 @@ img{display:block;max-width:100%}
   /* ---------- Datos de relleno: se reemplazan con los proyectos reales ---------- */
   // dos tiras sin repetir: 18 videos distintos
   var VERTICALES = [
-    ["vid/v-crepe.mp4", "La Crêpe · La Isla"], ["vid/v-podimo.mp4", "Podimo · Podcast"], ["vid/v-reel.mp4", "Black Sheep · Reel"], ["vid/v-kink.mp4", "Kink Social Club"], ["vid/v-bimba.mp4", "Bimba y Lola"], ["vid/v-spook.mp4", "Spook Club"], ["vid/v-innvictus.mp4", "Innvictus · Reto"], ["vid/v-carma.mp4", "Carma"], ["vid/v-chirey.mp4", "Chirey"],
-    ["vid/v-sephora.mp4", "Sephora · La Isla"], ["vid/v-monegros.mp4", "Monegros Festival"], ["vid/v-moshi.mp4", "Moshi Moshi · La Isla"], ["vid/v-brother-3.mp4", "B.Plus · Brother × Spook"], ["vid/v-timhortons.mp4", "Tim Hortons"], ["vid/v-buenfin.mp4", "Buen Fin"], ["vid/v-tigre.mp4", "Tigre Blanco"], ["vid/v-brother-1.mp4", "Brother · Reel"], ["vid/v-brother-2.mp4", "Brother · Clase"]
+    ["vid/v-crepe.mp4", "La Crêpe"], ["vid/v-podimo.mp4", "Podimo · Podcast"], ["vid/v-reel.mp4", "Black Sheep · Reel"], ["vid/v-kink.mp4", "Kink Social Club"], ["vid/v-bimba.mp4", "Bimba y Lola"], ["vid/v-spook.mp4", "Spook Club"], ["vid/v-innvictus.mp4", "Innvictus · Reto"], ["vid/v-carma.mp4", "Carnal Steakhouse"], ["vid/v-chirey.mp4", "Chirey"],
+    ["vid/v-sephora.mp4", "Sephora"], ["vid/v-monegros.mp4", "Monegros Festival"], ["vid/v-moshi.mp4", "Moshi Moshi"], ["vid/v-brother-3.mp4", "B.Plus · Brother × Spook"], ["vid/v-timhortons.mp4", "Tim Hortons"], ["vid/v-buenfin.mp4", "La Isla"], ["vid/v-tigre.mp4", "Tigre Blanco"], ["vid/v-brother-1.mp4", "Brother · Reel"], ["vid/v-brother-2.mp4", "Brother · Clase"]
   ];
   /* ---------- Rebaño ---------- */
   (function(){
@@ -1226,7 +1267,7 @@ img{display:block;max-width:100%}
     function medir(){ var r = caja.getBoundingClientRect(); dpr = ligero ? 1 : Math.min(devicePixelRatio || 1, 1.5); w = r.width; h = r.height; lz.width = Math.round(w * dpr); lz.height = Math.round(h * dpr); hacerSprite(); hacerTinta(); }
     function sembrar(){
       // reparto en rejilla con desorden: sin huecos ni montones
-      var tam = w < 640 ? 30 : 42, n = ligero ? 110 : 200, ancho = w + 200, alto = h * .92, cols = Math.max(4, Math.round(Math.sqrt(n * ancho / alto))), filas = Math.ceil(n / cols);
+      var tam = w < 640 ? 20 : 42, n = ligero ? 120 : 200, ancho = w + 200, alto = h * .92, cols = Math.max(4, Math.round(Math.sqrt(n * ancho / alto))), filas = Math.ceil(n / cols);
       ovejas = [];
       for (var i = 0; i < n; i++) {
         var cx = i % cols, cy = Math.floor(i / cols);
@@ -1330,15 +1371,15 @@ img{display:block;max-width:100%}
     }
     function arrancar(){ if (!corre && ve && !reducido) { corre = true; requestAnimationFrame(cuadro); } }
     function seg(ms){ return String(Math.max(0, Math.ceil(ms / 1000))); }
-    var tactil = ("ontouchstart" in window) || (navigator.maxTouchPoints || 0) > 0, salir = $("#salirJuego");
-    function ponerSalir(){ salir.hidden = false; salir.textContent = J.estado === "cerrado" ? L("Jugar otra vez ↺", "Play again ↺") : L("Cerrar juego ✕", "Close game ✕"); }
-    salir.addEventListener("click", function(e){
-      e.stopPropagation();
-      if (J.estado === "cerrado") { otraVez(); ponerSalir(); return; }
+    var tactil = ("ontouchstart" in window) || (navigator.maxTouchPoints || 0) > 0;
+    function cerrarJuego(){
       ovejas.forEach(function(o){ o.volteo = 0; }); J.estado = "cerrado"; J.volteadas = 0;
-      juego.classList.remove("fin", "pista", "ver"); juego.textContent = ""; caja.classList.remove("fin-juego"); ponerSalir();
+      caja.classList.remove("fin-juego"); juego.classList.remove("fin", "pista"); juego.classList.add("ver", "cerrado");
+      juego.innerHTML = '<button type="button" class="rejugar"></button>';
+      var b = juego.querySelector("button"); b.textContent = L("Jugar otra vez ↺", "Play again ↺");
+      b.addEventListener("click", function(e){ e.stopPropagation(); juego.classList.remove("cerrado"); otraVez(); });
       if (window.BSS) BSS.medir("juego_cerrar");
-    });
+    }
     function pista(){
       juego.textContent = !tactil ? L("Haz clic en el rebaño para convertirlo · 10 s", "Click the herd to convert it · 10 s") : L("Toca el rebaño para convertirlo · 10 s", "Tap the herd to convert it · 10 s");
       juego.classList.add("ver", "pista");
@@ -1365,7 +1406,8 @@ img{display:block;max-width:100%}
     ];
     var marcador = $("#marcador"), REG = {rondas: 0, mejor: 0, total: 0, frase: Math.floor(Math.random() * 10)};
     try { var g = JSON.parse(localStorage.getItem("bss-rebano") || "null"); if (g && g.rondas) { REG = g; if (REG.frase === undefined) REG.frase = REG.rondas; } } catch (e) {}
-    function jugoSesion(){ try { return sessionStorage.getItem("bss-jugo") === "1"; } catch (e) { return false; } }
+    var jugoAqui = false;
+    function jugoSesion(){ return jugoAqui; }
     function pintarMarcador(){
       if (!REG.rondas || !jugoSesion()) return;
       marcador.innerHTML = "<b></b>"; marcador.querySelector("b").textContent = REG.mejor;
@@ -1377,7 +1419,7 @@ img{display:block;max-width:100%}
       if (J.estado !== "juego") return; J.estado = "fin"; if (window.BSS) BSS.medir("juego_fin", {convertidas: J.volteadas});
       var n = J.volteadas, tasa = (n / ovejas.length * 100).toFixed(1).replace(".", L(",", "."));
       REG.rondas++; REG.total += n; REG.mejor = Math.max(REG.mejor, n);
-      try { localStorage.setItem("bss-rebano", JSON.stringify(REG)); sessionStorage.setItem("bss-jugo", "1"); } catch (e) {}
+      try { localStorage.setItem("bss-rebano", JSON.stringify(REG)); } catch (e) {} jugoAqui = true;
       pintarMarcador();
       // situación y remate: cada partida toca uno distinto (con 0 y 1 hay frases propias)
       var par;
@@ -1388,11 +1430,12 @@ img{display:block;max-width:100%}
       try { localStorage.setItem("bss-rebano", JSON.stringify(REG)); } catch (e) {}
       var cab = llena(L(par[0], par[2])), remate = llena(L(par[1], par[3]));
       var msg = L("Hola, Black Sheep. Convertí " + n + " ovejas en su web. Ahora quiero convertir clientes.", "Hi Black Sheep. I converted " + n + " sheep on your website. Now I want to convert clients.");
-      juego.innerHTML = '<b></b><span class="sf"></span><span class="tasa mono"></span><div class="botones"><a class="ob klein" target="_blank" rel="noopener"><span></span></a><button type="button" class="ob ronda"><span></span></button></div>';
+      juego.innerHTML = '<b></b><span class="sf"></span><span class="tasa mono"></span><div class="botones"><a class="ob klein" target="_blank" rel="noopener"><span></span></a><button type="button" class="ob ronda"><span></span></button><button type="button" class="ob claro cerrar-j"><span></span></button></div>';
       juego.querySelector("b").textContent = cab; juego.querySelector(".sf").textContent = remate;
       juego.querySelector(".tasa").textContent = cab.indexOf("%") >= 0 ? "" : L("Tasa de conversión ", "Conversion rate ") + tasa + " %";
       var wa = juego.querySelector("a"); wa.href = "https://wa.me/529999046145?text=" + encodeURIComponent(msg); wa.querySelector("span").textContent = L("Convierte mis clientes", "Convert my clients");
-      var ot = juego.querySelector("button"); ot.querySelector("span").textContent = L("Otra ronda", "Another round"); ot.addEventListener("click", otraVez);
+      var ot = juego.querySelector("button.ronda"); ot.querySelector("span").textContent = L("Otra ronda", "Another round"); ot.addEventListener("click", otraVez);
+      var cj = juego.querySelector("button.cerrar-j"); cj.querySelector("span").textContent = L("Cerrar juego", "Close game"); cj.addEventListener("click", cerrarJuego);
       juego.classList.remove("pista"); juego.classList.add("fin"); caja.classList.add("fin-juego");
     }
     function otraVez(){
@@ -1401,9 +1444,9 @@ img{display:block;max-width:100%}
     }
     // un clic o un toque deja caer tinta: todas las ovejas blancas que alcanza se voltean (no hace falta atinarle a una)
     caja.addEventListener("pointerdown", function(e){
-      if ((J.estado !== "lista" && J.estado !== "juego") || reducido || e.target.closest(".juego,.salir-juego")) return;
+      if ((J.estado !== "lista" && J.estado !== "juego") || reducido || e.target.closest(".juego")) return;
       var r = caja.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top, R = w < 640 ? 74 : 100, n = 0;
-      if (J.estado === "lista") { J.estado = "juego"; J.t0 = performance.now(); J.volteadas = 0; juego.classList.remove("pista"); ponerSalir(); if (window.BSS) BSS.medir("juego_inicio"); }
+      if (J.estado === "lista") { J.estado = "juego"; J.t0 = performance.now(); J.volteadas = 0; juego.classList.remove("pista"); if (window.BSS) BSS.medir("juego_inicio"); }
       manchas.push({x: px, y: py, R: R, t0: performance.now(), g: Math.random() * 6.3});
       for (var i = 0; i < ovejas.length; i++) {
         var o = ovejas[i]; if (o.volteo || o.cx === undefined) continue;
@@ -1426,29 +1469,17 @@ img{display:block;max-width:100%}
     });
   })();
 
-  /* ---------- Manifiesto: cada línea entra frenando al ritmo del scroll; "Resultados" se pone azul y aparece el remate ---------- */
+  /* ---------- Manifiesto: el título ya está; la cursiva se escribe; la tinta lo cubre mientras está fijo; luego el azul ---------- */
   (function(){
-    var sec = $("#portada"), lns = [].slice.call(sec.querySelectorAll(".ln")), res = sec.querySelector(".pal-res"), remate = sec.querySelector(".remate-azul");
-    function fr(t){ t = cl(t, 0, 1); var c = 1.25; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); }
+    var sec = $("#portada"), res = sec.querySelector(".pal-res"), remate = sec.querySelector(".remate-azul");
     registrar(sec, function(){
-      var r = sec.getBoundingClientRect(), H = innerHeight, p = reducido ? 1 : cl((H * .55 - r.top) / (r.height - H * .45), 0, 1);
-      lns.forEach(function(ln, k){
-        var a = k * .13, e = fr((p - a) / .2), dir = ln.classList.contains("der") ? 1 : -1, x = (1 - e) * dir * 46;
-        ln.style.transform = "translate3d(" + x.toFixed(2) + "vw,0,0) skewX(" + ((1 - e) * dir * -16).toFixed(2) + "deg)";
-        ln.style.opacity = cl((p - a) / .08, 0, 1).toFixed(2);
-      });
-      sec.classList.toggle("ya", p > .42);
-      res.classList.toggle("azul", p > .6);
-      remate.classList.toggle("ver", p > .72);
+      var r = sec.getBoundingClientRect(), H = innerHeight, q = reducido ? 1 : cl(-r.top / (r.height - H), 0, 1);
+      if (r.top < H * .45) sec.classList.add("ya");
+      res.classList.toggle("azul", q > .5);
+      remate.classList.toggle("ver", q > .62);
     });
   })();
 
-  /* ---------- Embudo: la oveja pasa de mensajes a ventas mientras se ve ---------- */
-  (function(){
-    var em = $("#embudo"), ps = [].slice.call(em.querySelectorAll("span")), ov = em.querySelector(".em-oveja"), k = -1, iv = 0;
-    function paso(){ k = (k + 1) % (ps.length + 1); if (k === ps.length) { ps.forEach(function(x){ x.classList.remove("on"); }); ov.style.left = "6px"; em.classList.remove("lleno"); return; } ps[k].classList.add("on"); ov.style.left = "calc(6px + (100% - 12px) * " + (k / (ps.length - 1)) + ")"; em.classList.toggle("lleno", k === ps.length - 1); }
-    visible(em, function(v){ clearInterval(iv); if (v) { if (reducido) { ps.forEach(function(x){ x.classList.add("on"); }); ov.style.left = "calc(100% - 6px)"; return; } paso(); iv = setInterval(paso, 1100); } }, .6);
-  })();
 
   /* ---------- Secciones que se manchan de tinta ---------- */
   (function(){
@@ -1460,7 +1491,7 @@ img{display:block;max-width:100%}
     });
     function pintarMancha(o){
       var H = innerHeight, r = o.sec.getBoundingClientRect();
-      var W = r.width, Hs = r.height, p = reducido ? 1 : cl((H * .95 - r.top) / (H * .7), 0, 1), e = 1 - Math.pow(1 - p, 2.2), cx = W * o.ox, cy = Math.min(Hs * .3, H * .5);
+      var W = r.width, Hs = r.height, p = reducido ? 1 : o.sec.id === "manifiesto" ? cl((H * .1 - r.top) / (H * .75), 0, 1) : cl((H * .95 - r.top) / (H * .7), 0, 1), e = 1 - Math.pow(1 - p, 2.2), cx = W * o.ox, cy = o.sec.id === "manifiesto" ? Math.max(0, -r.top) + H * .5 : Math.min(Hs * .3, H * .5);
       var max = Math.hypot(Math.max(cx, W - cx), Math.max(cy, Hs - cy)) * 1.12;
       if (!ligero) ponerMancha(o.im, cx, cy, max * e, e * 28);
       o.sec.classList.toggle("oscuro", p > .6); o.sec.style.setProperty("--ap", cl((p - .6) / .3, 0, 1).toFixed(2));
@@ -1579,7 +1610,7 @@ img{display:block;max-width:100%}
       (grupo === "tipos" ? BSS.TIPOS : BSS.SECTORES).forEach(function(t, i){
         var ps = BSS.porTipo(t.id); if (!ps.length) return;
         var li = document.createElement("li"); li.className = "fila"; li.style.setProperty("--i", i);
-        li.innerHTML = '<a href="trabajo.html#' + t.id + '"><span class="f-nom"></span><span class="f-ir" aria-hidden="true">→</span><span class="f-medio" aria-hidden="true"><img alt="" loading="lazy" decoding="async"></span></a>';
+        li.innerHTML = '<a href="trabajo.html#' + t.id + '"><span class="f-nom"></span><span class="f-medio" aria-hidden="true"><img alt="" loading="lazy" decoding="async"></span></a>';
         var a = li.firstChild; a._t = t; a._ps = ps;
         a.querySelector(".f-nom").textContent = nom(t);
         a.setAttribute("data-medir", "trabajo_tipo"); a.setAttribute("data-origen", t.id);
@@ -1617,7 +1648,6 @@ img{display:block;max-width:100%}
   (function(){
     var c = BSS.cifras(), caja = $("#redCifras");
     var PAL = ["cero", "una", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
-    $("#redTitulo").textContent = "Una red en " + (PAL[c.paises] || c.paises) + " países.";
     caja.innerHTML =
       '<div><b class="num" data-valor="' + c.desde + '" data-desde="1990">' + c.desde + '</b><span class="mono">desde</span></div>' +
       '<div><b class="num" data-valor="' + c.ciudades + '">' + c.ciudades + '</b><span class="mono">ciudades</span></div>' +
@@ -1644,15 +1674,27 @@ img{display:block;max-width:100%}
         iv2 = setInterval(function(){ var c = document.createElement("i"); c.className = "corazon"; c.style.setProperty("--dx", (-10 - Math.random() * 40) + "px"); cor.appendChild(c); setTimeout(function(){ c.remove(); }, 2300); }, 650);
       }, .45);
     })();
-    // te compren: la conversación avanza sola y termina en venta
+    // te compren: cuatro conversaciones que se turnan; todas terminan fuera del rebaño
     (function(){
-      var bs = [].slice.call(compren.querySelectorAll(".burbuja")), sello = compren.querySelector(".sello"), tm = [];
-      function limpiar(){ tm.forEach(clearTimeout); tm = []; bs.forEach(function(x){ x.classList.remove("ver"); }); sello.classList.remove("ver"); }
+      var chat = $("#chat"), sello = compren.querySelector(".sello"), tm = [], turno = 0;
+      var ESC = [
+        [["c", "Vi su reel tres veces. ¿Eso es normal?", "I watched your reel three times. Is that normal?"], ["m", "Totalmente. Pasa en las mejores familias.", "Totally. It happens in the best families."], ["c", "¿Me apartan mesa para el sábado?", "Can you save me a table for Saturday?"], ["m", "Hecho: mesa para 4 a las 9. Te esperamos.", "Done: table for 4 at 9. See you there."]],
+        [["c", "Vi el video del edificio. ¿Quedan depas con terraza?", "I saw the building video. Any flats with a terrace left?"], ["m", "Quedan dos. Uno da al atardecer.", "Two left. One faces the sunset."], ["c", "Ese. ¿Puedo verlo mañana?", "That one. Can I see it tomorrow?"], ["m", "Claro. ¿10 de la mañana o 5 de la tarde?", "Sure. 10 am or 5 pm?"], ["c", "5 pm.", "5 pm."], ["m", "Agendado. Trae a quien tenga que decir que sí.", "Booked. Bring whoever has to say yes."]],
+        [["c", "¿El bolso del reel sigue disponible?", "Is the bag from the reel still available?"], ["m", "Queda uno en negro. ¿Te lo guardo?", "One left in black. Shall I hold it?"], ["c", "Sí. Y la cartera también.", "Yes. And the wallet too."], ["m", "Guardados a tu nombre hasta las 9.", "Held under your name until 9."], ["c", "Voy volando.", "On my way."]],
+        [["c", "Me sentí muy identificada con su video del lunes.", "I felt so seen by your Monday video."], ["m", "Nos pasa a todos. ¿Empezamos este lunes de verdad?", "It happens to all of us. Shall we start for real this Monday?"], ["c", "Sí. ¿Tienen cita esta semana?", "Yes. Any appointments this week?"], ["m", "Jueves a las 6 con la nutrióloga.", "Thursday at 6 with the nutritionist."], ["c", "Perfecto, ahí estaré.", "Perfect, I'll be there."], ["m", "Te mandamos la ubicación. Sin regaños, prometido.", "Sending the location. No scolding, promise."]]
+      ];
+      function limpiar(){ tm.forEach(clearTimeout); tm = []; }
       function correr(){
-        limpiar();
-        bs.forEach(function(x, i){ tm.push(setTimeout(function(){ x.classList.add("ver"); }, reducido ? 0 : 500 + i * 1100)); });
-        tm.push(setTimeout(function(){ sello.classList.add("ver"); }, reducido ? 0 : 500 + bs.length * 1100 + 300));
-        if (!reducido) tm.push(setTimeout(correr, 500 + bs.length * 1100 + 3800));
+        limpiar(); sello.classList.remove("ver"); chat.innerHTML = "";
+        var e = ESC[turno % ESC.length]; turno++;
+        e.forEach(function(m, k){
+          tm.push(setTimeout(function(){
+            var b = document.createElement("span"); b.className = "burbuja " + (m[0] === "c" ? "cli" : "marca"); b.textContent = idioma === "en" ? m[2] : m[1];
+            chat.appendChild(b); b.getBoundingClientRect(); b.classList.add("ver");
+          }, reducido ? 0 : 400 + k * 1000));
+        });
+        tm.push(setTimeout(function(){ sello.classList.add("ver"); }, reducido ? 0 : 400 + e.length * 1000 + 200));
+        if (!reducido) tm.push(setTimeout(correr, 400 + e.length * 1000 + 3400));
       }
       visible(compren, function(on){ if (on) { compren.classList.add("ya"); correr(); } else limpiar(); }, .45);
     })();
@@ -1713,7 +1755,8 @@ img{display:block;max-width:100%}
 
   /* ---------- Firma: la S se voltea ---------- */
   var firmaTexto = $("#firmaTexto");
-  setTimeout(function(){ firmaTexto.classList.add("volteada"); }, reducido ? 0 : 1400);
+  // la S gira cuando el logo ya se ve, nunca antes
+  (function esperarFirma(){ if ($("#firma").classList.contains("ver")) setTimeout(function(){ firmaTexto.classList.add("volteada"); }, reducido ? 0 : 1100); else setTimeout(esperarFirma, 200); })();
   $("#firma").addEventListener("mouseenter", function(){ firmaTexto.classList.toggle("volteada"); });
 
   /* ---------- Cursor: mancha de tinta que gotea, dibujada solo en un recuadro pequeño y solo mientras se mueve ---------- */
@@ -1749,7 +1792,7 @@ img{display:block;max-width:100%}
     document.addEventListener("mouseenter", function(){ capaCursor.style.opacity = ""; });
   } else { $("#cursor").style.display = "none"; }
 
-  var EN = {"Más": "More", "Vi su reel tres veces. ¿Eso es normal?": "I watched your reel three times. Is that normal?", "Totalmente. Pasa en las mejores familias.": "Totally. It happens in the best families.", "¿Me apartan mesa para el sábado?": "Can you save me a table for Saturday?", "Hecho: mesa para 4 a las 9. Te esperamos.": "Done: table for 4 at 9. See you there.", "Salió del rebaño": "Left the herd", "Tu rebaño de clientes": "Your herd of clients", "Primero, el número.": "First, the number.", "Luego, la cámara.": "Then, the camera.", "Mensajes": "Messages", "Citas": "Appointments", "Reservas": "Bookings", "Cerrar juego ✕": "Close game ✕", "Jugar otra vez ↺": "Play again ↺", "Contenido": "Content", "Ventas": "Sales", "Consultoría": "Consulting", "vistas": "views", "Mes": "Month", "Hola, vi su reel. ¿Tienen lugar este sábado?": "Hi, I saw your reel. Any spots this Saturday?", "¡Hola! Nos quedan dos. ¿Te aparto uno?": "Hi! We have two left. Want me to save you one?", "Sí, apártamelo.": "Yes, save it for me.", "Listo. Te mando el enlace de pago.": "Done. Sending you the payment link.", "Vendido": "Sold", "Sal del rebaño": "Leave the herd", "Para la pantalla que más se mira.": "For the screen people look at most.", "por": "by", "tipo de proyecto": "type of project", "vertical": "industry", "proyecto": "project", "Recorrer el trabajo": "Browse the work", "escríbeno": "write to u", "Estudio creativo y asesoría comercial": "Creative studio and sales advisory", "Creatividad con calculadora.": "Creativity with a calculator.", "Un video bonito que no vende es un gasto. Si no es distinto y no vende, no sale de aquí.": "A pretty video that doesn't sell is an expense. If it isn't different and doesn't sell, it doesn't leave the studio.", "Detrás estamos Gema e Issac. Ella da la cara y piensa la estrategia; él está detrás de la cámara, del código y de los números.": "Behind it are Gema and Issac. She's the face and the strategy; he's behind the camera, the code and the numbers.", "Conócenos ↓": "Meet us ↓", "Ver reel": "Watch the reel", "Ver el reel completo en YouTube": "Watch the full reel on YouTube", "Marcas que ya salieron": "Brands that already left", "del rebaño.": "the herd.", "Y confiaron en nosotros": "And trusted us", "Marcas que ya salieron del rebaño": "Brands that already left the herd", "La promesa, con firma.": "The promise, signed.", "Ver todo el trabajo": "See all our work", "Ver más en Instagram": "More on Instagram", "Video, foto y redes con un objetivo medible, no con un calendario.": "Video, photo and social with a measurable goal, not a calendar.", "Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.": "Scripts, processes and training so your team closes what content opens.", "Un plan con números y alguien que lo revise contigo cada mes.": "A plan with numbers and someone to review it with you every month.", "Ver servicios": "See services", "Cómo trabajamos": "How we work", "La cara del estudio: marketing y clientes": "The face of the studio: marketing and clients", "El brazo técnico: producción y dirección": "The technical arm: production and direction", "Detrás de la cámara, del código y de los números.": "Behind the camera, the code and the numbers.", "años de experiencia comercial": "years of sales experience", "De Mérida a Copenhague": "From Mérida to Copenhagen", "Una red en tres países.": "A network in three countries.", "Una red en cinco países.": "A network in five countries.", "Una red en seis países.": "A network in six countries.", "Conoce el estudio": "Meet the studio", "Estudio": "Studio", "Escríbenos": "Write to us", "Páginas": "Pages", "Mapa con las ciudades donde hemos trabajado": "Map of the cities where we've worked", "Valladolid": "Valladolid", "Saliendo del rebaño": "Leaving the herd", "Todos van para allá.": "Everyone's going that way.", "Nosotro": "Not u", "no.": ".", "Resultados": "Business", "de negocio,": "results,", "no solo": "not just", "piezas": "pretty", "bonitas.": "pieces.", "Copenhague": "Copenhagen", "Tánger": "Tangier", "Copenhague.": "Copenhagen.", "Creatividad": "Creativity", "con": "with a", "calculadora.": "calculator.", "Un video bonito que no vende es un gasto.": "A pretty video that doesn't sell is an expense.", "Si no es distinto y no vende, no sale de aquí.": "If it isn't different and doesn't sell, it doesn't leave the studio.", "Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.": "Most agencies deliver pieces. We deliver sales. Before we turn on a camera, we define what has to happen in your business and which number we'll measure it with: messages, appointments, bookings or sales.", "Gema viene del marketing y vive dentro de las redes. Issac viene de vender más de un millón de euros al año. Juntos hacemos lo que pocas productoras saben hacer: contenido que se ve bien y además cierra. Publicamos, medimos y ajustamos hasta que funciona.": "Gema comes from marketing and lives inside social media. Issac comes from selling over a million euros a year. Together we do what few production companies can: content that looks good and also closes. We publish, measure and adjust until it works.", "Lo": "Pretty", "bonito": "things", "se": "fall", "cae.": "apart.", "El resultado": "The result", "se queda.": "stays.", "Carrusel": "Carousel", "Paleta": "Palette", "Filtro": "Filter", "Tipografía": "Typeface", "ventas": "sales", "Trabajo": "Work", "Marcas que dejaron de seguir al rebaño.": "Brands that stopped following the herd.", "Una web tan peligrosa como su escuela": "A website as dangerous as its school", "brother · escuela de creativos": "brother · school for creatives", "Escritorio": "Desktop", "Móvil": "Mobile", "2026 · Valencia · Diseño y desarrollo web": "2026 · Valencia · Web design and development", "Ver caso": "See case", "Veinte años de marca, en la misma onda": "Twenty years of brand, on the same wavelength", "2025 · México · Video corporativo": "2025 · Mexico · Corporate video", "Un día en las nubes, en horizontal y en vertical": "A day in the clouds, horizontal and vertical", "2023 · Dinamarca · Evento y contenido para redes": "2023 · Denmark · Event and social content", "Una taberna de leyenda, contada como una película": "A legendary tavern, told like a film", "2022 · Valladolid, Yucatán · Campaña de apertura": "2022 · Valladolid, Yucatán · Launch campaign", "Lo que hacemos, sin pausa": "What we do, non-stop", "Ver reel completo ↗": "Watch the full reel ↗", "Cada noche, un cartel que nadie olvida": "Every night, a poster no one forgets", "2025 · Valencia · Dirección de arte y carteles": "2025 · Valencia · Art direction and posters", "Belleza con integridad, a contraluz": "Beauty with integrity, backlit", "2023 · Cosmética natural · Video de producto": "2023 · Natural cosmetics · Product video", "En": "Gone", "vertical.": "vertical.", "Reels, historias y cierres. Para la pantalla que más se mira.": "Reels, stories and closers. For the screen people look at most.", "Innvictus · Reto": "Innvictus · Challenge", "Brother · Clase": "Brother · Class", "Brother · Cierre": "Brother · Wrap-up", "De Mérida": "From Mérida", "a": "to", "Hacemos que": "We make sure", "te vean.": "they see you.", "te compren.": "they buy.", "crezcas.": "you grow.", "Contenido": "Content", "Video y foto con dirección": "Directed video and photo", "Redes con estrategia, no con calendario": "Social with a strategy, not a calendar", "Campañas con un objetivo medible": "Campaigns with a measurable goal", "Producción de principio a fin": "Production from start to finish", "Ventas": "Sales", "Diagnóstico de cómo vendes hoy": "A diagnosis of how you sell today", "Guiones y procesos de venta": "Sales scripts and processes", "Formación de equipos": "Team training", "Materiales que el vendedor sí usa": "Materials salespeople actually use", "Consultoría": "Consulting", "Marca y negocio, juntos": "Brand and business, together", "Plan de crecimiento con números": "A growth plan with numbers", "Acompañamiento mes a mes": "Month-to-month support", "Dos ovejas negras.": "Two black sheep.", "Una red en cuatro países.": "A network in four countries.", "Marketing y relaciones públicas": "Marketing and public relations", "Mercadóloga titulada e influencer profesional.": "Certified marketer and professional influencer.", "Sé qué hacer para que alguien deje de hacer scroll.": "I know what makes someone stop scrolling.", "años en marketing": "years in marketing", "personas la siguen": "people follow her", "Producción y consultoría empresarial": "Production and business consulting", "Productor audiovisual y vendedor de carrera.": "Audiovisual producer and career salesman.", "El ojo de director y colmillo de vendedor.": "A director's eye and a salesman's instinct.", "años vendiendo": "years selling", "1,2M": "1.2M", "en ventas": "in sales", "desde": "since", "ciudades": "cities", "países": "countries", "proyectos": "projects", "Si quieres parecerte a los demás, hay muchas opciones.": "If you want to look like everyone else, there are plenty of options.", "Si no,": "If not,", "escríbenos.": "write to us.", "Correo": "Email", "Copiar número": "Copy number", "Copiar correo": "Copy email", "Respuesta": "Reply", "En menos de 24 h": "In under 24 h", "Cotización por proyecto": "Quoted per project", "Escanea y escríbenos": "Scan and message us", "Black Sheep Studioss · Mérida, México · © 2026": "Black Sheep Studioss · Mérida, Mexico · © 2026", "Aviso de privacidad": "Privacy notice", "Black Sheep Studioss (Mérida, Yucatán) es responsable de los datos que nos compartas por WhatsApp o correo: tu nombre y tus datos de contacto. Los usamos solo para responderte y preparar tu cotización. No los vendemos ni los compartimos con nadie.": "Black Sheep Studioss (Mérida, Yucatán) is responsible for the data you share with us by WhatsApp or email: your name and contact details. We only use them to reply and prepare your quote. We never sell or share them.", "Esta web no tiene formularios ni cookies de seguimiento.": "This website has no forms and no tracking cookies.", "Para consultar, corregir o borrar tus datos, escríbenos a blacksheepstudiosmid@gmail.com.": "To see, correct or delete your data, write to blacksheepstudiosmid@gmail.com.", "Cerrar": "Close", "Caso": "Case", "[Proyecto]": "[Project]", "[Frase con un dato]": "[A line with a data point]", "El reto": "The challenge", "[Qué le pasaba a la marca, en una o dos líneas.]": "[What was happening to the brand, in one or two lines.]", "Lo que hicimos": "What we did", "[3 a 5 acciones: estrategia, rodaje, contenido, pauta, proceso de venta.]": "[3 to 5 actions: strategy, shoot, content, ads, sales process.]", "Equipo": "Team", "[Black Sheep y colaboradores]": "[Black Sheep and collaborators]", "[El resultado de negocio, con su contexto]": "[The business result, in context]", "[Foto]": "[Photo]", "¿Ya te vas? La oveja negra se queda aquí.": "Leaving already? The black sheep stays here.", "Black Sheep Studioss, inicio": "Black Sheep Studioss, home", "Entrada": "Intro", "Resultados de negocio, no solo piezas bonitas": "Business results, not just pretty pieces", "Ciudades donde hemos trabajado": "Cities where we've worked", "Lo bonito se cae, el resultado se queda": "Pretty things fall apart, the result stays", "Carteles de Spook: siguiente": "Spook posters: next", "Contenido vertical": "Vertical content", "Mapa con las ocho ciudades donde hemos trabajado": "Map of the eight cities where we've worked", "Servicios": "Services", "Gema Solis con los brazos cruzados": "Gema Solis with her arms crossed", "Issac Asley de pie en un campo, a contraluz": "Issac Asley standing in a field, backlit", "Marcas con las que hemos trabajado": "Brands we've worked with", "Código QR para escribirnos por WhatsApp": "QR code to message us on WhatsApp", "Presentación comercial de Cactus": "Cactus sales presentation", "Cambiar idioma": "Change language"};
+  var EN = {"Más": "More", "Cerrar juego": "Close game", "Dos ovejas negra": "Black sheep, two of u", "Carnal Steakhouse": "Carnal Steakhouse", "Vi su reel tres veces. ¿Eso es normal?": "I watched your reel three times. Is that normal?", "Totalmente. Pasa en las mejores familias.": "Totally. It happens in the best families.", "¿Me apartan mesa para el sábado?": "Can you save me a table for Saturday?", "Hecho: mesa para 4 a las 9. Te esperamos.": "Done: table for 4 at 9. See you there.", "Salió del rebaño": "Left the herd", "Tu rebaño de clientes": "Your herd of clients", "Primero, el número.": "First, the number.", "Luego, la cámara.": "Then, the camera.", "Mensajes": "Messages", "Citas": "Appointments", "Reservas": "Bookings", "Cerrar juego ✕": "Close game ✕", "Jugar otra vez ↺": "Play again ↺", "Contenido": "Content", "Ventas": "Sales", "Consultoría": "Consulting", "vistas": "views", "Mes": "Month", "Hola, vi su reel. ¿Tienen lugar este sábado?": "Hi, I saw your reel. Any spots this Saturday?", "¡Hola! Nos quedan dos. ¿Te aparto uno?": "Hi! We have two left. Want me to save you one?", "Sí, apártamelo.": "Yes, save it for me.", "Listo. Te mando el enlace de pago.": "Done. Sending you the payment link.", "Vendido": "Sold", "Sal del rebaño": "Leave the herd", "Para la pantalla que más se mira.": "For the screen people look at most.", "por": "by", "tipo de proyecto": "type of project", "vertical": "industry", "proyecto": "project", "Recorrer el trabajo": "Browse the work", "escríbeno": "write to u", "Estudio creativo y asesoría comercial": "Creative studio and sales advisory", "Creatividad con calculadora.": "Creativity with a calculator.", "Un video bonito que no vende es un gasto. Si no es distinto y no vende, no sale de aquí.": "A pretty video that doesn't sell is an expense. If it isn't different and doesn't sell, it doesn't leave the studio.", "Detrás estamos Gema e Issac. Ella da la cara y piensa la estrategia; él está detrás de la cámara, del código y de los números.": "Behind it are Gema and Issac. She's the face and the strategy; he's behind the camera, the code and the numbers.", "Conócenos ↓": "Meet us ↓", "Ver reel": "Watch the reel", "Ver +": "Watch +", "Ver el reel completo en YouTube": "Watch the full reel on YouTube", "Marcas que ya salieron": "Brands that already left", "del rebaño.": "the herd.", "Y confiaron en nosotros": "And trusted us", "Marcas que ya salieron del rebaño": "Brands that already left the herd", "La promesa, con firma.": "The promise, signed.", "Ver todo el trabajo": "See all our work", "Ver más en Instagram": "More on Instagram", "Video, foto y redes con un objetivo medible, no con un calendario.": "Video, photo and social with a measurable goal, not a calendar.", "Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.": "Scripts, processes and training so your team closes what content opens.", "Un plan con números y alguien que lo revise contigo cada mes.": "A plan with numbers and someone to review it with you every month.", "Ver servicios": "See services", "Cómo trabajamos": "How we work", "La cara del estudio: marketing y clientes": "The face of the studio: marketing and clients", "El brazo técnico: producción y dirección": "The technical arm: production and direction", "Detrás de la cámara, del código y de los números.": "Behind the camera, the code and the numbers.", "años de experiencia comercial": "years of sales experience", "De Mérida a Copenhague": "From Mérida to Copenhagen", "Una red en tres países.": "A network in three countries.", "Una red en cinco países.": "A network in five countries.", "Una red en seis países.": "A network in six countries.", "Conoce el estudio": "Meet the studio", "Estudio": "Studio", "Escríbenos": "Write to us", "Páginas": "Pages", "Mapa con las ciudades donde hemos trabajado": "Map of the cities where we've worked", "Valladolid": "Valladolid", "Saliendo del rebaño": "Leaving the herd", "Todos van para allá.": "Everyone's going that way.", "Nosotro": "Not u", "no.": ".", "Resultados": "Business", "de negocio,": "results,", "no solo": "not just", "piezas": "pretty", "bonitas.": "pieces.", "Copenhague": "Copenhagen", "Tánger": "Tangier", "Copenhague.": "Copenhagen.", "Creatividad": "Creativity", "con": "with a", "calculadora.": "calculator.", "Un video bonito que no vende es un gasto.": "A pretty video that doesn't sell is an expense.", "Si no es distinto y no vende, no sale de aquí.": "If it isn't different and doesn't sell, it doesn't leave the studio.", "Casi todas las agencias entregan piezas. Nosotros entregamos ventas. Antes de encender una cámara definimos qué tiene que pasar en tu negocio y con qué número lo vamos a medir: mensajes, citas, reservas o ventas.": "Most agencies deliver pieces. We deliver sales. Before we turn on a camera, we define what has to happen in your business and which number we'll measure it with: messages, appointments, bookings or sales.", "Gema viene del marketing y vive dentro de las redes. Issac viene de vender más de un millón de euros al año. Juntos hacemos lo que pocas productoras saben hacer: contenido que se ve bien y además cierra. Publicamos, medimos y ajustamos hasta que funciona.": "Gema comes from marketing and lives inside social media. Issac comes from selling over a million euros a year. Together we do what few production companies can: content that looks good and also closes. We publish, measure and adjust until it works.", "Lo": "Pretty", "bonito": "things", "se": "fall", "cae.": "apart.", "El resultado": "The result", "se queda.": "stays.", "Carrusel": "Carousel", "Paleta": "Palette", "Filtro": "Filter", "Tipografía": "Typeface", "ventas": "sales", "Trabajo": "Work", "Marcas que dejaron de seguir al rebaño.": "Brands that stopped following the herd.", "Una web tan peligrosa como su escuela": "A website as dangerous as its school", "brother · escuela de creativos": "brother · school for creatives", "Escritorio": "Desktop", "Móvil": "Mobile", "2026 · Valencia · Diseño y desarrollo web": "2026 · Valencia · Web design and development", "Ver caso": "See case", "Veinte años de marca, en la misma onda": "Twenty years of brand, on the same wavelength", "2025 · México · Video corporativo": "2025 · Mexico · Corporate video", "Un día en las nubes, en horizontal y en vertical": "A day in the clouds, horizontal and vertical", "2023 · Dinamarca · Evento y contenido para redes": "2023 · Denmark · Event and social content", "Una taberna de leyenda, contada como una película": "A legendary tavern, told like a film", "2022 · Valladolid, Yucatán · Campaña de apertura": "2022 · Valladolid, Yucatán · Launch campaign", "Lo que hacemos, sin pausa": "What we do, non-stop", "Ver reel completo ↗": "Watch the full reel ↗", "Cada noche, un cartel que nadie olvida": "Every night, a poster no one forgets", "2025 · Valencia · Dirección de arte y carteles": "2025 · Valencia · Art direction and posters", "Belleza con integridad, a contraluz": "Beauty with integrity, backlit", "2023 · Cosmética natural · Video de producto": "2023 · Natural cosmetics · Product video", "En": "Gone", "vertical.": "vertical.", "Reels, historias y cierres. Para la pantalla que más se mira.": "Reels, stories and closers. For the screen people look at most.", "Innvictus · Reto": "Innvictus · Challenge", "Brother · Clase": "Brother · Class", "Brother · Cierre": "Brother · Wrap-up", "De Mérida": "From Mérida", "a": "to", "Hacemos que": "We make sure", "te vean.": "they see you.", "te compren.": "they buy.", "crezcas.": "you grow.", "Contenido": "Content", "Video y foto con dirección": "Directed video and photo", "Redes con estrategia, no con calendario": "Social with a strategy, not a calendar", "Campañas con un objetivo medible": "Campaigns with a measurable goal", "Producción de principio a fin": "Production from start to finish", "Ventas": "Sales", "Diagnóstico de cómo vendes hoy": "A diagnosis of how you sell today", "Guiones y procesos de venta": "Sales scripts and processes", "Formación de equipos": "Team training", "Materiales que el vendedor sí usa": "Materials salespeople actually use", "Consultoría": "Consulting", "Marca y negocio, juntos": "Brand and business, together", "Plan de crecimiento con números": "A growth plan with numbers", "Acompañamiento mes a mes": "Month-to-month support", "Dos ovejas negras.": "Two black sheep.", "Una red en cuatro países.": "A network in four countries.", "Marketing y relaciones públicas": "Marketing and public relations", "Mercadóloga titulada e influencer profesional.": "Certified marketer and professional influencer.", "Sé qué hacer para que alguien deje de hacer scroll.": "I know what makes someone stop scrolling.", "años en marketing": "years in marketing", "personas la siguen": "people follow her", "Producción y consultoría empresarial": "Production and business consulting", "Productor audiovisual y vendedor de carrera.": "Audiovisual producer and career salesman.", "El ojo de director y colmillo de vendedor.": "A director's eye and a salesman's instinct.", "años vendiendo": "years selling", "1,2M": "1.2M", "en ventas": "in sales", "desde": "since", "ciudades": "cities", "países": "countries", "proyectos": "projects", "Si quieres parecerte a los demás, hay muchas opciones.": "If you want to look like everyone else, there are plenty of options.", "Si no,": "If not,", "escríbenos.": "write to us.", "Correo": "Email", "Copiar número": "Copy number", "Copiar correo": "Copy email", "Respuesta": "Reply", "En menos de 24 h": "In under 24 h", "Cotización por proyecto": "Quoted per project", "Escanea y escríbenos": "Scan and message us", "Black Sheep Studioss · Mérida, México · © 2026": "Black Sheep Studioss · Mérida, Mexico · © 2026", "Aviso de privacidad": "Privacy notice", "Black Sheep Studioss (Mérida, Yucatán) es responsable de los datos que nos compartas por WhatsApp o correo: tu nombre y tus datos de contacto. Los usamos solo para responderte y preparar tu cotización. No los vendemos ni los compartimos con nadie.": "Black Sheep Studioss (Mérida, Yucatán) is responsible for the data you share with us by WhatsApp or email: your name and contact details. We only use them to reply and prepare your quote. We never sell or share them.", "Esta web no tiene formularios ni cookies de seguimiento.": "This website has no forms and no tracking cookies.", "Para consultar, corregir o borrar tus datos, escríbenos a blacksheepstudiosmid@gmail.com.": "To see, correct or delete your data, write to blacksheepstudiosmid@gmail.com.", "Cerrar": "Close", "Caso": "Case", "[Proyecto]": "[Project]", "[Frase con un dato]": "[A line with a data point]", "El reto": "The challenge", "[Qué le pasaba a la marca, en una o dos líneas.]": "[What was happening to the brand, in one or two lines.]", "Lo que hicimos": "What we did", "[3 a 5 acciones: estrategia, rodaje, contenido, pauta, proceso de venta.]": "[3 to 5 actions: strategy, shoot, content, ads, sales process.]", "Equipo": "Team", "[Black Sheep y colaboradores]": "[Black Sheep and collaborators]", "[El resultado de negocio, con su contexto]": "[The business result, in context]", "[Foto]": "[Photo]", "¿Ya te vas? La oveja negra se queda aquí.": "Leaving already? The black sheep stays here.", "Black Sheep Studioss, inicio": "Black Sheep Studioss, home", "Entrada": "Intro", "Resultados de negocio, no solo piezas bonitas": "Business results, not just pretty pieces", "Ciudades donde hemos trabajado": "Cities where we've worked", "Lo bonito se cae, el resultado se queda": "Pretty things fall apart, the result stays", "Carteles de Spook: siguiente": "Spook posters: next", "Contenido vertical": "Vertical content", "Mapa con las ocho ciudades donde hemos trabajado": "Map of the eight cities where we've worked", "Servicios": "Services", "Gema Solis con los brazos cruzados": "Gema Solis with her arms crossed", "Issac Asley de pie en un campo, a contraluz": "Issac Asley standing in a field, backlit", "Marcas con las que hemos trabajado": "Brands we've worked with", "Código QR para escribirnos por WhatsApp": "QR code to message us on WhatsApp", "Presentación comercial de Cactus": "Cactus sales presentation", "Cambiar idioma": "Change language"};
   var REGLAS_EN = [[/^Caso (\d+)$/, "Case $1"], [/^Copiado: (.*)$/, "Copied: $1"], [/^Cartel de Spook: (.*)$/, "Spook poster: $1"]];
   /* ---------- Idioma: el español es la base; el inglés se pone sobre el mismo texto, sin tocar la estructura ---------- */
   var idioma = "es", ORIG = new WeakMap(), ATTRS = ["aria-label", "alt"];
@@ -1800,7 +1843,7 @@ img{display:block;max-width:100%}
 
 
   /* ---------- Estudio: la segunda S de cada nombre gira y se pone azul al llegar ---------- */
-  [].forEach.call(document.querySelectorAll(".persona"), function(pe){ visible(pe, function(v){ if (v) pe.classList.add("s-ya"); }, .6); });
+  [].forEach.call(document.querySelectorAll(".persona,.titulo-negras"), function(pe){ visible(pe, function(v){ if (v) pe.classList.add("s-ya"); }, .6); });
 
   /* ---------- Si te vas, la oveja voltea ---------- */
   var firma = $("#firma"), avisado = false, tituloBase = document.title;
