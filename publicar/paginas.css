@@ -63,6 +63,18 @@ img,video{display:block;max-width:100%}
 .pie-fila a:hover,.pie-fila a[aria-current]{color:var(--papel);text-decoration:underline;text-underline-offset:3px}
 .pie-c{margin-top:18px;color:#6b6b66}
 
+/* marcas al final de Trabajo y Estudio: el mismo muro que en la portada */
+.marcas-sub{padding-top:clamp(90px,11vw,170px)}
+.marcas-sub h2{font-size:clamp(36px,5vw,84px)}
+.marcas-sub h2 .serif{font-weight:400}
+.logos-sub{display:flex;flex-wrap:wrap;justify-content:center;column-gap:clamp(20px,3vw,44px);row-gap:clamp(30px,4vw,56px);margin-top:clamp(40px,5vw,72px);padding-top:clamp(28px,3vw,40px);border-top:1.5px solid var(--tinta)}
+.logos-sub>*{flex:0 0 calc((100% - 5 * clamp(20px,3vw,44px)) / 6);display:flex;align-items:center;justify-content:center;opacity:.82}
+.logos-sub>img{height:clamp(22px,2.6vw,36px);width:calc((100% - 5 * clamp(20px,3vw,44px)) / 6);object-fit:contain;transition:opacity .3s,transform .3s}
+.logos-sub>img.alto{height:clamp(40px,4.6vw,64px)}
+.logos-sub>img:hover{opacity:1;transform:scale(1.06)}
+.logos-sub .logo-txt{flex-direction:column;font-weight:900;font-stretch:66%;text-transform:uppercase;font-size:clamp(22px,2.4vw,32px);line-height:.82;text-align:center}
+.logos-sub .logo-txt small{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.32em;font-weight:500;margin-top:5px}
+@media (max-width:760px){.logos-sub>*,.logos-sub>img{flex-basis:calc((100% - 2 * clamp(20px,3vw,44px)) / 3);width:calc((100% - 2 * clamp(20px,3vw,44px)) / 3)}.marcas-sub{padding-top:80px}}
 /* aparición suave al entrar en pantalla */
 .sube{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .sube.ya{opacity:1;transform:none}

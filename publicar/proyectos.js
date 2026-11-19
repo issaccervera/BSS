@@ -82,7 +82,7 @@
      hicimos: "Contenido vertical para Instagram y TikTok con Gema de Mar frente a cámara, para marcas de moda, restaurantes, cafeterías y gimnasios.",
      hicimosEn: "Vertical content for Instagram and TikTok with Gema de Mar on camera, for fashion brands, restaurants, coffee shops and gyms.",
      marcas: MARCAS.map(function(m){ return "m-" + m[0]; }), img: "vid/v-sephora.jpg", fondo: ["#E7E3DA", "#0B0B0A"]},
-    {id: "ysla", nombre: "YSLA", anio: 2026, ciudad: "Mérida", etapa: "hoy", destacado: 7, estado: "concepto",
+    {id: "ysla", nombre: "YSLA", anio: 2026, ciudad: "Mérida", etapa: "hoy", destacado: 7,
      tipos: ["webs"], sectores: ["salud"],
      linea: "Una casa de agua que se recorre como un ritual", lineaEn: "A water house you move through like a ritual",
      rol: "Web para spa y bienestar", rolEn: "Website for a spa and wellness brand",

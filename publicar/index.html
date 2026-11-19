@@ -983,6 +983,7 @@ img{display:block;max-width:100%}
 .bloque a::after{content:"";position:absolute;inset:0;z-index:5;background:var(--tinta);clip-path:inset(0 0 0 0);transition:clip-path .7s cubic-bezier(.65,0,.25,1);transition-delay:calc(var(--i,0) * 75ms + 280ms)}
 .indice.ya .bloque a::after{clip-path:inset(0 0 100% 0)}
 .b-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--gris);transition:color .35s}
+.bloque.estrecho .b-nom{white-space:normal;line-height:.92}
 .b-nom{position:relative;z-index:2;display:block;white-space:nowrap;font-weight:850;font-stretch:70%;text-transform:uppercase;font-size:clamp(30px,3.6vw,64px);line-height:.9;letter-spacing:-.02em;transition:color .35s}
 .b-ir{position:absolute;right:clamp(12px,1.2vw,18px);top:clamp(10px,1vw,14px);z-index:2;font-size:20px;opacity:0;transform:translateX(-8px);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1)}
 /* el previsualizador se despliega dentro del bloque */
@@ -1011,6 +1012,13 @@ img{display:block;max-width:100%}
 }
 @media (prefers-reduced-motion:reduce){.bloque,.bloque a::after,.b-graf *{transition:none}.bloque{opacity:1;transform:none}.bloque a::after{clip-path:inset(0 0 100% 0)}.b-graf *{stroke-dashoffset:0}}
 .vcard a{display:block;color:inherit;text-decoration:none}
+/* logos: filas centradas, así la última queda al medio aunque no esté completa */
+.logos{display:flex!important;flex-wrap:wrap;justify-content:center;column-gap:clamp(20px,3vw,44px);row-gap:clamp(32px,4.4vw,64px)}
+.logos>*{flex:0 0 calc((100% - 5 * clamp(20px,3vw,44px)) / 6);display:flex;align-items:center;justify-content:center}
+.logos>img{height:clamp(22px,2.6vw,36px);max-height:none!important;width:calc((100% - 5 * clamp(20px,3vw,44px)) / 6);object-fit:contain}
+.logos>img.alto{height:clamp(40px,4.6vw,64px)}
+.logos>.logo-txt{flex-direction:column}
+@media (max-width:860px){.logos>*,.logos>img{flex-basis:calc((100% - 2 * clamp(20px,3vw,44px)) / 3);width:calc((100% - 2 * clamp(20px,3vw,44px)) / 3)}}
 /* idioma: solo aquí, más grande y con el activo subrayado en azul */
 .idioma{font-size:13px;font-weight:600;letter-spacing:.1em;padding:8px 2px;top:calc(env(safe-area-inset-top,0px) + 15px)}
 .idioma span{display:inline-block;padding-bottom:3px;border-bottom:2px solid transparent;opacity:.5;transition:opacity .3s,border-color .3s}
@@ -1114,6 +1122,11 @@ img{display:block;max-width:100%}
       <img class="alto" src="img/logos/vidanta.png" alt="Vidanta World" loading="lazy">
       <span class="logo-txt" role="img" aria-label="La Isla Mérida">La Isla<small>Mérida</small></span>
       <img class="alto" src="img/logos/spook.png" alt="Spook Club" loading="lazy">
+      <img src="img/logos/halvo.png" alt="Halvo" loading="lazy">
+      <img src="img/logos/habitus.png" alt="Hábit·us" loading="lazy">
+      <img src="img/logos/cactus.png" alt="Cactus Signage" loading="lazy">
+      <img class="alto" src="img/logos/duoson.png" alt="Duoson" loading="lazy">
+      <img class="alto" src="img/logos/mai.png" alt="Grupo MAI" loading="lazy">
     </div>
   </div>
 </section>
@@ -1717,6 +1730,22 @@ img{display:block;max-width:100%}
       deporte: '<path d="M8 40C6 26 22 8 40 8c2 14-14 32-32 32z"/><path d="M16 32 32 16M20 24l4 4M24 20l4 4M28 16l4 4"/>',
       personal: '<circle cx="24" cy="16" r="7"/><path d="M10 42c0-8 6-13 14-13s14 5 14 13"/><path d="M34 8l1.2 2.8L38 12l-2.8 1.2L34 16l-1.2-2.8L30 12l2.8-1.2z"/>'
     };
+    // cada bloque tiene la forma de lo que enseña: verticales para redes y carteles, cuadrados para presentaciones y campañas, apaisados para video
+    // [columna, columnas que ocupa, fila, filas que ocupa]; una fila mide media columna, así 1×2 es un cuadrado y 1×3 un vertical
+    var FORMA = {
+      tipos: {
+        esc: {webs: [1, 2, 1, 2], presentaciones: [3, 1, 1, 2], campanas: [4, 1, 1, 2], redes: [1, 1, 3, 3], corporativo: [2, 2, 3, 2], arte: [4, 1, 3, 3], cine: [2, 2, 5, 2], eventos: [1, 1, 6, 2], foto: [4, 1, 6, 2], educativo: [2, 2, 7, 1]},
+        mov: {webs: [1, 2, 1, 2], presentaciones: [1, 1, 3, 2], campanas: [2, 1, 3, 2], redes: [1, 1, 5, 3], arte: [2, 1, 5, 3], corporativo: [1, 2, 8, 2], eventos: [1, 1, 10, 2], foto: [2, 1, 10, 2], cine: [1, 2, 12, 2], educativo: [1, 2, 14, 1]}
+      },
+      sectores: {
+        esc: {inmobiliario: [1, 2, 1, 2], moda: [1, 1, 3, 3], hosteleria: [2, 1, 3, 3], comercio: [1, 1, 6, 3], deporte: [2, 1, 6, 3], entretenimiento: [3, 2, 1, 2], salud: [3, 1, 3, 2], educacion: [4, 1, 3, 2], tecnologia: [3, 2, 5, 2], personal: [3, 2, 7, 2]},
+        mov: {inmobiliario: [1, 2, 1, 2], moda: [1, 1, 3, 3], hosteleria: [2, 1, 3, 3], entretenimiento: [1, 2, 6, 2], salud: [1, 1, 8, 2], educacion: [2, 1, 8, 2], tecnologia: [1, 2, 10, 2], comercio: [1, 1, 12, 3], deporte: [2, 1, 12, 3], personal: [1, 2, 15, 2]}
+      }
+    };
+    function filas(){
+      var cols = innerWidth < 760 ? 2 : 4, gap = parseFloat(getComputedStyle(ul).columnGap) || 10, colW = (ul.clientWidth - gap * (cols - 1)) / cols;
+      ul.style.gridAutoRows = Math.max(60, (colW - gap) / 2).toFixed(1) + "px";
+    }
     function muestra(id, ps){
       var m = MUESTRA[id] || {}, p;
       if (m.v) { p = ps.filter(function(x){ return x.video && x.video.indexOf("/" + m.v + ".") > 0; })[0] || BSS.PROYECTOS.filter(function(x){ return x.video && x.video.indexOf("/" + m.v + ".") > 0; })[0]; if (p) return {img: p.img, video: p.video}; return {img: "vid/" + m.v + ".jpg", video: "vid/" + m.v + ".mp4"}; }
@@ -1730,7 +1759,14 @@ img{display:block;max-width:100%}
         var a = el.parentNode, cs = getComputedStyle(a), g = a.querySelector(".b-graf");
         var max = a.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - (g ? g.getBoundingClientRect().width + 14 : 0);
         if (max <= 0) return;
-        el.style.fontSize = ""; el.style.maxWidth = "none"; var s = parseFloat(getComputedStyle(el).fontSize), n = 0;
+        el.style.fontSize = ""; var s = parseFloat(getComputedStyle(el).fontSize), n = 0;
+        if (a.parentNode.classList.contains("estrecho")) {
+          // en dos líneas como mucho, y ninguna palabra se sale de su caja
+          el.style.maxWidth = max + "px";
+          while ((el.scrollWidth > max + 1 || el.getBoundingClientRect().height > s * 2.05) && s > 16 && n++ < 60) { s *= .95; el.style.fontSize = s.toFixed(1) + "px"; }
+          return;
+        }
+        el.style.maxWidth = "none";
         // se mide el texto, no la caja: un span en línea dice su ancho real
         var r = document.createRange(); r.selectNodeContents(el);
         while (r.getBoundingClientRect().width > max && s > 16 && n++ < 60) { s *= .95; el.style.fontSize = s.toFixed(1) + "px"; }
@@ -1740,8 +1776,9 @@ img{display:block;max-width:100%}
       ul.innerHTML = ""; ul.classList.remove("ya"); ul.classList.toggle("sectores", grupo === "sectores");
       var lista = (grupo === "tipos" ? BSS.TIPOS : BSS.SECTORES).filter(function(t){ return BSS.porTipo(t.id).filter(function(p){ return p.cuenta !== false; }).length; });
       lista.forEach(function(t, i){
-        var ps = BSS.porTipo(t.id), mu = muestra(t.id, ps), li = document.createElement("li"), largo = nom(t).length, chico = innerWidth < 760;
-        li.className = "bloque" + (i === 0 || largo > (chico ? 12 : 14) ? " ancho" : "") + (i === 0 && !chico ? " alto" : ""); li.style.setProperty("--i", i);
+        var ps = BSS.porTipo(t.id), mu = muestra(t.id, ps), li = document.createElement("li"), f = (FORMA[grupo][innerWidth < 760 ? "mov" : "esc"] || {})[t.id];
+        li.className = "bloque" + (f && f[1] === 1 ? " estrecho" : ""); li.style.setProperty("--i", i);
+        if (f) { li.style.gridColumn = f[0] + " / span " + f[1]; li.style.gridRow = f[2] + " / span " + f[3]; }
         li.innerHTML = '<a href="trabajo.html#' + t.id + '" data-medir="trabajo_tipo" data-origen="' + t.id + '"><span class="b-media" aria-hidden="true"><img alt="" loading="lazy" decoding="async"></span><span class="b-num">' + ("0" + (i + 1)).slice(-2) + '</span><span class="b-ir" aria-hidden="true">→</span>' +
           (grupo === "sectores" && GRAF[t.id] ? '<svg class="b-graf" viewBox="0 0 48 48" aria-hidden="true">' + GRAF[t.id].replace(/<(path|rect|circle)/g, '<$1 pathLength="1"') + '</svg>' : "") + '<span class="b-nom"></span></a>';
         var a = li.firstChild, img = a.querySelector(".b-media img"), caja = a.querySelector(".b-media");
@@ -1758,10 +1795,7 @@ img{display:block;max-width:100%}
         }
         ul.appendChild(li);
       });
-      // sin huecos al final: si sobran celdas, los últimos bloques chicos se ensanchan
-      var cols = innerWidth < 760 ? 2 : 4, bs = [].slice.call(ul.children), celdas = bs.reduce(function(s, li){ return s + (li.classList.contains("ancho") ? 2 : 1) * (li.classList.contains("alto") ? 2 : 1); }, 0);
-      for (var k = bs.length - 1; k >= 0 && celdas % cols; k--) if (!bs[k].classList.contains("ancho")) { bs[k].classList.add("ancho"); celdas++; }
-      encajar();
+      filas(); encajar();
       if (visto) requestAnimationFrame(function(){ ul.classList.add("ya"); });
     }
     botones.forEach(function(b){ b.addEventListener("click", function(){
@@ -1772,7 +1806,7 @@ img{display:block;max-width:100%}
     }); });
     pintar();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(encajar);
-    window.addEventListener("resize", function(){ clearTimeout(encajar._t); encajar._t = setTimeout(encajar, 150); });
+    window.addEventListener("resize", function(){ clearTimeout(encajar._t); encajar._t = setTimeout(function(){ filas(); encajar(); }, 150); });
     visible(ul, function(v){ if (v && !visto) { visto = true; encajar(); ul.classList.add("ya"); } }, .15);
     window.addEventListener("load", encajar);
     if (document.fonts) document.fonts.addEventListener && document.fonts.addEventListener("loadingdone", encajar);

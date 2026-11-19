@@ -50,12 +50,11 @@
 .no-lista li{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:center;padding:clamp(18px,2.2vw,30px) 0;border-bottom:1px solid var(--linea)}
 .no-r{justify-self:start;font-weight:850;font-stretch:74%;font-size:clamp(28px,3.3vw,56px);line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#b9b9b3;transition:color .6s ease .5s}
 /* el tachón es un trazo de tinta por línea: si la frase se parte en dos, cada línea lleva el suyo */
-.no-r span{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1 6.2C18 3.8 34 7.4 52 5.2S84 3.6 99 5.6' fill='none' stroke='%230B0B0A' stroke-width='4.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 0 56%/0% .4em;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .8s cubic-bezier(.65,0,.25,1)}
-.no-lista li:nth-child(2n) .no-r span{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1 4.6C20 7 38 3.4 56 5.8S86 6.8 99 4.2' fill='none' stroke='%230B0B0A' stroke-width='4.4' stroke-linecap='round'/%3E%3C/svg%3E")}
+.no-r span{text-decoration:line-through;text-decoration-color:transparent;text-decoration-thickness:.02em;text-decoration-skip-ink:none;transition:text-decoration-color .5s ease,text-decoration-thickness .7s cubic-bezier(.65,0,.25,1)}
 .no-n{display:flex;align-items:center;gap:14px;font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,2.1vw,34px);line-height:1.08;color:var(--klein);clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.65,0,.25,1) .75s}
 .no-n img{flex:none;width:clamp(30px,2.6vw,42px);height:auto;opacity:0;transform:translateX(-12px) scaleX(-1);transition:opacity .4s ease .8s,transform .7s cubic-bezier(.2,.8,.2,1) .8s}
 .no-lista li.ya .no-r{color:#9a9a95}
-.no-lista li.ya .no-r span{background-size:100% .4em}
+.no-lista li.ya .no-r span{text-decoration-color:var(--tinta);text-decoration-thickness:.11em}
 .no-lista li.ya .no-n{clip-path:inset(0 0 0 0)}
 .no-lista li.ya .no-n img{opacity:1;transform:scaleX(-1)}
 @media (prefers-reduced-motion:reduce){.no-r,.no-r span,.no-n,.no-n img{transition:none}}
@@ -182,7 +181,6 @@
   <section class="env no-hacemos" aria-labelledby="t-no">
     <div class="no-cab">
       <h2 class="gigante" id="t-no"><span data-en="What we">Lo que</span> <span class="serif" data-en="don't">no</span> <span data-en="do.">hacemos.</span></h2>
-      <p data-en="What the herd does, crossed out. And what we do instead.">Lo que hace el rebaño, tachado. Y lo que hacemos en su lugar.</p>
     </div>
     <p class="no-col" aria-hidden="true"><span><img class="ov-r" src="img/oveja-solida.svg" alt=""><span data-en="The herd">El rebaño</span></span><span><img src="img/oveja-tinta.webp" alt="" style="transform:scaleX(-1)"><span data-en="Us">Nosotros</span></span></p>
     <ul class="no-lista" id="noLista">
@@ -212,6 +210,28 @@
     </div>
   </section>
 </main>
+<section class="env marcas-sub sube" aria-labelledby="t-marcas">
+  <h2 class="gigante" id="t-marcas"><span data-en="Brands that already left">Marcas que ya salieron</span> <span class="serif" data-en="the herd.">del rebaño.</span></h2>
+  <div class="logos-sub" aria-label="Marcas con las que hemos trabajado" data-en-aria="Brands we've worked with">
+      <img src="img/logos/brother.png" alt="Brother Valencia" loading="lazy">
+      <img src="img/logos/podimo.png" alt="Podimo" loading="lazy">
+      <img src="img/logos/sephora.png" alt="Sephora" loading="lazy">
+      <img class="alto" src="img/logos/starbucks.png" alt="Starbucks" loading="lazy">
+      <img src="img/logos/liverpool.png" alt="Liverpool" loading="lazy">
+      <img class="alto" src="img/logos/victorias-secret.png" alt="Victoria's Secret" loading="lazy">
+      <img src="img/logos/tim-hortons.png" alt="Tim Hortons" loading="lazy">
+      <img class="alto" src="img/logos/monster.png" alt="Monster Energy" loading="lazy">
+      <img src="img/logos/byd.png" alt="BYD" loading="lazy">
+      <img class="alto" src="img/logos/vidanta.png" alt="Vidanta World" loading="lazy">
+      <span class="logo-txt" role="img" aria-label="La Isla Mérida">La Isla<small>Mérida</small></span>
+      <img class="alto" src="img/logos/spook.png" alt="Spook Club" loading="lazy">
+      <img src="img/logos/halvo.png" alt="Halvo" loading="lazy">
+      <img src="img/logos/habitus.png" alt="Hábit·us" loading="lazy">
+      <img src="img/logos/cactus.png" alt="Cactus Signage" loading="lazy">
+      <img class="alto" src="img/logos/duoson.png" alt="Duoson" loading="lazy">
+      <img class="alto" src="img/logos/mai.png" alt="Grupo MAI" loading="lazy">
+  </div>
+</section>
 <footer class="pie-sub" id="contacto" data-sin-escribenos>
   <div class="env">
     <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>

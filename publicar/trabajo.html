@@ -85,6 +85,14 @@
 .calles.elige .calle.on{flex:2.6;filter:none}
 .calles.elige .calle.on::after{transform:scaleX(1)}
 .calles-pista{margin-top:12px;font-family:var(--f-serif);font-style:italic;font-size:15px;opacity:.7}
+/* Gema de Mar: un carrusel que corre solo; se frena al pasar el ratón o al tocarlo, y también se arrastra */
+.carrusel{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);outline:none}
+.carrusel::-webkit-scrollbar{display:none}
+.c-pista{display:flex;gap:10px;width:max-content;padding:4px 0}
+.c-item{position:relative;flex:none;display:block;width:clamp(150px,14vw,215px);aspect-ratio:9/16;overflow:hidden;background:rgba(127,127,120,.2);border-radius:4px;color:#fff;text-decoration:none}
+.c-item video{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.c-item:hover video{transform:scale(1.05)}
+.c-item span{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 9px;background:linear-gradient(transparent,rgba(0,0,0,.6));font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase}
 /* Diez marcas: un muro de verticales */
 .muro{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px}
 .muro figure{position:relative;aspect-ratio:9/16;overflow:hidden;background:rgba(127,127,120,.2)}
@@ -306,6 +314,28 @@
   </div>
 </main>
 <div class="flota" id="flota" aria-hidden="true"><img alt=""><video muted loop playsinline preload="none"></video></div>
+<section class="env marcas-sub sube" aria-labelledby="t-marcas">
+  <h2 class="gigante" id="t-marcas"><span data-en="Brands that already left">Marcas que ya salieron</span> <span class="serif" data-en="the herd.">del rebaño.</span></h2>
+  <div class="logos-sub" aria-label="Marcas con las que hemos trabajado" data-en-aria="Brands we've worked with">
+      <img src="img/logos/brother.png" alt="Brother Valencia" loading="lazy">
+      <img src="img/logos/podimo.png" alt="Podimo" loading="lazy">
+      <img src="img/logos/sephora.png" alt="Sephora" loading="lazy">
+      <img class="alto" src="img/logos/starbucks.png" alt="Starbucks" loading="lazy">
+      <img src="img/logos/liverpool.png" alt="Liverpool" loading="lazy">
+      <img class="alto" src="img/logos/victorias-secret.png" alt="Victoria's Secret" loading="lazy">
+      <img src="img/logos/tim-hortons.png" alt="Tim Hortons" loading="lazy">
+      <img class="alto" src="img/logos/monster.png" alt="Monster Energy" loading="lazy">
+      <img src="img/logos/byd.png" alt="BYD" loading="lazy">
+      <img class="alto" src="img/logos/vidanta.png" alt="Vidanta World" loading="lazy">
+      <span class="logo-txt" role="img" aria-label="La Isla Mérida">La Isla<small>Mérida</small></span>
+      <img class="alto" src="img/logos/spook.png" alt="Spook Club" loading="lazy">
+      <img src="img/logos/halvo.png" alt="Halvo" loading="lazy">
+      <img src="img/logos/habitus.png" alt="Hábit·us" loading="lazy">
+      <img src="img/logos/cactus.png" alt="Cactus Signage" loading="lazy">
+      <img class="alto" src="img/logos/duoson.png" alt="Duoson" loading="lazy">
+      <img class="alto" src="img/logos/mai.png" alt="Grupo MAI" loading="lazy">
+  </div>
+</section>
 <footer class="pie-sub" id="contacto" data-sin-escribenos>
   <div class="env">
     <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
@@ -381,7 +411,11 @@
       return dosVistas(cs, ns, L("Los carteles", "The posters"), L("La noche", "The night"));
     }
     if (p.calles) return '<div class="calles">' + p.calles.map(function(c, i){ return '<button type="button" class="calle" style="--c:' + c.color + '" data-i="' + i + '">' + video(c.video, c.img) + '<b><i></i>' + esc(L(c.nombre, c.nombreEn)) + '</b></button>'; }).join("") + '</div><p class="calles-pista">' + L("Tú eliges: toca una calle.", "You choose: tap a street.") + '</p>';
-    if (p.marcas) return '<div class="muro">' + p.marcas.map(function(id){ var m = BSS.proyecto(id); return '<figure>' + video(m.video, m.img) + '<figcaption>' + esc(m.nombre) + '</figcaption></figure>'; }).join("") + '</div>';
+    if (p.marcas) {
+      var items = p.marcas.map(function(id){ var m = BSS.proyecto(id); return '<a class="c-item" href="#' + m.id + '">' + video(m.video, m.img) + '<span>' + esc(m.nombre) + '</span></a>'; }).join("");
+      // dos vueltas seguidas: al llegar a la mitad se salta al principio sin que se note
+      return '<div class="carrusel" tabindex="0" aria-label="' + L("Colaboraciones de Gema de Mar", "Gema de Mar collaborations") + '"><div class="c-pista">' + items + items.replace(/<a class="c-item"/g, '<a class="c-item" aria-hidden="true" tabindex="-1"') + '</div></div>';
+    }
     var h = '<div class="m-video' + (p.vertical ? " vert" : "") + '">' + video(p.video, p.img);
     if (p.dual) h += '<div class="t-dual">' + video(p.dual, p.dual.replace(".mp4", ".jpg")) + '</div>';
     h += '</div>';
@@ -452,6 +486,33 @@
     new IntersectionObserver(function(e){ visible = e[0].isIntersecting; if (visible && !ifr.getAttribute("src")) cargar(0); else avisar(); }, {threshold: .2, rootMargin: "300px 0px"}).observe(marco);
     enVivo(marco);
   }
+  // carrusel: avanza solo; se frena con el ratón encima o al tocarlo, y solo corren los videos que se ven
+  function carrusel(caja){
+    var pista = caja.querySelector(".c-pista"), vs = [].slice.call(caja.querySelectorAll("video")), x = 0, ult = 0, parado = false, visible = false, mio = false, t = 0;
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ var v = e.target; if (e.isIntersecting && visible && !reducido) { v.preload = "auto"; var pr = v.play(); if (pr) pr.catch(function(){}); } else v.pause(); }); }, {root: caja, threshold: .3});
+    function paso(tm){
+      if (!visible) { ult = 0; return; }
+      var dt = ult ? Math.min(50, tm - ult) : 16; ult = tm;
+      if (!parado && !reducido) { var mitad = pista.scrollWidth / 2; x += dt * .05; if (x >= mitad) x -= mitad; mio = true; caja.scrollLeft = x; }
+      requestAnimationFrame(paso);
+    }
+    caja.addEventListener("scroll", function(){
+      if (mio) { mio = false; return; }
+      var mitad = pista.scrollWidth / 2; if (caja.scrollLeft >= mitad) caja.scrollLeft -= mitad; else if (caja.scrollLeft <= 0) caja.scrollLeft += mitad;
+      x = caja.scrollLeft;
+    }, {passive: true});
+    function frena(){ parado = true; clearTimeout(t); }
+    function sigue(ms){ clearTimeout(t); t = setTimeout(function(){ x = caja.scrollLeft; parado = false; }, ms); }
+    caja.addEventListener("mouseenter", frena); caja.addEventListener("mouseleave", function(){ sigue(200); });
+    caja.addEventListener("touchstart", frena, {passive: true}); caja.addEventListener("touchend", function(){ sigue(2500); }, {passive: true});
+    caja.addEventListener("wheel", function(){ frena(); sigue(1800); }, {passive: true});
+    caja.addEventListener("focus", frena); caja.addEventListener("blur", function(){ sigue(200); });
+    new IntersectionObserver(function(e){
+      var antes = visible; visible = e[0].isIntersecting;
+      vs.forEach(function(v){ io.unobserve(v); if (visible) io.observe(v); else v.pause(); });
+      if (visible && !antes) requestAnimationFrame(paso);
+    }, {threshold: .15}).observe(caja);
+  }
   // Vértigo: al principio corren las tres; tocar una la abre y apaga las otras
   function calles(caja){
     var cs = [].slice.call(caja.querySelectorAll(".calle")), vs = cs.map(function(c){ return c.querySelector("video"); }), visible = false;
@@ -497,7 +558,7 @@
       casosEl.appendChild(a); casos.push({el: a, p: p});
       var medio = a.querySelector(".c-medio");
       if (p.calles) calles(medio.querySelector(".calles"));
-      else if (p.marcas) { var muro = medio.querySelector(".muro"); [].forEach.call(muro.querySelectorAll("video"), function(v){ autoplay(v, movil() ? muro : null); }); }
+      else if (p.marcas) carrusel(medio.querySelector(".carrusel"));
       else if (!p.web && !p.decks && !p.portafolios) [].forEach.call(medio.querySelectorAll("video"), function(v){ autoplay(v); });
       if (medio.querySelector(".cambio")) cambio(medio.querySelector(".cambio"), medio);
       [].forEach.call(medio.querySelectorAll(".carteles"), carteles);
