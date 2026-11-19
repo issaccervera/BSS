@@ -36,31 +36,81 @@
 .quien p.bio{font-size:clamp(17px,1.35vw,20px);line-height:1.55;max-width:46ch}
 .quien .s-inv{display:inline-block;transform:rotateY(180deg);color:var(--klein)}
 .quien .ig{color:var(--gris);text-underline-offset:4px}
-.no-hacemos{padding-block:clamp(64px,8vw,130px)}
-.no-hacemos h2{font-size:clamp(44px,6vw,100px)}
-.no-lista{list-style:none;padding:0;margin-top:clamp(24px,3vw,40px);border-top:1.5px solid var(--tinta)}
-.no-lista li{display:flex;gap:18px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--linea);font-size:clamp(20px,2vw,30px);font-weight:650;line-height:1.2}
-.no-lista li::before{content:"✕";font-family:var(--f-mono);font-size:.6em;color:var(--klein)}
-.red-sec{background:var(--tinta);color:var(--papel);padding-block:clamp(72px,9vw,140px)}
-.red-sec h2{font-size:clamp(50px,8vw,132px)}
-.red-sec .bajada-red{margin-top:18px;font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,2vw,28px);color:#cfcfca;max-width:40ch}
-.mapa-grande{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.7fr);gap:clamp(24px,3vw,48px);align-items:start;margin-top:clamp(36px,5vw,64px)}
-.detalle-ciudad{border-top:1.5px solid rgba(244,244,242,.4);padding-top:18px;min-height:220px}
-.detalle-ciudad h3{font-size:clamp(40px,4.4vw,72px);color:var(--klein-claro)}
-.detalle-ciudad .mono{color:#9a9a95;margin-top:8px}
-.detalle-ciudad ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:10px}
-.detalle-ciudad li a{display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:10px 0;border-bottom:1px solid #2a2a28}
-.detalle-ciudad li a:hover b{color:var(--klein-claro)}
-.detalle-ciudad li b{font-size:clamp(20px,1.8vw,26px);font-weight:750}
-.detalle-ciudad li span{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#9a9a95}
-.detalle-ciudad li.extra{font-family:var(--f-serif);font-style:italic;font-size:clamp(18px,1.6vw,22px);color:#cfcfca;padding-top:6px}
+/* Lo que no hacemos: lo del rebaño se tacha con tinta y debajo se escribe lo nuestro */
+.no-hacemos{padding-block:clamp(72px,9vw,150px)}
+.no-cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:end}
+.no-cab h2{font-size:clamp(48px,7vw,120px)}
+.no-cab h2 .serif{color:var(--klein)}
+.no-cab p{font-family:var(--f-serif);font-style:italic;font-size:clamp(19px,1.7vw,25px);line-height:1.15;max-width:28ch;color:var(--gris);justify-self:end}
+.no-col{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);margin-top:clamp(32px,4vw,56px);padding-bottom:10px;border-bottom:1.5px solid var(--tinta);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.no-col span{display:flex;align-items:center;gap:10px}
+.no-col img{width:34px;height:auto}
+.no-col .ov-r{opacity:.28}
+.no-lista{list-style:none;padding:0}
+.no-lista li{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:center;padding:clamp(18px,2.2vw,30px) 0;border-bottom:1px solid var(--linea)}
+.no-r{justify-self:start;font-weight:850;font-stretch:74%;font-size:clamp(28px,3.3vw,56px);line-height:1;text-transform:uppercase;letter-spacing:-.01em;color:#b9b9b3;transition:color .6s ease .5s}
+/* el tachón es un trazo de tinta por línea: si la frase se parte en dos, cada línea lleva el suyo */
+.no-r span{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1 6.2C18 3.8 34 7.4 52 5.2S84 3.6 99 5.6' fill='none' stroke='%230B0B0A' stroke-width='4.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 0 56%/0% .4em;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .8s cubic-bezier(.65,0,.25,1)}
+.no-lista li:nth-child(2n) .no-r span{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1 4.6C20 7 38 3.4 56 5.8S86 6.8 99 4.2' fill='none' stroke='%230B0B0A' stroke-width='4.4' stroke-linecap='round'/%3E%3C/svg%3E")}
+.no-n{display:flex;align-items:center;gap:14px;font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,2.1vw,34px);line-height:1.08;color:var(--klein);clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.65,0,.25,1) .75s}
+.no-n img{flex:none;width:clamp(30px,2.6vw,42px);height:auto;opacity:0;transform:translateX(-12px) scaleX(-1);transition:opacity .4s ease .8s,transform .7s cubic-bezier(.2,.8,.2,1) .8s}
+.no-lista li.ya .no-r{color:#9a9a95}
+.no-lista li.ya .no-r span{background-size:100% .4em}
+.no-lista li.ya .no-n{clip-path:inset(0 0 0 0)}
+.no-lista li.ya .no-n img{opacity:1;transform:scaleX(-1)}
+@media (prefers-reduced-motion:reduce){.no-r,.no-r span,.no-n,.no-n img{transition:none}}
+/* ---------- El recorrido: mapa fijo detrás, capítulos que pasan por delante ---------- */
+.recorrido{background:var(--tinta);color:var(--papel)}
+.rec-intro{padding-top:clamp(80px,10vw,150px);padding-bottom:clamp(8px,2vw,24px)}
+.rec-intro h2{font-size:clamp(50px,8vw,132px)}
+.rec-intro p{margin-top:18px;font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,2vw,28px);line-height:1.2;color:#cfcfca;max-width:38ch}
+.rec-escena{position:relative}
+.rec-mapa{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;z-index:1}
+.rec-mapa canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.rec-mapa::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--tinta) 0%,rgba(11,11,10,.9) 30%,rgba(11,11,10,0) 50%),linear-gradient(180deg,var(--tinta),rgba(11,11,10,0) 14%,rgba(11,11,10,0) 86%,var(--tinta))}
+.rec-pines{position:absolute;inset:0;pointer-events:none;z-index:1}
+.rec-pin{position:absolute;left:0;top:0;width:0;height:0;opacity:0;transition:opacity .5s ease}
+.rec-pin.ver{opacity:1}
+.rec-pin i{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#9a9a95;transition:background .4s,transform .4s}
+.rec-pin.on i{background:var(--papel);transform:scale(1.25)}
+.rec-pin.base i{background:var(--klein-claro)}
+.rec-pin.base i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid var(--klein-claro);animation:latido 2.2s ease-out infinite}
+@keyframes latido{from{transform:scale(.4);opacity:1}to{transform:scale(2.6);opacity:0}}
+.rec-pin span{position:absolute;top:-8px;left:14px;font-family:var(--f-mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:var(--papel);opacity:0;transition:opacity .4s}
+.rec-pin.on span{opacity:1}
+.rec-pin.base span{color:#8fa6ff}
+.rec-pin.i span{left:auto;right:14px}
+.rec-pin.a span{left:0;top:-30px;transform:translateX(-50%)}
+.rec-pin.b span{left:0;top:12px;transform:translateX(-50%)}
+.rec-capitulos{position:relative;z-index:2;list-style:none;padding:0;margin:-100vh 0 0;margin-top:-100svh}
+.cap{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:12vh 0}
+.cap.ultimo{min-height:140vh}
+.cap-caja{width:min(430px,34vw);margin-left:max(var(--lado),calc((100vw - 1320px) / 2 + var(--lado)));display:flex;flex-direction:column;gap:12px;opacity:.28;transition:opacity .6s ease}
+.cap.activo .cap-caja{opacity:1}
+.cap-anios{display:flex;justify-content:space-between;gap:12px;color:#9a9a95}
+.cap-ciudad{font-size:clamp(58px,6.6vw,112px)}
+.cap-sub{font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,2vw,30px);line-height:1.1;color:#8fa6ff}
+.cap-texto{font-size:clamp(15.5px,1.15vw,17px);line-height:1.55;color:#d6d6d0;max-width:44ch}
+.cap-proy{list-style:none;padding:0;margin-top:10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}
+.cap-proy a{display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
+.cap-mini{display:block;aspect-ratio:16/10;overflow:hidden;background:#1c1c1a}
+.cap-mini img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s;filter:saturate(.85)}
+.cap-proy a:hover .cap-mini img{transform:scale(1.06);filter:none}
+.cap-proy b{font-weight:780;font-stretch:82%;font-size:15px;line-height:1.05;text-transform:uppercase}
+.cap-proy small{font-size:12px;line-height:1.3;color:#9a9a95}
+.cap-proy a:hover b{color:#8fa6ff}
+.cap-mas{color:#9a9a95;text-decoration:none;margin-top:4px}
+.cap-mas:hover{color:var(--papel)}
+.cap-cifras{margin-top:14px;padding-top:14px;border-top:1px solid #2a2a28;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9a9a95}
+.cap-cifras b{font-family:var(--f-disp);font-weight:850;font-stretch:70%;font-size:34px;letter-spacing:-.01em;color:var(--papel);margin:0 4px 0 14px;vertical-align:-4px}
+.cap-cifras b:first-child{margin-left:0}
 .cifras-e{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;background:var(--tinta);border:1.5px solid var(--tinta);margin-top:clamp(64px,8vw,120px)}
 .cifras-e>div{background:var(--papel);padding:clamp(18px,2.4vw,32px)}
 .cifras-e b{display:block;font-size:clamp(56px,7vw,116px);font-weight:850;font-stretch:68%;line-height:.85;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .red-texto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,4vw,72px);margin-top:clamp(64px,8vw,120px);align-items:start}
 .red-texto h2{font-size:clamp(40px,5vw,84px)}
 .red-texto p{font-size:clamp(17px,1.4vw,20px);line-height:1.55;max-width:50ch}
-@media (max-width:860px){.duo,.mapa-grande,.red-texto{grid-template-columns:minmax(0,1fr)}.quien.brazo{margin-top:0}.quien.brazo figure{max-width:70%}.cifras-e{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.duo,.red-texto{grid-template-columns:minmax(0,1fr)}.quien.brazo{margin-top:0}.quien.brazo figure{max-width:70%}.cifras-e{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){
   .duo{gap:56px}
   .quien{gap:14px}
@@ -70,14 +120,31 @@
   .quien .rol{font-size:18px}
   .quien p.bio{font-size:15.5px}
   .no-hacemos{padding-block:72px}
-  .no-hacemos h2{font-size:clamp(38px,11.6vw,52px)}
-  .no-lista li{font-size:18px;padding:14px 0;gap:12px}
-  .red-sec{padding-block:72px}
-  .red-sec h2{font-size:clamp(42px,12.8vw,58px)}
-  .red-sec .bajada-red{font-size:18px}
-  .detalle-ciudad{min-height:0}
-  .detalle-ciudad h3{font-size:40px}
-  .detalle-ciudad li b{font-size:18px}
+  .no-cab{grid-template-columns:minmax(0,1fr);gap:14px}
+  .no-cab h2{font-size:clamp(44px,13vw,60px)}
+  .no-cab p{justify-self:start;font-size:18px}
+  .no-col{display:none}
+  .no-lista{margin-top:24px;border-top:1.5px solid var(--tinta)}
+  .no-lista li{grid-template-columns:minmax(0,1fr);gap:10px;padding:20px 0}
+  .no-r{font-size:clamp(28px,8.4vw,38px)}
+  .no-n{font-size:21px;gap:10px}
+  .rec-intro{padding-top:72px}
+  .rec-intro h2{font-size:clamp(42px,12.8vw,58px)}
+  .rec-intro p{font-size:18px}
+  .rec-mapa{height:50svh;z-index:3;background:var(--tinta)}
+  .rec-mapa::after{background:linear-gradient(180deg,var(--tinta),rgba(11,11,10,0) 18%,rgba(11,11,10,0) 78%,var(--tinta))}
+  .rec-pin span{font-size:10.5px}
+  .rec-capitulos{margin-top:0}
+  .cap{min-height:78svh;padding:28px 0 40px;align-items:flex-start}
+  .cap.ultimo{min-height:96svh}
+  .cap-caja{width:auto;margin:0 var(--lado);opacity:.35}
+  .cap-ciudad{font-size:clamp(46px,14vw,62px)}
+  .cap-sub{font-size:21px}
+  .cap-texto{font-size:15px}
+  .cap-proy{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 8px}
+  .cap-proy b{font-size:13px}
+  .cap-proy small{display:none}
+  .cap-cifras b{font-size:28px}
   .cifras-e{margin-top:56px}
   .cifras-e>div{padding:16px}
   .cifras-e b{font-size:52px}
@@ -114,23 +181,28 @@
     </article>
   </section>
 
-  <section class="env no-hacemos sube" aria-labelledby="t-no">
-    <h2 class="gigante" id="t-no" data-en="What we don't do">Lo que no hacemos</h2>
-    <ul class="no-lista">
-      <li data-en="Pieces for the sake of pieces.">Piezas por hacer piezas.</li>
-      <li data-en="Trends copied from someone else.">Tendencias copiadas de otro.</li>
-      <li data-en="Promises we can't measure.">Promesas que no se pueden medir.</li>
+  <section class="env no-hacemos" aria-labelledby="t-no">
+    <div class="no-cab">
+      <h2 class="gigante" id="t-no"><span data-en="What we">Lo que</span> <span class="serif" data-en="don't">no</span> <span data-en="do.">hacemos.</span></h2>
+      <p data-en="What the herd does, crossed out. And what we do instead.">Lo que hace el rebaño, tachado. Y lo que hacemos en su lugar.</p>
+    </div>
+    <p class="no-col" aria-hidden="true"><span><img class="ov-r" src="img/oveja-solida.svg" alt=""><span data-en="The herd">El rebaño</span></span><span><img src="img/oveja-tinta.webp" alt="" style="transform:scaleX(-1)"><span data-en="Us">Nosotros</span></span></p>
+    <ul class="no-lista" id="noLista">
+      <li><p class="no-r"><span data-en="Pieces for the sake of pieces.">Piezas por hacer piezas.</span></p><p class="no-n"><img src="img/oveja-tinta.webp" alt=""><span data-en="Every piece, with a number behind it.">Cada pieza, con un número detrás.</span></p></li>
+      <li><p class="no-r"><span data-en="Trends copied from someone else.">Tendencias copiadas de otro.</span></p><p class="no-n"><img src="img/oveja-tinta.webp" alt=""><span data-en="Ideas that could only be yours.">Ideas que solo podrían ser tuyas.</span></p></li>
+      <li><p class="no-r"><span data-en="Content to fill a calendar.">Contenido para llenar el calendario.</span></p><p class="no-n"><img src="img/oveja-tinta.webp" alt=""><span data-en="Content that moves a sale.">Contenido que mueve una venta.</span></p></li>
+      <li><p class="no-r"><span data-en="Promises no one can measure.">Promesas que no se pueden medir.</span></p><p class="no-n"><img src="img/oveja-tinta.webp" alt=""><span data-en="One number, from day one.">Un número desde el primer día.</span></p></li>
     </ul>
   </section>
 
-  <section class="red-sec" aria-labelledby="t-red">
-    <div class="env">
-      <h2 class="gigante" id="t-red"><span data-en="From Mérida">De Mérida</span><br><span data-en="to">a</span> <span class="serif" data-en="Copenhagen.">Copenhague.</span></h2>
-      <p class="bajada-red" data-en="Every pin is a project or a shoot. Hover over a city to see what we did there.">Cada pin es un proyecto o un rodaje. Pasa por una ciudad para ver qué hicimos ahí.</p>
-      <div class="mapa-grande">
-        <div><svg class="mapa-svg" id="mapaGrande" role="img" aria-label="Mapa con las ciudades donde hemos trabajado" data-en-aria="Map of the cities where we've worked"></svg><div class="mapa-lista" id="mapaLista"></div></div>
-        <div class="detalle-ciudad" id="detalleCiudad" aria-live="polite"></div>
-      </div>
+  <section class="recorrido" id="recorrido" aria-labelledby="t-rec">
+    <div class="env rec-intro">
+      <h2 class="gigante" id="t-rec"><span data-en="The long">Por el camino</span> <span class="serif" data-en="way round.">largo.</span></h2>
+      <p id="recBajada"></p>
+    </div>
+    <div class="rec-escena">
+      <div class="rec-mapa" aria-hidden="true"><canvas id="recLienzo"></canvas><div class="rec-pines" id="recPines"></div></div>
+      <ol class="rec-capitulos" id="recCapitulos" aria-label="Etapas del recorrido" data-en-aria="Stages of the journey"></ol>
     </div>
   </section>
 
@@ -154,7 +226,7 @@
 <script src="mapa-datos.js"></script>
 <script src="proyectos.js"></script>
 <script src="comun.js"></script>
-<script src="mapa.js"></script>
+<script src="recorrido.js"></script>
 <script>
 (function(){
   "use strict";
@@ -170,13 +242,19 @@
       '<div><b>+' + c.proyectos + '</b><span class="mono">' + L("proyectos", "projects") + '</span></div>';
   }
   textos();
-  var svg = document.getElementById("mapaGrande"), lista = document.getElementById("mapaLista"), det = document.getElementById("detalleCiudad"), mapa = null;
-  function pintar(){
-    svg.innerHTML = ""; lista.innerHTML = "";
-    mapa = BSS.pintarMapa(svg, {grande: true, lista: lista, detalle: det, L: L, nombre: nombre});
+  var rec = BSS.recorrido({seccion: document.getElementById("recorrido"), lienzo: document.getElementById("recLienzo"), pines: document.getElementById("recPines"), capitulos: document.getElementById("recCapitulos")});
+  function bajadaRec(){
+    var anios = new Date().getFullYear() - c.archivo;
+    document.getElementById("recBajada").textContent = L(String(PAL[anios] || anios).replace(/^./, function(m){ return m.toUpperCase(); }) + " años, " + (PAL[c.ciudades] || c.ciudades) + " ciudades y " + (PAL[c.paises] || c.paises) + " países. Cada parada nos dejó algo que hoy usamos con tu marca.",
+      String(PAL_EN[anios] || anios).replace(/^./, function(m){ return m.toUpperCase(); }) + " years, " + (PAL_EN[c.ciudades] || c.ciudades) + " cities and " + (PAL_EN[c.paises] || c.paises) + " countries. Every stop left us something we now use for your brand.");
   }
-  pintar();
-  BSS.alCambiarIdioma(function(){ textos(); pintar(); });
+  bajadaRec();
+  // lo que no hacemos: cada frase se tacha al llegar a ella
+  [].forEach.call(document.querySelectorAll("#noLista li"), function(li){
+    new IntersectionObserver(function(e, o){ if (e[0].isIntersecting) { li.classList.add("ya"); o.disconnect(); } }, {rootMargin: "0px 0px -22% 0px"}).observe(li);
+  });
+  var idiomaPintado = BSS.idioma();
+  BSS.alCambiarIdioma(function(){ if (BSS.idioma() === idiomaPintado) return; idiomaPintado = BSS.idioma(); textos(); bajadaRec(); rec.idioma(); });
 })();
 </script>
 </body>

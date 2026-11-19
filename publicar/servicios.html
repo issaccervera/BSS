@@ -17,77 +17,202 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://blacksheepstudioss.xyz/servicios">
 <meta property="og:title" content="Servicios · Black Sheep Studioss">
-<meta property="og:description" content="Contenido, ventas y consultoría: tres ofertas cerradas con entregables y plazos. Hacemos que te vean, que te compren y que crezcas.">
+<meta property="og:description" content="Contenido, ventas y consultoría. Dinos qué le pasa a tu marca y te decimos por dónde empezar: que te vean, que te compren o que crezcas.">
 <meta property="og:image" content="https://blacksheepstudioss.xyz/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>Servicios · Black Sheep Studioss</title>
-<meta name="description" content="Contenido, ventas y consultoría: tres ofertas cerradas con entregables y plazos. Hacemos que te vean, que te compren y que crezcas.">
+<meta name="description" content="Contenido, ventas y consultoría. Dinos qué le pasa a tu marca y te decimos por dónde empezar: que te vean, que te compren o que crezcas.">
 <style>
-/* Servicios: cada oferta es una ficha de la calculadora: para quién, qué recibes, cuánto tarda y cómo empieza. */
-.oferta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,4vw,72px);padding-block:clamp(48px,6vw,96px);border-top:1.5px solid var(--tinta);scroll-margin-top:80px}
-.oferta-cab{display:flex;flex-direction:column;gap:14px;align-self:start;position:sticky;top:96px}
-.oferta-cab .verbo{font-size:clamp(52px,7.6vw,128px)}
-.oferta-cab .verbo .serif{display:block;font-size:.5em;line-height:1;margin-bottom:.15em}
-.oferta-cab .mono{color:var(--gris)}
-.oferta-cab p{font-family:var(--f-serif);font-style:italic;font-size:clamp(20px,1.9vw,27px);line-height:1.15;max-width:24ch}
-.oferta-cuerpo{display:grid;gap:clamp(22px,2.4vw,32px)}
-.bloque-o h3{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;color:var(--gris);margin-bottom:10px}
-.bloque-o p{font-size:clamp(17px,1.4vw,20px);line-height:1.45;max-width:46ch}
-.recibes{list-style:none;padding:0;border-top:1.5px solid var(--tinta)}
-.recibes li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid var(--linea);font-size:clamp(17px,1.4vw,20px);line-height:1.35}
-.recibes li::before{content:counter(item,decimal-leading-zero);counter-increment:item;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--gris);padding-top:5px}
-.recibes{counter-reset:item}
-.datos-o{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5px;background:var(--tinta);border:1.5px solid var(--tinta)}
-.datos-o>div{background:var(--papel);padding:16px 18px}
-.datos-o b{display:block;font-weight:750;font-size:clamp(17px,1.4vw,20px);line-height:1.3;margin-top:6px}
-.acciones-o{display:flex;gap:14px 34px;flex-wrap:wrap;align-items:center}
-.oferta.invertida{background:var(--tinta);color:var(--papel);border-top-color:var(--tinta);margin-inline:calc(-1 * var(--lado));padding-inline:var(--lado)}
-.oferta.invertida .mono,.oferta.invertida .bloque-o h3,.oferta.invertida .recibes li::before{color:#9a9a95}
-.oferta.invertida .recibes{border-top-color:var(--papel)}
-.oferta.invertida .recibes li{border-bottom-color:#2a2a28}
-.oferta.invertida .datos-o{background:var(--papel);border-color:var(--papel)}
-.oferta.invertida .datos-o>div{background:var(--tinta)}
-.oferta.invertida .boton.claro{color:var(--papel);border-color:rgba(244,244,242,.5)}
-.oferta.invertida .boton.claro:hover{background:var(--papel);color:var(--tinta)}
-.puntuales{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,4vw,72px);padding-block:clamp(48px,6vw,96px);border-top:1.5px solid var(--tinta)}
-.puntuales h2{font-size:clamp(40px,5vw,84px)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chips a{padding:10px 16px;border:1.5px solid var(--tinta);border-radius:999px;text-decoration:none;font-weight:650;transition:background .25s,color .25s}
-.chips a:hover{background:var(--tinta);color:var(--papel)}
-.faq{padding-block:clamp(48px,6vw,96px);border-top:1.5px solid var(--tinta)}
-.faq h2{font-size:clamp(40px,5vw,84px);margin-bottom:clamp(20px,3vw,40px)}
-.faq details{border-bottom:1px solid var(--linea)}
-.faq details:first-of-type{border-top:1.5px solid var(--tinta)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:18px 0;font-weight:700;font-size:clamp(18px,1.6vw,23px)}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--f-mono);font-weight:400;transition:transform .3s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{padding:0 0 22px;max-width:62ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:#3d3d39}
-.saltos{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:clamp(24px,3vw,40px)}
-.saltos a{font-weight:700;font-size:clamp(15px,1.2vw,18px);text-decoration:none;border-bottom:2px solid var(--klein);padding-bottom:2px}
-.saltos a .serif{font-weight:400;margin-right:4px;color:var(--gris)}
-@media (max-width:760px){
-  .saltos{gap:4px 16px}
-  .oferta{padding-block:48px 56px;gap:22px}
-  .oferta-cab{gap:10px}
-  .oferta-cab .verbo{font-size:clamp(46px,14vw,64px)}
-  .oferta-cab p{font-size:19px}
-  .oferta-cuerpo{gap:20px}
-  .bloque-o p{font-size:15.5px}
-  .recibes li{grid-template-columns:30px minmax(0,1fr);gap:8px;padding:10px 0;font-size:15.5px}
-  .recibes li::before{font-size:10px;padding-top:3px}
-  .datos-o>div{padding:12px 14px}
-  .datos-o b{font-size:15px}
-  .puntuales{padding-block:48px;gap:14px}
-  .puntuales h2,.faq h2{font-size:clamp(36px,11vw,50px)}
-  .chips a{padding:8px 13px;font-size:14px}
-  .faq{padding-block:48px}
-  .faq summary{font-size:16.5px;padding:15px 0}
-  .faq details p{font-size:15px}
+/* Servicios: primero lo que te pasa, después lo que hacemos. Poco texto, cada servicio se ve funcionando. */
+.sub-hero .bajada{max-width:26ch}
+
+/* ---------- 1. ¿Qué le pasa a tu marca? ---------- */
+.elige{scroll-margin-top:80px}
+.pregunta{font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,2.2vw,32px);line-height:1.1;margin-bottom:clamp(14px,1.6vw,22px)}
+.dolores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.5px solid var(--tinta);border-bottom:1.5px solid var(--tinta)}
+.dolor{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:clamp(18px,2vw,28px) clamp(14px,1.6vw,24px) clamp(22px,2.4vw,32px);text-align:left;border-right:1px solid var(--linea);transition:color .35s ease}
+.dolor:last-child{border-right:0}
+.dolor::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tinta);transform:scaleY(0);transform-origin:bottom;transition:transform .55s cubic-bezier(.65,0,.25,1)}
+.dolor[aria-selected="true"]{color:var(--papel)}
+.dolor[aria-selected="true"]::before{transform:scaleY(1)}
+.dolor .mono{color:var(--gris);transition:color .35s}
+.dolor[aria-selected="true"] .mono{color:var(--klein-claro)}
+.dolor b{font-weight:820;font-stretch:80%;font-size:clamp(24px,2.5vw,40px);line-height:.98;text-transform:uppercase;letter-spacing:-.01em}
+.dolor .barra{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--klein-claro);transform:scaleX(0);transform-origin:left}
+.dolor.corre .barra{animation:barra var(--t,8s) linear forwards}
+@keyframes barra{to{transform:scaleX(1)}}
+.dolor:hover:not([aria-selected="true"]) b{color:var(--klein)}
+
+/* ---------- el servicio elegido ---------- */
+.servicios{position:relative}
+.servicio{display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:center;padding-block:clamp(40px,5vw,80px) clamp(28px,3vw,48px)}
+.servicio.on{display:grid;animation:entra .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes entra{from{opacity:0;transform:translateY(18px)}}
+.s-cab{display:flex;flex-direction:column;gap:clamp(16px,1.8vw,24px)}
+.verbo{font-size:clamp(56px,8vw,138px)}
+.verbo .serif{display:block;font-size:.42em;line-height:1;margin-bottom:.12em;color:var(--gris)}
+.promesa{font-family:var(--f-serif);font-style:italic;font-size:clamp(21px,2vw,30px);line-height:1.12;max-width:22ch}
+.datos{display:flex;gap:0;list-style:none;padding:0;border-top:1.5px solid var(--tinta)}
+.datos li{flex:1;padding:14px 14px 0 0}
+.datos li+li{padding-left:14px;border-left:1px solid var(--linea)}
+.datos b{display:block;font-weight:820;font-stretch:80%;font-size:clamp(26px,2.6vw,40px);line-height:1;text-transform:uppercase}
+.datos span{display:block;margin-top:6px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--gris)}
+.s-cab .boton{align-self:flex-start;font-size:clamp(19px,1.6vw,24px);margin-top:6px}
+
+/* los cinco pasos: se encienden uno tras otro */
+.pasos{grid-column:1/-1;list-style:none;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:clamp(8px,1vw,16px);counter-reset:p}
+.pasos li{position:relative;padding:22px 16px 0 0;counter-increment:p;opacity:.25;transition:opacity .5s ease}
+.pasos li::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--linea)}
+.pasos li::after{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--tinta);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.65,0,.25,1)}
+.pasos li.ya{opacity:1}
+.pasos li.ya::after{transform:scaleX(1)}
+.pasos li i{position:absolute;left:0;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--papel);border:1.5px solid var(--tinta);transition:background .3s}
+.pasos li.ya i{background:var(--klein)}
+.pasos b{display:block;font-weight:780;font-size:clamp(17px,1.4vw,21px);line-height:1.15}
+.pasos b::before{content:counter(p,decimal-leading-zero) " ";font-family:var(--f-mono);font-weight:500;font-size:11px;color:var(--gris);letter-spacing:.06em}
+.pasos span{display:block;margin-top:4px;font-size:15px;line-height:1.35;color:var(--gris);max-width:20ch}
+
+/* demos: cada servicio, funcionando */
+.s-demo{position:relative;display:flex;justify-content:center;align-items:center;min-height:min(70vh,560px)}
+.tel{position:relative;width:min(290px,72vw);aspect-ratio:9/18.5;border-radius:38px;background:#0B0B0A;padding:10px;box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
+.tel>div{position:relative;width:100%;height:100%;border-radius:29px;overflow:hidden;background:#141413}
+.tel video{width:100%;height:100%;object-fit:cover}
+/* que te vean: el video y las vistas que suben */
+.vistas{position:absolute;left:14px;right:14px;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+.vistas b{display:block;font-weight:850;font-stretch:75%;font-size:44px;line-height:.9;font-variant-numeric:tabular-nums}
+.vistas small{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.corazones{position:absolute;right:16px;bottom:70px;width:30px;height:200px;pointer-events:none}
+.corazones span{position:absolute;bottom:0;left:6px;font-size:20px;color:#fff;opacity:0;animation:sube-c 2.4s ease-out infinite}
+.corazones span:nth-child(2){animation-delay:.8s;left:0}
+.corazones span:nth-child(3){animation-delay:1.6s;left:10px}
+@keyframes sube-c{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translateY(-190px) scale(1.2) rotate(-12deg)}}
+.etiqueta{position:absolute;padding:10px 14px;background:var(--klein);color:#fff;font-weight:750;font-size:15px;line-height:1.15;max-width:15ch;box-shadow:0 18px 30px -16px rgba(10,59,255,.8)}
+.etiqueta.e1{left:max(0px,calc(50% - 300px));top:16%;transform:rotate(-4deg)}
+.etiqueta.e2{right:max(0px,calc(50% - 300px));bottom:20%;transform:rotate(3deg);background:var(--tinta)}
+/* que te compren: el chat que termina en venta */
+.tel>.chat{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;height:100%;padding:56px 12px 16px;background:#ECE5DD;color:#111}
+.chat-cab{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:8px;padding:14px 14px 10px;background:#0B0B0A;color:#fff;font-size:13px;font-weight:700}
+.chat-cab img{width:28px;height:22px;object-fit:contain;filter:invert(1)}
+.burbuja{max-width:82%;padding:9px 12px;border-radius:14px;font-size:14px;line-height:1.3;opacity:0;transform:translateY(8px) scale(.96);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.burbuja.ya{opacity:1;transform:none}
+.burbuja.cli{align-self:flex-end;background:#DCF8C6;border-bottom-right-radius:4px}
+.burbuja.bss{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
+.escribe{align-self:flex-start;display:none;gap:4px;padding:12px 14px;background:#fff;border-radius:14px}
+.escribe.ya{display:flex}
+.escribe i{width:6px;height:6px;border-radius:50%;background:#9a9a95;animation:punto 1s ease-in-out infinite}
+.escribe i:nth-child(2){animation-delay:.15s}.escribe i:nth-child(3){animation-delay:.3s}
+@keyframes punto{50%{transform:translateY(-4px);opacity:.5}}
+.sello{position:absolute;left:50%;top:44%;padding:10px 18px;border:3px solid var(--klein);color:var(--klein);font-weight:900;font-stretch:72%;font-size:40px;line-height:1;text-transform:uppercase;letter-spacing:.02em;background:rgba(236,229,221,.82);transform:translate(-50%,-50%) rotate(-12deg) scale(2.4);opacity:0;transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.sello.ya{opacity:1;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}
+/* que crezcas: tu rebaño de clientes, mes a mes */
+.rebano{width:min(520px,100%);display:flex;flex-direction:column;gap:14px}
+.rebano-cab{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--tinta);padding-bottom:10px}
+.rebano-cab b{font-weight:850;font-stretch:75%;font-size:clamp(44px,4.6vw,72px);line-height:.9;font-variant-numeric:tabular-nums}
+.rebano-cab span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--gris);text-align:right}
+.meses{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;gap:10px;height:300px}
+.mes{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;height:100%}
+.mes img{width:min(38px,80%);opacity:0;transform:translateY(-30px) scale(.6);transition:opacity .25s,transform .45s cubic-bezier(.3,1.5,.5,1)}
+.mes img.ya{opacity:1;transform:none}
+.mes small{margin-top:8px;font-family:var(--f-mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--gris)}
+.objetivo{font-family:var(--f-serif);font-style:italic;font-size:17px;color:var(--gris)}
+.objetivo b{font-family:var(--f-disp);font-style:normal;color:var(--klein)}
+
+/* ventas va en negro, como en la landing */
+.servicio.negro{color:var(--papel)}
+.servicios.negro{background:var(--tinta);color:var(--papel);transition:background .6s ease,color .6s ease}
+.servicios{transition:background .6s ease,color .6s ease;margin-inline:calc(50% - 50vw);padding-inline:calc(50vw - 50%)}
+.servicios.negro .verbo .serif,.servicios.negro .datos span,.servicios.negro .pasos span,.servicios.negro .pasos b::before{color:#9a9a95}
+.servicios.negro .datos{border-top-color:var(--papel)}
+.servicios.negro .datos li+li{border-color:#2a2a28}
+.servicios.negro .pasos li::before{background:#2a2a28}
+.servicios.negro .pasos li::after{background:var(--papel)}
+.servicios.negro .pasos li i{background:var(--tinta);border-color:var(--papel)}
+.servicios.negro .pasos li.ya i{background:var(--klein-claro)}
+.servicios.negro .boton{color:var(--papel)}
+.servicios.negro .tel{box-shadow:0 0 0 1.5px #2a2a28,0 40px 80px -30px rgba(0,0,0,.8)}
+
+/* ---------- 2. Cómo empieza ---------- */
+.empieza{margin-top:clamp(80px,10vw,150px)}
+.titulo-s{font-size:clamp(44px,6vw,100px)}
+.titulo-s .serif{font-size:.9em}
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin-top:clamp(28px,3.4vw,48px);list-style:none;padding:0}
+.tres li{position:relative;padding:22px 22px 26px;border:1.5px solid var(--tinta);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;transition:background .3s,color .3s}
+.tres li:first-child{background:var(--klein);border-color:var(--klein);color:#fff}
+.tres li b{font-weight:850;font-stretch:72%;font-size:clamp(64px,6.6vw,110px);line-height:.8}
+.tres li p{font-weight:720;font-size:clamp(19px,1.6vw,24px);line-height:1.15;max-width:18ch}
+.tres li small{display:block;margin-top:6px;font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:clamp(16px,1.3vw,19px);opacity:.8}
+.empieza .acciones{display:flex;flex-wrap:wrap;align-items:center;gap:12px 34px;margin-top:clamp(24px,3vw,40px);font-size:clamp(19px,1.6vw,24px)}
+
+/* ---------- 3. También de uno en uno ---------- */
+.sueltos{margin-top:clamp(80px,10vw,150px)}
+.sueltos-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 40px;flex-wrap:wrap}
+.sueltos-cab p{font-family:var(--f-serif);font-style:italic;font-size:clamp(19px,1.7vw,25px);line-height:1.15;max-width:30ch}
+.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:clamp(24px,3vw,40px)}
+.pieza{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#111;color:#fff;text-decoration:none}
+.pieza:nth-child(1),.pieza:nth-child(8){grid-column:span 2;aspect-ratio:auto}
+.pieza video,.pieza img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s}
+.pieza img{filter:grayscale(.55) brightness(.8)}
+.pieza video{opacity:0;transition:opacity .4s}
+.pieza.vivo video{opacity:1}
+.pieza:hover img{transform:scale(1.05);filter:none}
+.pieza::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72))}
+.pieza span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.pieza b{font-weight:820;font-stretch:78%;font-size:clamp(20px,1.9vw,30px);line-height:.95;text-transform:uppercase}
+.pieza small{flex:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;transition:color .3s}
+.pieza:hover small{color:var(--klein-claro)}
+
+/* ---------- 4. Preguntas, como en WhatsApp ---------- */
+.faq{margin-top:clamp(80px,10vw,150px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,72px);align-items:start}
+.faq-cab{position:sticky;top:110px;display:flex;flex-direction:column;gap:18px}
+.faq-cab p{font-family:var(--f-serif);font-style:italic;font-size:clamp(19px,1.7vw,25px);line-height:1.15;max-width:24ch;color:var(--gris)}
+.hilo{display:flex;flex-direction:column;gap:10px;padding:clamp(18px,2vw,28px);background:#ECE5DD;border-radius:6px}
+.p-faq{align-self:flex-end;max-width:85%;padding:12px 16px;border-radius:18px 18px 4px 18px;background:var(--tinta);color:var(--papel);font-weight:700;font-size:clamp(16px,1.3vw,19px);line-height:1.25;text-align:left;transition:background .25s,transform .2s}
+.p-faq:hover{background:var(--klein)}
+.p-faq[aria-expanded="true"]{background:var(--klein)}
+.p-faq::after{content:" +";font-family:var(--f-mono);font-weight:400;opacity:.7}
+.p-faq[aria-expanded="true"]::after{content:" ✓"}
+.r-faq{align-self:flex-start;max-width:85%;padding:12px 16px;border-radius:18px 18px 18px 4px;background:#fff;font-size:clamp(15.5px,1.2vw,18px);line-height:1.45;animation:entra .5s cubic-bezier(.2,.8,.2,1)}
+.r-faq[hidden]{display:none}
+.r-faq .escribe{display:flex;padding:4px 0;background:none}
+
+@media (max-width:900px){
+  .servicio{grid-template-columns:minmax(0,1fr);gap:28px}
+  .s-demo{min-height:0;order:2}
+  .pasos{grid-template-columns:minmax(0,1fr);gap:0;order:3}
+  .pasos li{padding:0 0 18px 26px}
+  .pasos li::before,.pasos li::after{left:4px;right:auto;top:6px;bottom:0;width:1.5px;height:auto}
+  .pasos li::after{transform:scaleY(0);transform-origin:top}
+  .pasos li.ya::after{transform:scaleY(1)}
+  .pasos li i{left:0;top:4px}
+  .pasos span{max-width:none}
+  .tres{grid-template-columns:minmax(0,1fr)}
+  .tres li{min-height:0;flex-direction:row;align-items:center;justify-content:flex-start}
+  .tres li b{font-size:64px;flex:none;width:48px}
+  .faq{grid-template-columns:minmax(0,1fr)}
+  .faq-cab{position:static}
 }
-@media (max-width:860px){.oferta,.puntuales{grid-template-columns:minmax(0,1fr)}.oferta-cab{position:static}.datos-o{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){
+  .dolores{grid-template-columns:minmax(0,1fr)}
+  .dolor{flex-direction:row;align-items:baseline;gap:12px;border-right:0;border-bottom:1px solid var(--linea);padding:16px 12px}
+  .dolor:last-child{border-bottom:0}
+  .dolor b{font-size:22px}
+  .verbo{font-size:clamp(50px,14.6vw,66px)}
+  .promesa{font-size:20px}
+  .datos b{font-size:24px}
+  .datos li{padding-right:8px}.datos li+li{padding-left:10px}
+  .tel{width:min(250px,66vw)}
+  .etiqueta{font-size:13px;padding:8px 10px}
+  .etiqueta.e1{left:0;top:6%}.etiqueta.e2{right:0;bottom:10%}
+  .meses{height:220px;gap:6px}
+  .mosaico{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pieza:nth-child(1),.pieza:nth-child(8){grid-column:span 2;aspect-ratio:16/10}
+  .pieza b{font-size:19px}
+  .pieza span{flex-direction:column;align-items:flex-start;gap:4px}
+  .p-faq,.r-faq{max-width:92%}
+}
+@media (prefers-reduced-motion:reduce){.servicio.on,.r-faq{animation:none}.dolor.corre .barra{animation:none}}
 </style>
 </head>
 <body data-sub data-titulo-en="Services · Black Sheep Studioss">
@@ -97,104 +222,130 @@
   <header class="sub-hero env" data-escribenos-desde>
     <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Services">Servicios</span></p>
     <h1 class="gigante"><span data-en="Services">Servicios</span><span class="serif">.</span></h1>
-    <p class="bajada" data-en="We make sure they see you, they buy from you and you grow. Three offers with clear deliverables and timelines.">Hacemos que te vean, que te compren y que crezcas. Tres ofertas con entregables y plazos claros.</p>
-    <nav class="saltos" aria-label="Ofertas"><a href="#contenido"><span class="serif" data-en="01">01</span><span data-en="Be seen">Que te vean</span></a><a href="#ventas"><span class="serif">02</span><span data-en="Sell">Que te compren</span></a><a href="#consultoria"><span class="serif">03</span><span data-en="Grow">Que crezcas</span></a></nav>
+    <p class="bajada" data-en="Tell us what's happening to your brand. We'll tell you where to start.">Dinos qué le pasa a tu marca. Te decimos por dónde empezar.</p>
   </header>
 
-  <div class="env">
-    <section class="oferta sube" id="contenido" aria-labelledby="t-contenido">
-      <div class="oferta-cab">
-        <span class="mono" data-en="01 · Content">01 · Contenido</span>
-        <h2 class="gigante verbo" id="t-contenido"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="they see you.">te vean.</span></h2>
-        <p data-en="Video, photo and social with a measurable goal, not a calendar.">Video, foto y redes con un objetivo medible, no con un calendario.</p>
-      </div>
-      <div class="oferta-cuerpo">
-        <div class="bloque-o"><h3 data-en="Who it's for">Para quién</h3><p data-en="Brands that post but don't sell, or that don't post because they don't know what to say.">Marcas que publican pero no venden, o que no publican porque no saben qué decir.</p></div>
-        <div class="bloque-o"><h3 data-en="What you get">Qué recibes</h3>
-          <ol class="recibes">
-            <li data-en="A diagnosis of your social channels and one target number.">Diagnóstico de tus redes y un número objetivo.</li>
-            <li data-en="A monthly content plan with ideas of our own, not trends copied from others.">Plan mensual de contenido con ideas propias, no tendencias copiadas.</li>
-            <li data-en="One shoot a month: reels, photos and pieces for ads.">Un rodaje al mes: reels, fotos y piezas para anuncios.</li>
-            <li data-en="Editing, copy and publishing.">Edición, textos y publicación.</li>
-            <li data-en="A monthly report: what worked and what we change.">Reporte mensual: qué funcionó y qué cambiamos.</li>
-          </ol>
-        </div>
-        <div class="datos-o">
-          <div><span class="mono" data-en="How long">Cuánto tarda</span><b data-en="We start in 2 weeks. Monthly cycles; we recommend at least 3.">Arrancamos en 2 semanas. Ciclos mensuales; recomendamos un mínimo de 3.</b></div>
-          <div><span class="mono" data-en="How it starts">Cómo empieza</span><b data-en="With a 20-minute diagnosis. Free.">Con un diagnóstico de 20 minutos. Gratis.</b></div>
-        </div>
-        <div class="acciones-o"><a class="boton" href="https://wa.me/529999046145" data-wa="contenido" target="_blank" rel="noopener" data-en="I want to be seen ↗">Quiero que me vean ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
-      </div>
-    </section>
+  <section class="env elige" id="elige" aria-labelledby="t-elige">
+    <p class="pregunta" id="t-elige" data-en="What's happening to your brand today?">¿Qué le pasa hoy a tu marca?</p>
+    <div class="dolores" role="tablist" aria-labelledby="t-elige">
+      <button type="button" class="dolor" role="tab" id="d-contenido" aria-controls="contenido" aria-selected="true"><span class="mono">01</span><b data-en="Nobody sees me.">No me ven.</b><i class="barra"></i></button>
+      <button type="button" class="dolor" role="tab" id="d-ventas" aria-controls="ventas" aria-selected="false"><span class="mono">02</span><b data-en="They see me, but don't buy.">Me ven, pero no me compran.</b><i class="barra"></i></button>
+      <button type="button" class="dolor" role="tab" id="d-consultoria" aria-controls="consultoria" aria-selected="false"><span class="mono">03</span><b data-en="I sell, but I don't grow.">Vendo, pero no crezco.</b><i class="barra"></i></button>
+    </div>
 
-    <section class="oferta invertida sube" id="ventas" aria-labelledby="t-ventas">
-      <div class="oferta-cab">
-        <span class="mono" data-en="02 · Sales">02 · Ventas</span>
-        <h2 class="gigante verbo" id="t-ventas"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="they buy.">te compren.</span></h2>
-        <p data-en="Scripts, processes and training so your team closes what content opens.">Guiones, procesos y formación para que tu equipo cierre lo que el contenido abre.</p>
-      </div>
-      <div class="oferta-cuerpo">
-        <div class="bloque-o"><h3 data-en="Who it's for">Para quién</h3><p data-en="Businesses that get messages or visits and don't close as many as they should.">Negocios que reciben mensajes o visitas y no cierran lo que deberían.</p></div>
-        <div class="bloque-o"><h3 data-en="What you get">Qué recibes</h3>
-          <ol class="recibes">
-            <li data-en="A diagnosis of how you sell today: WhatsApp, calls and in store.">Diagnóstico de cómo vendes hoy: WhatsApp, llamadas y tienda.</li>
-            <li data-en="Scripts and ready answers for every stage of the sale.">Guiones y respuestas tipo para cada etapa de la venta.</li>
-            <li data-en="A clear sales process, from the first message to the close.">Un proceso de venta claro, del primer mensaje al cierre.</li>
-            <li data-en="Materials salespeople actually use: deck, catalogue and proposals.">Materiales que el vendedor sí usa: presentación, catálogo y propuestas.</li>
-            <li data-en="Team training and 30 days of follow-up.">Formación del equipo y 30 días de seguimiento.</li>
-          </ol>
+    <div class="servicios" id="servicios">
+      <article class="servicio on" id="contenido" role="tabpanel" aria-labelledby="d-contenido">
+        <div class="s-cab">
+          <h2 class="gigante verbo"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="they see you.">te vean.</span></h2>
+          <p class="promesa" data-en="Video, photo and social with a number behind them, not a calendar.">Video, foto y redes con un número detrás, no con un calendario.</p>
+          <ul class="datos">
+            <li><b data-en="2 wks">2 sem.</b><span data-en="to start">para arrancar</span></li>
+            <li><b data-en="1 shoot">1 rodaje</b><span data-en="a month">al mes</span></li>
+            <li><b data-en="1 number">1 número</b><span data-en="to beat">a superar</span></li>
+          </ul>
+          <a class="boton" href="https://wa.me/529999046145" data-wa="contenido" target="_blank" rel="noopener" data-en="I want to be seen ↗">Quiero que me vean ↗</a>
         </div>
-        <div class="datos-o">
-          <div><span class="mono" data-en="How long">Cuánto tarda</span><b data-en="4 to 6 weeks, plus one month of follow-up.">De 4 a 6 semanas, más un mes de seguimiento.</b></div>
-          <div><span class="mono" data-en="How it starts">Cómo empieza</span><b data-en="We listen to how you sell today. No judgement.">Escuchando cómo vendes hoy. Sin juicios.</b></div>
+        <div class="s-demo" aria-hidden="true">
+          <div class="tel"><div><video muted loop playsinline preload="none" poster="vid/v-tigre.jpg" src="vid/v-tigre.mp4"></video>
+            <div class="corazones"><span>♥</span><span>♥</span><span>♥</span></div>
+            <div class="vistas"><div><b class="cuenta" data-hasta="48200">0</b><small data-en="views">vistas</small></div><small data-en="first 3 s">primeros 3 s</small></div></div></div>
+          <p class="etiqueta e1" data-en="Win the first 3 seconds.">Ganar los primeros 3 segundos.</p>
+          <p class="etiqueta e2" data-en="Then, the message.">Después, el mensaje.</p>
         </div>
-        <div class="acciones-o"><a class="boton klein" href="https://wa.me/529999046145" data-wa="ventas" target="_blank" rel="noopener" data-en="I want people to buy ↗">Quiero que me compren ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
-      </div>
-    </section>
+        <ol class="pasos">
+          <li><i></i><b data-en="Diagnosis">Diagnóstico</b><span data-en="of your socials and one target number">de tus redes y un número objetivo</span></li>
+          <li><i></i><b data-en="Plan">Plan</b><span data-en="monthly, with ideas of our own">mensual, con ideas propias</span></li>
+          <li><i></i><b data-en="Shoot">Rodaje</b><span data-en="reels, photos and ads">reels, fotos y anuncios</span></li>
+          <li><i></i><b data-en="Publishing">Publicación</b><span data-en="editing and copy included">edición y textos incluidos</span></li>
+          <li><i></i><b data-en="Report">Reporte</b><span data-en="what worked and what we change">qué funcionó y qué cambiamos</span></li>
+        </ol>
+      </article>
 
-    <section class="oferta sube" id="consultoria" aria-labelledby="t-consultoria">
-      <div class="oferta-cab">
-        <span class="mono" data-en="03 · Consulting">03 · Consultoría</span>
-        <h2 class="gigante verbo" id="t-consultoria"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="you grow.">crezcas.</span></h2>
-        <p data-en="A plan with numbers and someone to review it with you every month.">Un plan con números y alguien que lo revise contigo cada mes.</p>
-      </div>
-      <div class="oferta-cuerpo">
-        <div class="bloque-o"><h3 data-en="Who it's for">Para quién</h3><p data-en="Owners who want to grow with a plan, not on gut feeling.">Dueños que quieren crecer con un plan y no a base de intuiciones.</p></div>
-        <div class="bloque-o"><h3 data-en="What you get">Qué recibes</h3>
-          <ol class="recibes">
-            <li data-en="A diagnosis session on your brand and your business.">Sesión de diagnóstico de marca y negocio.</li>
-            <li data-en="A growth plan with goals, numbers and priorities.">Plan de crecimiento con objetivos, números y prioridades.</li>
-            <li data-en="Brand and sales aligned: what to say, to whom and where.">Marca y ventas alineadas: qué decir, a quién y dónde.</li>
-            <li data-en="A review every two weeks.">Una revisión cada dos semanas.</li>
-            <li data-en="Adjustments based on data, not opinions.">Ajustes con datos, no con opiniones.</li>
-          </ol>
+      <article class="servicio negro" id="ventas" role="tabpanel" aria-labelledby="d-ventas">
+        <div class="s-cab">
+          <h2 class="gigante verbo"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="they buy.">te compren.</span></h2>
+          <p class="promesa" data-en="So your team closes what content opens.">Para que tu equipo cierre lo que el contenido abre.</p>
+          <ul class="datos">
+            <li><b data-en="4-6 wks">4-6 sem.</b><span data-en="of work">de trabajo</span></li>
+            <li><b data-en="30 days">30 días</b><span data-en="of follow-up">de seguimiento</span></li>
+            <li><b data-en="0 judgement">0 juicios</b><span data-en="about how you sell">sobre cómo vendes</span></li>
+          </ul>
+          <a class="boton" href="https://wa.me/529999046145" data-wa="ventas" target="_blank" rel="noopener" data-en="I want people to buy ↗">Quiero que me compren ↗</a>
         </div>
-        <div class="datos-o">
-          <div><span class="mono" data-en="How long">Cuánto tarda</span><b data-en="Plan ready in 3 weeks; support month to month.">Plan listo en 3 semanas; acompañamiento mes a mes.</b></div>
-          <div><span class="mono" data-en="How it starts">Cómo empieza</span><b data-en="With your numbers on the table, even if they're ugly.">Con tus números sobre la mesa, aunque sean feos.</b></div>
+        <div class="s-demo" aria-hidden="true">
+          <div class="tel"><div class="chat">
+            <p class="chat-cab"><img src="img/oveja-tinta.webp" alt=""><span data-en="Your brand">Tu marca</span></p>
+            <p class="burbuja cli" data-en="Hi, I saw your reel. Any spots this Saturday?">Hola, vi su reel. ¿Tienen lugar este sábado?</p>
+            <p class="burbuja bss" data-en="Hi! We have two left. Want me to save you one?">¡Hola! Nos quedan dos. ¿Te aparto uno?</p>
+            <p class="burbuja cli" data-en="Yes, save it for me.">Sí, apártamelo.</p>
+            <p class="burbuja bss" data-en="Done. Sending you the payment link.">Listo. Te mando el enlace de pago.</p>
+            <p class="escribe"><i></i><i></i><i></i></p>
+            <p class="sello" data-en="Sold">Vendido</p>
+          </div></div>
         </div>
-        <div class="acciones-o"><a class="boton" href="https://wa.me/529999046145" data-wa="consultoria" target="_blank" rel="noopener" data-en="I want to grow ↗">Quiero crecer ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
-      </div>
-    </section>
+        <ol class="pasos">
+          <li><i></i><b data-en="Listen">Escuchar</b><span data-en="how you sell today: WhatsApp, calls, store">cómo vendes hoy: WhatsApp, llamadas, tienda</span></li>
+          <li><i></i><b data-en="Scripts">Guiones</b><span data-en="and ready answers for every stage">y respuestas para cada etapa</span></li>
+          <li><i></i><b data-en="Process">Proceso</b><span data-en="from the first message to the close">del primer mensaje al cierre</span></li>
+          <li><i></i><b data-en="Materials">Materiales</b><span data-en="decks and proposals they'll actually use">presentación y propuestas que sí se usan</span></li>
+          <li><i></i><b data-en="Training">Formación</b><span data-en="of your team, with follow-up">de tu equipo, con seguimiento</span></li>
+        </ol>
+      </article>
 
-    <section class="puntuales sube" aria-labelledby="t-puntuales">
-      <div><span class="mono ph" data-en="One-off projects">Proyectos puntuales</span><h2 class="gigante" id="t-puntuales" style="margin-top:12px" data-en="Also one at a time.">También de uno en uno.</h2></div>
-      <div>
-        <p style="font-size:clamp(17px,1.4vw,20px);max-width:46ch" data-en="Not everything is monthly. We also make websites, launch campaigns, corporate videos and events, with the same calculator.">No todo es mensual. También hacemos webs, campañas de lanzamiento, videos corporativos y eventos, con la misma calculadora.</p>
-        <div class="chips"><a href="trabajo.html#webs" data-en="Websites">Webs</a><a href="trabajo.html#campanas" data-en="Campaigns">Campañas</a><a href="trabajo.html#corporativo" data-en="Corporate">Corporativo</a><a href="trabajo.html#inmobiliario" data-en="Real estate">Inmobiliario</a><a href="trabajo.html#eventos" data-en="Events">Eventos</a></div>
-      </div>
-    </section>
+      <article class="servicio" id="consultoria" role="tabpanel" aria-labelledby="d-consultoria">
+        <div class="s-cab">
+          <h2 class="gigante verbo"><span class="serif" data-en="We make sure">Hacemos que</span><span data-en="you grow.">crezcas.</span></h2>
+          <p class="promesa" data-en="A plan with numbers and someone who reviews it with you.">Un plan con números y alguien que lo revise contigo.</p>
+          <ul class="datos">
+            <li><b data-en="3 wks">3 sem.</b><span data-en="for the plan">para el plan</span></li>
+            <li><b data-en="Every 15">Cada 15</b><span data-en="days, a review">días, revisión</span></li>
+            <li><b data-en="Data">Datos</b><span data-en="not opinions">no opiniones</span></li>
+          </ul>
+          <a class="boton" href="https://wa.me/529999046145" data-wa="consultoria" target="_blank" rel="noopener" data-en="I want to grow ↗">Quiero crecer ↗</a>
+        </div>
+        <div class="s-demo" aria-hidden="true">
+          <div class="rebano">
+            <div class="rebano-cab"><b class="cuenta" data-hasta="21">0</b><span data-en="Your herd of clients<br>month by month">Tu rebaño de clientes<br>mes a mes</span></div>
+            <div class="meses" id="meses"></div>
+            <p class="objetivo" data-en="Target for month six: <b>20</b>. Beaten.">Objetivo del mes seis: <b>20</b>. Superado.</p>
+          </div>
+        </div>
+        <ol class="pasos">
+          <li><i></i><b data-en="Diagnosis">Diagnóstico</b><span data-en="of your brand and your business">de tu marca y tu negocio</span></li>
+          <li><i></i><b data-en="Goals">Objetivos</b><span data-en="with numbers and priorities">con números y prioridades</span></li>
+          <li><i></i><b data-en="Alignment">Alinear</b><span data-en="what to say, to whom and where">qué decir, a quién y dónde</span></li>
+          <li><i></i><b data-en="Review">Revisión</b><span data-en="every two weeks">cada dos semanas</span></li>
+          <li><i></i><b data-en="Adjust">Ajuste</b><span data-en="with data, not opinions">con datos, no con opiniones</span></li>
+        </ol>
+      </article>
+    </div>
+  </section>
 
-    <section class="faq sube" aria-labelledby="t-faq">
-      <h2 class="gigante" id="t-faq" data-en="Questions">Preguntas</h2>
-      <details><summary data-en="How much does it cost?">¿Cuánto cuesta?</summary><p data-en="We quote per project after the diagnosis, because it depends on your goal and on what you already have. The diagnosis is free.">Cotizamos por proyecto después del diagnóstico, porque depende de tu objetivo y de lo que ya tienes. El diagnóstico no se cobra.</p></details>
-      <details><summary data-en="Do I have to hire all three?">¿Tengo que contratar las tres cosas?</summary><p data-en="No. You can start with one. Many brands start with content and add sales once messages start coming in.">No. Puedes empezar por una. Muchas marcas empiezan por contenido y suman ventas cuando ya entran mensajes.</p></details>
-      <details><summary data-en="Do you only work in Mérida?">¿Trabajan solo en Mérida?</summary><p data-en="We're based in Mérida and work remotely with brands from other cities. We've shot in four countries.">Estamos en Mérida y trabajamos en remoto con marcas de otras ciudades. Hemos rodado en cuatro países.</p></details>
-      <details><summary data-en="When will I see results?">¿Cuándo se ven resultados?</summary><p data-en="We set the target number on day one and review it every month. You'll know early whether it's working, and if it isn't, we change it.">Fijamos el número objetivo desde el primer día y lo revisamos cada mes. Sabrás pronto si funciona, y si no, lo cambiamos.</p></details>
-      <details><summary data-en="Who shoots and who edits?">¿Quién graba y quién edita?</summary><p data-en="We do: direction, shooting, editing and publishing. When a project needs it, we bring in people from our network.">Nosotros: dirección, rodaje, edición y publicación. Cuando el proyecto lo pide, sumamos gente de nuestra red.</p></details>
-      <details><summary data-en="What do you need from me?">¿Qué necesitan de mí?</summary><p data-en="One person on your side who decides quickly, access to your numbers and the will not to look like everyone else.">Una persona de tu lado que decida rápido, acceso a tus números y ganas de no parecerte a los demás.</p></details>
-    </section>
-  </div>
+  <section class="env empieza sube" aria-labelledby="t-empieza">
+    <h2 class="gigante titulo-s" id="t-empieza"><span data-en="How it">Cómo</span> <span class="serif" data-en="starts.">empieza.</span></h2>
+    <ol class="tres">
+      <li><b>1</b><p><span data-en="A 20-minute diagnosis.">Un diagnóstico de 20 minutos.</span><small data-en="Free, and with no strings.">Gratis y sin compromiso.</small></p></li>
+      <li><b>2</b><p><span data-en="One number and a plan.">Un número y un plan.</span><small data-en="What has to move in your business.">Lo que tiene que moverse en tu negocio.</small></p></li>
+      <li><b>3</b><p><span data-en="We make, measure and adjust.">Hacemos, medimos y ajustamos.</span><small data-en="Until it works.">Hasta que funciona.</small></p></li>
+    </ol>
+    <div class="acciones"><a class="boton" href="https://wa.me/529999046145" data-wa="diagnostico" target="_blank" rel="noopener" data-en="I want my diagnosis ↗">Quiero mi diagnóstico ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
+  </section>
+
+  <section class="env sueltos sube" aria-labelledby="t-sueltos">
+    <div class="sueltos-cab">
+      <h2 class="gigante titulo-s" id="t-sueltos"><span data-en="Also one">También de</span> <span class="serif" data-en="at a time.">uno en uno.</span></h2>
+      <p data-en="Not everything is monthly. Websites, campaigns, presentations, events: same calculator.">No todo es mensual. Webs, campañas, presentaciones, eventos: con la misma calculadora.</p>
+    </div>
+    <div class="mosaico" id="mosaico"></div>
+  </section>
+
+  <section class="env faq sube" aria-labelledby="t-faq">
+    <div class="faq-cab">
+      <h2 class="gigante titulo-s" id="t-faq"><span data-en="What they">Lo que nos</span> <span class="serif" data-en="ask us.">preguntan.</span></h2>
+      <p data-en="The same things people ask us on WhatsApp. Tap one.">Lo mismo que nos preguntan por WhatsApp. Toca una.</p>
+    </div>
+    <div class="hilo" id="hilo"></div>
+  </section>
 </main>
 <footer class="pie-sub" id="contacto" data-sin-escribenos>
   <div class="env">
@@ -207,5 +358,120 @@
 </footer>
 <script src="proyectos.js"></script>
 <script src="comun.js"></script>
+<script>
+(function(){
+  "use strict";
+  var L = BSS.L, reducido = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var dolores = [].slice.call(document.querySelectorAll(".dolor")), paneles = [].slice.call(document.querySelectorAll(".servicio")), caja = document.getElementById("servicios");
+  var activo = 0, tocado = false, visible = false, reloj = 0, animaciones = [];
+  function limpiar(){ animaciones.forEach(clearTimeout); animaciones = []; }
+  function luego(fn, ms){ animaciones.push(setTimeout(fn, reducido ? 0 : ms)); }
+
+  /* ---------- cada servicio se ve funcionando ---------- */
+  function contar(el, dur){
+    var hasta = +el.getAttribute("data-hasta"), t0 = performance.now();
+    (function paso(t){ var k = Math.min(1, (t - t0) / dur), v = Math.round(hasta * (1 - Math.pow(1 - k, 3)));
+      el.textContent = hasta >= 1000 ? (v / 1000).toFixed(1).replace(".", BSS.idioma() === "en" ? "." : ",") + "K" : v;
+      if (k < 1 && !reducido) requestAnimationFrame(paso); else if (reducido) el.textContent = hasta >= 1000 ? (hasta / 1000).toFixed(1) + "K" : hasta; })(t0);
+  }
+  var MESES = {es: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"], en: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]}, OVEJAS = [1, 2, 4, 7, 11, 21];
+  function pintarMeses(){
+    var m = document.getElementById("meses"), n = MESES[BSS.idioma()] || MESES.es;
+    m.innerHTML = OVEJAS.map(function(k, i){ var o = ""; for (var j = 0; j < Math.min(k, 8); j++) o += '<img src="img/oveja-tinta.webp" alt="">'; return '<div class="mes">' + o + '<small>' + n[i] + (k > 8 ? " · " + k : "") + '</small></div>'; }).join("");
+  }
+  function demo(i){
+    limpiar();
+    var p = paneles[i], pasos = [].slice.call(p.querySelectorAll(".pasos li"));
+    pasos.forEach(function(li){ li.classList.remove("ya"); });
+    pasos.forEach(function(li, k){ luego(function(){ li.classList.add("ya"); }, 500 + k * 420); });
+    var v = p.querySelector("video"); if (v && !reducido) { v.preload = "auto"; var pr = v.play(); if (pr) pr.catch(function(){}); }
+    [].forEach.call(p.querySelectorAll(".cuenta"), function(c){ c.textContent = "0"; luego(function(){ contar(c, c.getAttribute("data-hasta") > 100 ? 2600 : 3600); }, 300); });
+    var bs = [].slice.call(p.querySelectorAll(".burbuja")), esc = p.querySelector(".escribe"), sello = p.querySelector(".sello");
+    if (bs.length) {
+      bs.forEach(function(b){ b.classList.remove("ya"); }); sello.classList.remove("ya"); esc.classList.remove("ya");
+      var t = 300;
+      bs.forEach(function(b, k){
+        if (b.classList.contains("bss")) { luego(function(){ esc.classList.add("ya"); b.parentNode.insertBefore(esc, b); }, t); t += 900; }
+        luego(function(){ esc.classList.remove("ya"); b.classList.add("ya"); }, t); t += 950;
+      });
+      luego(function(){ sello.classList.add("ya"); }, t + 200);
+    }
+    var ovejas = [].slice.call(p.querySelectorAll(".mes img"));
+    ovejas.forEach(function(o){ o.classList.remove("ya"); });
+    ovejas.forEach(function(o, k){ luego(function(){ o.classList.add("ya"); }, 400 + k * 110); });
+  }
+
+  /* ---------- elegir lo que te pasa ---------- */
+  function elegir(i, desdeClic){
+    activo = i;
+    dolores.forEach(function(d, k){ d.setAttribute("aria-selected", k === i ? "true" : "false"); d.classList.remove("corre"); });
+    paneles.forEach(function(p, k){ p.classList.toggle("on", k === i); if (k !== i) [].forEach.call(p.querySelectorAll("video"), function(v){ v.pause(); }); });
+    caja.classList.toggle("negro", paneles[i].classList.contains("negro"));
+    demo(i);
+    if (desdeClic) { tocado = true; try { history.replaceState(null, "", "#" + paneles[i].id); } catch (e) {} BSS.medir("servicio", {servicio: paneles[i].id}); }
+    else if (visible && !tocado && !reducido) { void dolores[i].offsetWidth; dolores[i].classList.add("corre"); }
+    clearTimeout(reloj);
+    if (!tocado && !reducido) reloj = setTimeout(function(){ if (visible && !tocado) elegir((activo + 1) % paneles.length); }, 9000);
+  }
+  dolores.forEach(function(d, i){
+    d.style.setProperty("--t", "9s");
+    d.addEventListener("click", function(){ elegir(i, true); });
+    d.addEventListener("keydown", function(e){ var k = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0; if (k) { e.preventDefault(); var n = (i + k + 3) % 3; dolores[n].focus(); elegir(n, true); } });
+  });
+  new IntersectionObserver(function(e){ var antes = visible; visible = e[0].isIntersecting; if (visible && !antes) elegir(activo); if (!visible) { clearTimeout(reloj); dolores.forEach(function(d){ d.classList.remove("corre"); }); } }, {threshold: .25}).observe(caja);
+  function desdeHash(){ var h = location.hash.slice(1), i = paneles.map(function(p){ return p.id; }).indexOf(h); if (i >= 0) { tocado = true; elegir(i); setTimeout(function(){ document.getElementById("elige").scrollIntoView({behavior: reducido ? "auto" : "smooth"}); }, 120); } }
+  window.addEventListener("hashchange", desdeHash);
+
+  /* ---------- proyectos sueltos: cada tipo con su muestra ---------- */
+  var SUELTOS = [["webs", "img/proy/ysla-1.webp", null], ["presentaciones", "vid/cactus.jpg", "vid/cactus.mp4"], ["campanas", "vid/halvo.jpg", "vid/halvo.mp4"], ["redes", "vid/v-moshi.jpg", "vid/v-moshi.mp4"],
+                 ["corporativo", "vid/duoson.jpg", "vid/duoson.mp4"], ["eventos", "vid/aftermovies.jpg", "vid/aftermovies.mp4"], ["foto", "img/proy/flash-1.webp", null], ["cine", "vid/tcf.jpg", "vid/tcf.mp4"],
+                 ["arte", "img/spook/giulia.webp", null], ["educativo", "vid/ragnarok.jpg", "vid/ragnarok.mp4"]];
+  var fino = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
+  function pintarMosaico(){
+    var m = document.getElementById("mosaico");
+    m.innerHTML = SUELTOS.map(function(s){
+      var t = BSS.etiqueta(s[0]), n = BSS.porTipo(s[0]).filter(function(p){ return p.cuenta !== false; }).length;
+      return '<a class="pieza" href="trabajo.html#' + s[0] + '"><img loading="lazy" src="' + s[1] + '" alt="">' + (s[2] ? '<video muted loop playsinline preload="none" src="' + s[2] + '"></video>' : "") +
+        '<span><b>' + L(t.es, t.en) + '</b><small>' + n + " " + L(n === 1 ? "proyecto" : "proyectos", n === 1 ? "project" : "projects") + ' →</small></span></a>';
+    }).join("");
+    [].forEach.call(m.querySelectorAll(".pieza"), function(a){
+      var v = a.querySelector("video"); if (!v || reducido) return;
+      function on(){ a.classList.add("vivo"); v.preload = "auto"; var p = v.play(); if (p) p.catch(function(){}); }
+      function off(){ a.classList.remove("vivo"); v.pause(); }
+      if (fino) { a.addEventListener("mouseenter", on); a.addEventListener("mouseleave", off); }
+      else new IntersectionObserver(function(e){ if (e[0].intersectionRatio > .6) on(); else off(); }, {threshold: [0, .6]}).observe(a);
+    });
+  }
+
+  /* ---------- preguntas: tocas una y te contestamos ---------- */
+  var FAQ = [
+    ["¿Cuánto cuesta?", "How much does it cost?", "Cotizamos por proyecto después del diagnóstico, porque depende de tu objetivo y de lo que ya tienes. El diagnóstico no se cobra.", "We quote per project after the diagnosis, because it depends on your goal and on what you already have. The diagnosis is free."],
+    ["¿Tengo que contratar las tres cosas?", "Do I have to hire all three?", "No. Puedes empezar por una. Muchas marcas empiezan por contenido y suman ventas cuando ya entran mensajes.", "No. You can start with one. Many brands start with content and add sales once messages start coming in."],
+    ["¿Cuándo se ven resultados?", "When will I see results?", "Fijamos el número objetivo desde el primer día y lo revisamos cada mes. Sabrás pronto si funciona, y si no, lo cambiamos.", "We set the target number on day one and review it every month. You'll know early whether it's working, and if it isn't, we change it."],
+    ["¿Trabajan solo en Mérida?", "Do you only work in Mérida?", "Estamos en Mérida y trabajamos en remoto con marcas de otras ciudades. Hemos rodado en cuatro países.", "We're based in Mérida and work remotely with brands from other cities. We've shot in four countries."],
+    ["¿Quién graba y quién edita?", "Who shoots and who edits?", "Nosotros: dirección, rodaje, edición y publicación. Cuando el proyecto lo pide, sumamos gente de nuestra red.", "We do: direction, shooting, editing and publishing. When a project needs it, we bring in people from our network."],
+    ["¿Qué necesitan de mí?", "What do you need from me?", "Una persona de tu lado que decida rápido, acceso a tus números y ganas de no parecerte a los demás.", "One person on your side who decides quickly, access to your numbers and the will not to look like everyone else."]
+  ];
+  function pintarFaq(){
+    var h = document.getElementById("hilo");
+    h.innerHTML = FAQ.map(function(f, i){ return '<button type="button" class="p-faq" aria-expanded="false" aria-controls="r' + i + '">' + L(f[0], f[1]) + '</button><p class="r-faq" id="r' + i + '" hidden></p>'; }).join("");
+    [].forEach.call(h.querySelectorAll(".p-faq"), function(b, i){
+      b.addEventListener("click", function(){
+        var r = document.getElementById("r" + i), abre = b.getAttribute("aria-expanded") !== "true";
+        b.setAttribute("aria-expanded", abre ? "true" : "false"); r.hidden = !abre;
+        if (!abre) return;
+        r.innerHTML = '<span class="escribe ya"><i></i><i></i><i></i></span>';
+        setTimeout(function(){ r.textContent = L(FAQ[i][2], FAQ[i][3]); }, reducido ? 0 : 700);
+        BSS.medir("faq", {pregunta: i});
+      });
+    });
+  }
+
+  function todo(){ pintarMeses(); pintarMosaico(); pintarFaq(); }
+  var idiomaPintado = BSS.idioma();
+  todo(); desdeHash();
+  BSS.alCambiarIdioma(function(){ if (BSS.idioma() === idiomaPintado) return; idiomaPintado = BSS.idioma(); todo(); demo(activo); });
+})();
+</script>
 </body>
 </html>

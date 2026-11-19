@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Archivo:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EFE9; --paper2:#E8E3D9; --ink:#1C1A17; --ink2:#5F584F;
+    --line:#D5CEC2; --stone:#9B9284;
+    --display:'Instrument Serif', Georgia, serif;
+    --text:'Archivo', 'Helvetica Neue', sans-serif;
+    --dtrack:-0.02em; --dweight:400;
+  }
+  html{scroll-behavior:smooth; -webkit-font-smoothing:antialiased;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--text); font-weight:300;}
+  *{box-sizing:border-box;}
+  a{color:var(--ink); text-decoration:none;}
+  a:hover{color:var(--ink2);}
+  img{display:block; max-width:100%;}
+  ::selection{background:var(--paper2); color:var(--ink);}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</helmet>
+
+<div style="background:var(--paper); color:var(--ink); font-family:var(--text); overflow-x:hidden;">
+
+  <header style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:20px clamp(18px,4vw,52px); mix-blend-mode:normal; background:linear-gradient(to bottom, rgba(28,26,23,0.45), rgba(28,26,23,0));" data-nav="1">
+    <a href="#top" style="font-family:var(--text); font-size:11px; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:#F2EFE9;" data-navlink="1">Lilia Cano</a>
+    <nav style="display:flex; gap:clamp(14px,2.4vw,34px); align-items:center;">
+      <a href="#proyectos" style="font-family:var(--text); font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#F2EFE9;" data-navlink="1">Proyectos</a>
+      <a href="#perfil" style="font-family:var(--text); font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#F2EFE9;" data-navlink="1">Perfil</a>
+      <a href="#servicios" style="font-family:var(--text); font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#F2EFE9;" data-navlink="1">Servicios</a>
+      <a href="#contacto" style="font-family:var(--text); font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#F2EFE9;" data-navlink="1">Contacto</a>
+    </nav>
+  </header>
+
+  <section id="top" style="position:relative; min-height:88svh; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; background:var(--ink);">
+    <img src="assets/residencial-01.jpg" alt="Interiorismo residencial, sala y comedor" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.92;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(22,20,17,0.82) 0%, rgba(22,20,17,0.22) 46%, rgba(22,20,17,0.3) 100%);"></div>
+    <div style="position:relative; padding:0 clamp(18px,4vw,52px) clamp(34px,6vh,72px); display:flex; flex-direction:column; gap:clamp(20px,3vh,34px);">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <span style="font-family:var(--text); font-size:10px; font-weight:500; letter-spacing:0.24em; text-transform:uppercase; color:rgba(242,239,233,0.78);">Portafolio profesional · Arquitectura e interiorismo</span>
+        <h1 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:0.94; font-size:clamp(46px,10.5vw,152px); color:#F4F1EB;">Lilia Cano</h1>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(18px,3vw,48px); align-items:end; border-top:1px solid rgba(242,239,233,0.28); padding-top:clamp(16px,2.4vh,26px);">
+        <p style="margin:0; max-width:34ch; font-size:15px; font-weight:300; line-height:1.66; color:rgba(242,239,233,0.9);">Espacios resueltos desde la distribución, la luz y el material. Obra residencial, comercial y proyectos especiales de vivienda modular.</p>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          
+          
+        </div>
+        
+        <a href="#proyectos" style="justify-self:start; font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#F4F1EB; border-bottom:1px solid rgba(242,239,233,0.5); padding-bottom:6px;">Ver el trabajo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="perfil" style="scroll-margin-top:72px; padding:clamp(72px,14vh,168px) clamp(18px,4vw,52px);">
+    <div style="max-width:1440px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(32px,6vw,96px); align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:22px;" data-reveal="1">
+        <span style="font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone);">Perfil</span>
+        <h2 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.08; font-size:clamp(28px,4.4vw,58px); max-width:22ch;">Arquitectura pensada desde el uso del espacio.</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:clamp(24px,4vh,40px);" data-reveal="1">
+        <p style="margin:0; font-size:clamp(15px,1.15vw,17px); font-weight:300; line-height:1.78; color:var(--ink); max-width:56ch;">Soy arquitecta y trabajo en diseño arquitectónico, distribución espacial e interiorismo. Parto de una pregunta simple: cómo se va a habitar el espacio, y desde ahí defino la planta, la secuencia de recorridos y la entrada de luz natural antes de resolver acabados.</p>
+        <p style="margin:0; font-size:clamp(15px,1.15vw,17px); font-weight:300; line-height:1.78; color:var(--ink2); max-width:56ch;">En este portafolio reúno interiorismo residencial y comercial, proyecto de espacio público y una línea de proyectos especiales: vivienda modular, vivienda en contenedor marítimo y lotes campestres. En todos, la visualización tridimensional es parte de mi proceso: el cliente ve el espacio terminado antes de construirlo.</p>
+        <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:clamp(18px,2.4vw,32px); border-top:1px solid var(--line); padding-top:clamp(20px,3vh,30px);">
+          <div style="display:flex; flex-direction:column; gap:7px;">
+            <dt style="font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Formación</dt>
+            <dd style="margin:0; font-size:13px; font-weight:300; color:var(--ink2);">Arquitectura, Universidad de Sonora</dd>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:7px;">
+            <dt style="font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Experiencia</dt>
+            <dd style="margin:0; font-size:13px; font-weight:300; color:var(--ink2);">5 años</dd>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:7px;">
+            <dt style="font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Software</dt>
+            <dd style="margin:0; font-size:13px; font-weight:300; color:var(--ink2);">AutoCAD · SketchUp · Lumion · Revit</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" style="scroll-margin-top:72px; background:var(--paper2); padding:clamp(72px,14vh,168px) clamp(18px,4vw,52px);">
+    <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(40px,7vh,84px);">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px;" data-reveal="1">
+        <h2 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.05; font-size:clamp(28px,4.4vw,58px);">Servicios</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:clamp(28px,4vw,64px);">
+        <div style="display:flex; flex-direction:column; gap:20px; border-top:1px solid var(--line); padding-top:24px;" data-reveal="1">
+          <div style="display:flex; align-items:baseline; gap:12px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.1em; color:var(--stone);">01</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); font-size:clamp(22px,2.4vw,30px); line-height:1.1;">Arquitectura</h3>
+          </div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:11px;">
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Diseño arquitectónico</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Distribución espacial</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Visualización</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Landscape</li>
+          </ul>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:20px; border-top:1px solid var(--line); padding-top:24px;" data-reveal="1">
+          <div style="display:flex; align-items:baseline; gap:12px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.1em; color:var(--stone);">02</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); font-size:clamp(22px,2.4vw,30px); line-height:1.1;">Interiorismo</h3>
+          </div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:11px;">
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Concepto de diseño</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Diseño de interiores</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Materiales</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Mobiliario e iluminación</li>
+          </ul>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:20px; border-top:1px solid var(--line); padding-top:24px;" data-reveal="1">
+          <div style="display:flex; align-items:baseline; gap:12px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.1em; color:var(--stone);">03</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); font-size:clamp(22px,2.4vw,30px); line-height:1.1;">Proyectos especiales</h3>
+          </div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:11px;">
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Vivienda modular</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Vivienda en contenedor</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Lotes campestres</li>
+            <li style="font-size:14px; font-weight:300; line-height:1.5; color:var(--ink2);">Diseño comercial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos" style="scroll-margin-top:72px; padding:clamp(72px,14vh,150px) 0 0;">
+    <div style="max-width:1440px; margin:0 auto; padding:0 clamp(18px,4vw,52px); display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px; border-bottom:1px solid var(--line); padding-bottom:clamp(20px,3vh,30px);" data-reveal="1">
+      <h2 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.05; font-size:clamp(28px,4.4vw,58px);">Proyectos</h2>
+    </div>
+
+    <article data-screen-label="P01" style="padding:clamp(48px,9vh,110px) clamp(18px,4vw,52px);">
+      <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,4vh,52px);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,72px); align-items:end;" data-reveal="1">
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.12em; color:var(--stone);">01</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.06; font-size:clamp(26px,3.6vw,46px);">Interiorismo residencial</h3>
+            <span style="font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);">Sala / Comedor</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:var(--ink2); max-width:46ch;">Sala y comedor en una sola pieza continua: paleta clara, molduras, mármol y una iluminación decorativa que marca el centro de cada zona sin dividir el espacio.</p>
+            <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,max-content)); gap:6px clamp(20px,3vw,44px); border-top:1px solid var(--line); padding-top:16px;">
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Tipología</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink);">Residencial</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Año</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">2024</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Ubicación</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">Hermosillo - Sonora</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Superficie</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">56 m2</dd>
+            </dl>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:clamp(12px,1.6vw,22px);">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/residencial-01.jpg" alt="Sala con paleta clara y doble altura de ventanal" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Sala, vista hacia el ventanal</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/residencial-02.jpg" alt="Comedor con mesa de mármol y sala en segundo plano" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Comedor, mesa central</figcaption></sc-if>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <article data-screen-label="P02" style="background:var(--ink); color:#F2EFE9; padding:clamp(48px,9vh,110px) clamp(18px,4vw,52px);">
+      <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,4vh,52px);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,72px); align-items:end;" data-reveal="1">
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.12em; color:rgba(242,239,233,0.6);">02</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.06; font-size:clamp(26px,3.6vw,46px); color:#F4F1EB;">Barbería y club de caballeros</h3>
+            <span style="font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Comercial</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:rgba(242,239,233,0.86); max-width:46ch;">Un club de caballeros resuelto en cinco ambientes: área de espera y bar, recepción, salón de juntas, área de trabajo y planta general. Madera, terciopelo rojo y luz cálida puntual sobre fondo oscuro.</p>
+            <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,max-content)); gap:6px clamp(20px,3vw,44px); border-top:1px solid rgba(242,239,233,0.24); padding-top:16px;">
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Tipología</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:#F4F1EB;">Comercial</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Año</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:rgba(242,239,233,0.78);">2023</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Ubicación</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:rgba(242,239,233,0.78);">Hermosillo - Sonora</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Superficie</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:rgba(242,239,233,0.78);">80 m2</dd>
+            </dl>
+          </div>
+        </div>
+        <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+          <img src="assets/barberia-recepcion.jpg" alt="Recepción del club con cortinaje rojo y escultura" style="width:100%; aspect-ratio:2.1/1; object-fit:cover; background:#241f1c;">
+          <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Recepción</figcaption></sc-if>
+        </figure>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:clamp(12px,1.6vw,22px);">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/barberia-espera.jpg" alt="Área de espera y bar" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#241f1c;">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Área de espera / bar</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/barberia-juntas.jpg" alt="Salón de juntas con mesa larga" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#241f1c;">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Salón de juntas</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/barberia-trabajo.jpg" alt="Área de trabajo con sillón de barbero" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#241f1c;">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Área de trabajo</figcaption></sc-if>
+          </figure>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(12px,1.6vw,22px);">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/barberia-estaciones.jpg" alt="Estaciones de barbería alineadas" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#241f1c;">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Estaciones</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/barberia-recepcion-b.jpg" alt="Vista frontal de la recepción y cortinaje" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#241f1c;">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Vestíbulo</figcaption></sc-if>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <article data-screen-label="P03" style="padding:clamp(48px,9vh,110px) 0;">
+      <div style="max-width:1440px; margin:0 auto; padding:0 clamp(18px,4vw,52px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,72px); align-items:end;" data-reveal="1">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <span style="font-size:11px; font-weight:400; letter-spacing:0.12em; color:var(--stone);">03</span>
+          <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.06; font-size:clamp(26px,3.6vw,46px);">Departamentos campestres</h3>
+          <span style="font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);">Diseño modular</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:var(--ink2); max-width:48ch;">Complejo de departamentos en zona campestre con área de eventos. Módulos habitacionales adaptados sobre contenedores marítimos de acero corrugado.</p>
+          <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:var(--ink2); max-width:48ch;">Ubicado en las afueras de la ciudad, el sitio ofrece eventos conmemorativos con la tranquilidad del entorno natural y la comodidad del espacio arquitectónico. Cuenta con 3 habitaciones, área de eventos con capacidad para 30–40 personas, bar, alberca, 3 terrazas, área de fogata y área de asador.</p>
+          <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,max-content)); gap:6px clamp(20px,3vw,44px); border-top:1px solid var(--line); padding-top:16px;">
+            <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Tipología</dt>
+            <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink);">Modular / eventos</dd>
+            <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Año</dt>
+            <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">2022</dd>
+            <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Ubicación</dt>
+            <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">San Carlos - Sonora</dd>
+            <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Capacidad</dt>
+            <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink);">30–40 personas</dd>
+          </dl>
+        </div>
+      </div>
+      <div style="max-width:1440px; margin:clamp(28px,4vh,52px) auto 0; padding:0 clamp(18px,4vw,52px); display:flex; flex-direction:column; gap:clamp(12px,1.6vw,22px);">
+        <div style="display:grid; grid-template-columns:minmax(0,1fr);">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px; width:min(100%,76%);" data-reveal="1">
+            <img src="assets/modular-04.jpg" alt="Complejo modular con alberca y terrazas" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Conjunto, alberca y terrazas</figcaption></sc-if>
+          </figure>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:clamp(12px,1.6vw,22px);">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/modular-02.jpg" alt="Volumen apilado de contenedores al atardecer" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Volumen apilado</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/modular-03.jpg" alt="Acceso al conjunto modular" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Acceso</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/modular-05.jpg" alt="Vista aérea de alberca y asoleaderos" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Vista aérea</figcaption></sc-if>
+          </figure>
+        </div>
+        <div style="display:grid; grid-template-columns:minmax(0,1fr); justify-items:end;">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px; width:min(100%,44%);" data-reveal="1">
+            <img src="assets/modular-01.jpg" alt="Módulo habitacional con jardín desértico" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Módulo y jardín</figcaption></sc-if>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <article data-screen-label="P04" style="padding:clamp(48px,9vh,110px) clamp(18px,4vw,52px);">
+      <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,4vh,52px);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,72px); align-items:end;" data-reveal="1">
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.12em; color:var(--stone);">04</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.06; font-size:clamp(26px,3.6vw,46px);">Propuesta de food court</h3>
+            <span style="font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);">Diseño comercial</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:var(--ink2); max-width:46ch;">Food park al aire libre: locales en contenedor, pórticos de neón, mobiliario corrido y vegetación local. El recorrido se organiza con un eje de acceso iluminado que remata en el área de bar.</p>
+            <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,max-content)); gap:6px clamp(20px,3vw,44px); border-top:1px solid var(--line); padding-top:16px;">
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Tipología</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink);">Comercial</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Año</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">2025</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);">Ubicación</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:var(--ink2);">Obregón - Sonora</dd>
+            </dl>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(12px,1.6vw,22px);">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/foodpark-02.jpg" alt="Acceso al food park con letrero iluminado" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Acceso nocturno</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/foodpark-03.jpg" alt="Pórticos de neón en el eje de circulación" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Eje de circulación</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/foodpark-01.jpg" alt="Área de mesas con series de luz" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Área de mesas</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/club-planta.jpg" alt="Planta de conjunto del food park" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Planta de conjunto</figcaption></sc-if>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/foodpark-04.jpg" alt="Módulo de bar en contenedor rojo" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--paper2);">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Bar</figcaption></sc-if>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <article data-screen-label="P05" style="background:var(--ink); color:#F2EFE9; padding:clamp(48px,9vh,110px) clamp(18px,4vw,52px);">
+      <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,4vh,52px);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,72px); align-items:end;" data-reveal="1">
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.12em; color:rgba(242,239,233,0.6);">05</span>
+            <h3 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.06; font-size:clamp(26px,3.6vw,46px); color:#F4F1EB;">Club campestre</h3>
+            <span style="font-size:10px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Lotes campestres</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:rgba(242,239,233,0.86); max-width:48ch;">Área diseñada para los propietarios del campestre con amenidades recreativas y un entorno social para la convivencia.</p>
+            <p style="margin:0; font-size:15px; font-weight:300; line-height:1.72; color:rgba(242,239,233,0.72); max-width:48ch;">El club incluye áreas de recreación como asadores, alberca, área de mesas para estar, juegos infantiles, canchas de juegos, área de paintball y áreas para fogatas.</p>
+            <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,max-content)); gap:6px clamp(20px,3vw,44px); border-top:1px solid rgba(242,239,233,0.24); padding-top:16px;">
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Tipología</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:#F4F1EB;">Recreativo</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Año</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:rgba(242,239,233,0.78);">2024</dd>
+              <dt style="grid-row:1; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Superficie</dt>
+              <dd style="grid-row:2; margin:0; font-size:12.5px; font-weight:300; color:rgba(242,239,233,0.78);">1500 m2</dd>
+            </dl>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(12px,1.6vw,22px); align-items:start;">
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px;" data-reveal="1">
+            <img src="assets/club-01.jpg" alt="Amenidades del club campestre" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#241f1c;">
+            <sc-if value="{{ showCaptions }}" hint-placeholder-val="{{ true }}"><figcaption style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Área de convivencia</figcaption></sc-if>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <section style="padding:clamp(56px,10vh,120px) clamp(18px,4vw,52px);">
+    <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(24px,4vh,40px);">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px;" data-reveal="1">
+        <h2 style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); font-size:clamp(22px,2.6vw,34px); line-height:1.05;">Índice</h2>
+        <span style="font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone);">Cinco proyectos</span>
+      </div>
+      <div style="display:flex; flex-direction:column;" data-reveal="1">
+        <div style="display:grid; grid-template-columns:44px minmax(0,2fr) minmax(0,1.2fr) minmax(0,1fr); gap:16px; padding:0 0 12px; border-bottom:1px solid var(--line);">
+          <span style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Nº</span>
+          <span style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Proyecto</span>
+          <span style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone);">Tipología</span>
+          <span style="font-size:10px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone); text-align:right;">Año</span>
+        </div>
+        <sc-for list="{{ indexRows }}" as="row" hint-placeholder-count="5">
+          <div style="display:grid; grid-template-columns:44px minmax(0,2fr) minmax(0,1.2fr) minmax(0,1fr); gap:16px; padding:18px 0; border-bottom:1px solid var(--line);">
+            <span style="font-size:12px; font-weight:300; color:var(--stone);">{{ row.n }}</span>
+            <span style="font-size:13.5px; font-weight:400; color:var(--ink);">{{ row.title }}</span>
+            <span style="font-size:11px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink2);">{{ row.type }}</span>
+            <span style="font-size:12px; font-weight:300; color:var(--stone); text-align:right;">{{ row.year }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacto" style="scroll-margin-top:72px; background:var(--ink); color:#F2EFE9; padding:clamp(64px,12vh,140px) clamp(18px,4vw,52px) clamp(28px,4vh,44px);">
+    <div style="max-width:1440px; margin:0 auto; display:flex; flex-direction:column; gap:clamp(40px,7vh,80px);">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(28px,5vw,72px); align-items:start;" data-reveal="1">
+        <div style="display:flex; flex-direction:column; gap:18px;">
+          <p style="margin:0; font-family:var(--display); font-weight:var(--dweight); letter-spacing:var(--dtrack); line-height:1.08; font-size:clamp(28px,4.2vw,56px); color:#F4F1EB; max-width:18ch;">Todo proyecto empieza con una conversación.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:clamp(20px,3vw,40px);">
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <span style="font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Correo</span>
+            <a href="mailto:liliacano.lila@gamil.com" style="font-size:14px; font-weight:300; color:rgba(242,239,233,0.9); width:fit-content;" style-hover="color:#F4F1EB;">liliacano.lila@gamil.com</a>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <span style="font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(242,239,233,0.6);">Teléfono</span>
+            <a href="tel:6221090894" style="font-size:14px; font-weight:300; color:rgba(242,239,233,0.9); width:fit-content;" style-hover="color:#F4F1EB;">622 109 0894</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(242,239,233,0.2); padding-top:clamp(18px,3vh,26px); display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 28px;">
+        <span style="font-size:11px; font-weight:400; letter-spacing:0.08em; color:rgba(242,239,233,0.6);">Arq. Lilia Cano · Portafolio profesional</span>
+        <span style="font-size:11px; font-weight:400; letter-spacing:0.08em; color:rgba(242,239,233,0.6);">Arquitectura · Interiorismo · Proyectos especiales</span>
+      </div>
+    </div>
+  </footer>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;typeVoice&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A — Instrument Serif&quot;,&quot;B — Space Grotesk&quot;],&quot;default&quot;:&quot;A — Instrument Serif&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Dirección&quot;},&quot;showCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contenido&quot;}}">
+const VOICES = {
+  A: { display: "'Instrument Serif', Georgia, serif", dtrack: '-0.02em', dweight: '400' },
+  B: { display: "'Space Grotesk', 'Helvetica Neue', sans-serif", dtrack: '-0.035em', dweight: '400' }
+};
+
+class Component extends DCLogic {
+  state = { voice: null };
+
+  get voice() {
+    return this.state.voice || (this.props.typeVoice === 'B — Space Grotesk' ? 'B' : 'A');
+  }
+
+  applyVoice() {
+    const v = VOICES[this.voice] || VOICES.A;
+    const r = document.documentElement.style;
+    r.setProperty('--display', v.display);
+    r.setProperty('--dtrack', v.dtrack);
+    r.setProperty('--dweight', v.dweight);
+  }
+
+  componentDidMount() {
+    this.applyVoice();
+    this.initReveal();
+    this.initNav();
+  }
+
+  componentDidUpdate() { this.applyVoice(); }
+
+  initNav() {
+    const nav = document.querySelector('[data-nav="1"]');
+    if (!nav) return;
+    const links = Array.from(document.querySelectorAll('[data-navlink="1"]'));
+    const onScroll = () => {
+      const past = (window.scrollY || document.documentElement.scrollTop) > window.innerHeight * 0.72;
+      nav.style.background = past ? 'rgba(242,239,233,0.94)' : 'linear-gradient(to bottom, rgba(28,26,23,0.45), rgba(28,26,23,0))';
+      nav.style.backdropFilter = past ? 'blur(10px)' : 'none';
+      nav.style.borderBottom = past ? '1px solid #D5CEC2' : '1px solid transparent';
+      links.forEach(a => { a.style.color = past ? '#1C1A17' : '#F2EFE9'; });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._onScroll = onScroll;
+  }
+
+  initReveal() {
+    const els = Array.from(document.querySelectorAll('[data-reveal="1"]'));
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    els.forEach(el => io.observe(el));
+    this._io = io;
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  renderVals() {
+    const v = this.voice;
+    const on = { bg: '#F2EFE9', fg: '#1C1A17' };
+    const off = { bg: 'transparent', fg: 'rgba(242,239,233,0.6)' };
+    return {
+      showCaptions: this.props.showCaptions !== false,
+      pickA: () => this.setState({ voice: 'A' }),
+      pickB: () => this.setState({ voice: 'B' }),
+      btnABg: v === 'A' ? on.bg : off.bg,
+      btnAFg: v === 'A' ? on.fg : off.fg,
+      btnBBg: v === 'B' ? on.bg : off.bg,
+      btnBFg: v === 'B' ? on.fg : off.fg,
+      indexRows: [
+        { n: '01', title: 'Interiorismo residencial, Sala / Comedor', type: 'Residencial', year: 'Pendiente' },
+        { n: '02', title: 'Barbería y club de caballeros', type: 'Comercial', year: 'Pendiente' },
+        { n: '03', title: 'Departamentos campestres', type: 'Modular', year: 'Pendiente' },
+        { n: '04', title: 'Propuesta de food court', type: 'Comercial', year: 'Pendiente' },
+        { n: '05', title: 'Club campestre', type: 'Recreativo', year: 'Pendiente' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
