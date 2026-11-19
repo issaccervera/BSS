@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
+<style>html{--tf:min(clamp(34px,8.6vw,150px),calc(170vw / var(--telon-n,10)))}html.telon-llega:not(.telon-sale),html.telon-llega:not(.telon-sale) body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:var(--tf);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - var(--tf) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + var(--tf) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t);d.style.setProperty("--telon-n",t.length)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss");d.style.setProperty("--telon-n",20)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,10 +86,10 @@
 .calles.elige .calle.on::after{transform:scaleX(1)}
 .calles-pista{margin-top:12px;font-family:var(--f-serif);font-style:italic;font-size:15px;opacity:.7}
 /* Diez marcas: un muro de verticales */
-.muro{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.muro{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px}
 .muro figure{position:relative;aspect-ratio:9/16;overflow:hidden;background:rgba(127,127,120,.2)}
 .muro video{width:100%;height:100%;object-fit:cover}
-.muro figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 8px 8px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+.muro figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 6px 7px;font-size:9px!important;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase}
 /* Brother: su web, de verdad */
 .navegador{background:#111;border-radius:10px;overflow:hidden;color:#f4f4f2}
 .nav-barra{display:flex;align-items:center;gap:7px;padding:10px 12px;background:#1d1d1c}
@@ -101,19 +101,16 @@
 .pantalla{position:relative;display:flex;justify-content:center;background:#0b0b0a;height:min(62vh,560px);padding:0}
 .pantalla iframe{border:0;width:100%;height:100%;background:#0C0C0C;transition:width .5s cubic-bezier(.2,.8,.2,1)}
 /* una web de verdad tiene que parecerlo: aviso en la barra, cursor que toca y una tapa que se levanta */
-.vivo{display:inline-flex;align-items:center;gap:7px;flex:none;margin-left:6px;padding:4px 10px 4px 8px;border-radius:999px;background:var(--klein);color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.vivo i{width:7px;height:7px;border-radius:50%;background:#fff;animation:late 1.6s ease-in-out infinite}
-@keyframes late{50%{opacity:.25;transform:scale(.7)}}
 .pantalla iframe,.deck-pantalla iframe{pointer-events:none}
 .vivo-ya .pantalla iframe,.vivo-ya .deck-pantalla iframe{pointer-events:auto}
-.tapa{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;padding:0 16px 7%;background:linear-gradient(180deg,transparent 40%,rgba(8,8,8,.62));color:#fff;cursor:pointer;transition:opacity .45s ease,visibility .45s}
+.tapa{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:6px;padding:0 clamp(16px,2vw,26px) clamp(14px,1.8vw,22px);background:linear-gradient(180deg,transparent 58%,rgba(8,8,8,.58));color:#fff;cursor:pointer;text-align:left;transition:opacity .45s ease,visibility .45s}
 .vivo-ya .tapa{opacity:0;visibility:hidden}
-.tapa b{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--klein);font-weight:780;font-size:clamp(15px,1.25vw,18px);box-shadow:0 14px 34px -12px rgba(10,59,255,.8)}
-.tapa b::before{content:"";position:absolute;inset:-6px;border-radius:inherit;border:2px solid var(--klein);opacity:0;animation:aro 2.2s ease-out infinite}
-@keyframes aro{0%{opacity:.9;transform:scale(.92)}100%{opacity:0;transform:scale(1.25)}}
-.tapa small{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;text-shadow:0 1px 8px rgba(0,0,0,.7)}
-.tapa:hover b{background:#fff;color:#0b0b0a}
-.cursor-toca{position:absolute;left:50%;top:38%;z-index:3;width:34px;height:34px;pointer-events:none;animation:toca 3.4s cubic-bezier(.45,0,.2,1) infinite}
+.tapa b{position:relative;isolation:isolate;font-weight:720;font-size:clamp(15px,1.2vw,18px);line-height:1.2;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.tapa b::before{content:"";position:absolute;left:-.12em;right:-.12em;bottom:-.14em;height:.18em;z-index:-1;background:var(--klein-claro);transform:skewX(-14deg);transform-origin:left;animation:respira-t 3.2s ease-in-out infinite;transition:height .35s cubic-bezier(.2,.8,.2,1),bottom .35s}
+@keyframes respira-t{50%{transform:skewX(-14deg) scaleX(.82)}}
+.tapa:hover b::before{height:calc(100% + .2em);bottom:-.1em;animation:none}
+.tapa small{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.cursor-toca{position:absolute;left:50%;top:38%;z-index:3;width:28px;height:28px;opacity:.9;pointer-events:none;animation:toca 3.4s cubic-bezier(.45,0,.2,1) infinite}
 .cursor-toca svg{display:block;width:100%;height:100%;filter:drop-shadow(0 3px 6px rgba(0,0,0,.5))}
 .cursor-toca::before{content:"";position:absolute;left:-14px;top:-14px;width:30px;height:30px;border-radius:50%;border:2.5px solid #fff;opacity:0;animation:onda 3.4s ease-out infinite}
 @keyframes toca{0%{transform:translate(120px,90px);opacity:0}12%{opacity:1}45%{transform:translate(0,0)}52%{transform:translate(0,0) scale(.82)}58%{transform:translate(0,0) scale(1)}80%{transform:translate(-60px,40px);opacity:1}100%{transform:translate(-60px,40px);opacity:0}}
@@ -158,7 +155,7 @@
 /* Spook: los carteles se turnan */
 .carteles{position:relative;display:flex;justify-content:center;align-items:center;aspect-ratio:4/3;background:#0B0B0A;overflow:hidden}
 .carteles img{position:absolute;top:8%;height:84%;width:auto;aspect-ratio:3300/5100;object-fit:cover;box-shadow:0 26px 50px -20px rgba(0,0,0,.8);transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s}
-.carteles.noche img{top:16%;height:68%;aspect-ratio:3/2}
+.carteles.noche img{top:12%;height:76%;aspect-ratio:auto}
 /* capturas de una web: se turnan dentro del marco */
 .capturas{position:relative;aspect-ratio:16/10;overflow:hidden;background:#ddd}
 .capturas img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:opacity .9s ease}
@@ -229,7 +226,7 @@
   .filtro-op{flex-wrap:nowrap;overflow-x:auto;gap:4px 20px;margin-inline:calc(-1 * var(--lado));padding:0 var(--lado) 4px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 86%,transparent);mask:linear-gradient(90deg,#000 86%,transparent)}
   .filtro-op::-webkit-scrollbar{display:none}
   .filtro-op button{font-size:17px}
-  .casos{gap:10px;margin-inline:calc(-1 * var(--lado))}
+  .casos{gap:10px;padding-inline:0}
   .caso,.caso.der{padding:0 0 26px;gap:18px}
   .caso .c-texto{padding:0 16px;gap:10px}
   .c-nombre{font-size:clamp(42px,13vw,58px)}
@@ -274,13 +271,10 @@
 </head>
 <body data-sub data-titulo-en="Work · Black Sheep Studioss">
 <a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
-<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
 <main>
   <header class="sub-hero env" data-escribenos-desde>
-    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Work">Trabajo</span></p>
     <h1 class="gigante"><span data-en="Work">Trabajo</span><span class="serif">.</span></h1>
     <p class="bajada" data-en="Brands that stopped following the herd.">Marcas que dejaron de seguir al rebaño.</p>
-    <p class="resumen" id="resumen"></p>
     <div class="filtro" id="filtro">
       <div class="filtro-modos" role="tablist" aria-label="Recorrer el trabajo" data-en-aria="Browse the work">
         <button type="button" role="tab" data-modo="tipos" aria-selected="true" data-en="What we did">Qué hicimos</button>
@@ -307,7 +301,7 @@
   <div class="env">
     <div class="cierre-trabajo">
       <p data-en="Want your brand to be the next one?">¿Quieres que tu marca sea la siguiente?</p>
-      <a class="boton" href="https://wa.me/529999046145" data-wa="trabajo" target="_blank" rel="noopener" data-en="Tell us ↗">Cuéntanos ↗</a>
+      <a class="boton" href="https://wa.me/529999046145" data-wa="trabajo" target="_blank" rel="noopener" data-en="Tell us">Cuéntanos</a>
     </div>
   </div>
 </main>
@@ -317,7 +311,7 @@
     <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
     <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
     <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
-    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" aria-current="page" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" aria-current="page" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
     <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
   </div>
 </footer>
@@ -354,7 +348,7 @@
   /* ---------- medios de cada caso ---------- */
   var CURSOR = '<span class="cursor-toca" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 2.5v17.2l4.6-4.4 2.9 6.6 3-1.3-2.9-6.5h6.3z" fill="#fff" stroke="#0b0b0a" stroke-width="1.4" stroke-linejoin="round"/></svg></span>';
   function tapa(es, en){ return CURSOR + '<button type="button" class="tapa"><b>' + L(es, en) + '</b><small>' + L(movil() ? "Toca y navega dentro" : "Haz clic y navega dentro", movil() ? "Tap and browse inside" : "Click and browse inside") + '</small></button>'; }
-  function vivo(){ return '<span class="vivo"><i></i>' + L("En vivo · interactiva", "Live · interactive") + '</span>'; }
+  function vivo(){ return ""; }
   function salir(){ return '<button type="button" class="salir">' + L("Soltar ✕", "Release ✕") + '</button>'; }
   // dos vistas en el mismo sitio (web y video, presentaciones y video, carteles y fotos): se cambia con dos palabras
   function dosVistas(a, b, ta, tb){
@@ -517,7 +511,7 @@
 
   /* ---------- archivo ---------- */
   function medioFicha(p){
-    if (p.fotos && p.video) return '<div class="m-video vert">' + video(p.video, p.img) + '</div><div class="f-fotos">' + p.fotos.map(function(f){ return '<img loading="lazy" src="' + f + '" alt="' + esc(p.nombre) + '">'; }).join("") + '</div>';
+    if (p.fotos && p.video) return '<div class="m-video' + (p.vertical ? " vert" : "") + '">' + video(p.video, p.img) + '</div><div class="f-fotos">' + p.fotos.map(function(f){ return '<img loading="lazy" src="' + f + '" alt="' + esc(p.nombre) + '">'; }).join("") + '</div>';
     if (p.fotos) return '<div class="f-fotos">' + p.fotos.map(function(f){ return '<img loading="lazy" src="' + f + '" alt="' + esc(p.nombre) + '">'; }).join("") + '</div>';
     if (p.capturas) return '<div class="capturas" style="flex:1">' + p.capturas.map(function(f, i){ return '<img loading="lazy" src="' + f + '" alt="' + esc(p.nombre) + '" style="opacity:' + (i ? 0 : 1) + '">'; }).join("") + '</div>';
     var cl = p.vertical ? " vert" : p.formato === "4/5" ? " c45" : "";
@@ -602,8 +596,11 @@
     [{id: "todo", es: "Todo", en: "All"}].concat(modo === "tipos" ? BSS.TIPOS : BSS.SECTORES).forEach(function(t){
       var n = cuenta(t.id); if (!n) return;
       var b = document.createElement("button"); b.type = "button"; b.setAttribute("data-f", t.id); b.setAttribute("aria-pressed", t.id === actual ? "true" : "false");
-      b.innerHTML = "<span></span><sup>" + ("0" + n).slice(-2) + "</sup>"; b.firstChild.textContent = L(t.es, t.en);
-      b.addEventListener("click", function(){ filtrar(t.id, true); BSS.medir("trabajo_filtro", {filtro: t.id}); });
+      b.textContent = L(t.es, t.en);
+      b.addEventListener("click", function(){
+        filtrar(t.id, true); BSS.medir("trabajo_filtro", {filtro: t.id});
+        if (movil()) setTimeout(function(){ (casosEl.hidden ? $("#archivo") : casosEl).scrollIntoView({behavior: reducido ? "auto" : "smooth", block: "start"}); }, 80);
+      });
       opEl.appendChild(b);
     });
     modos.forEach(function(m){ m.setAttribute("aria-selected", m.getAttribute("data-modo") === modo ? "true" : "false"); });
@@ -632,8 +629,6 @@
 
   function textos(){
     var c = BSS.cifras();
-    $("#resumen").textContent = L(c.proyectos + " proyectos en " + c.ciudades + " ciudades y " + c.paises + " países, desde " + c.archivo + ". Primero, los casos que mejor nos explican; después, todo el archivo.",
-      c.proyectos + " projects in " + c.ciudades + " cities and " + c.paises + " countries since " + c.archivo + ". First, the cases that explain us best; then, the whole archive.");
     $("#archivoBajada").textContent = L("Todo lo que hemos hecho desde " + c.archivo + ", de Barcelona a Mérida.", "Everything we've made since " + c.archivo + ", from Barcelona to Mérida.");
   }
   function irCaso(id, pestana){
@@ -654,7 +649,15 @@
     if (f) setTimeout(function(){ abrir(f, true); f.el.scrollIntoView({behavior: reducido ? "auto" : "smooth", block: "center"}); }, 150);
   }
 
-  function todo(){ textos(); pintarCasos(); pintarLista(); pintarFiltro(); yaPintado = true; }
+  function encajar(){
+    [].forEach.call(document.querySelectorAll(".c-nombre"), function(el){
+      el.style.fontSize = ""; var s = parseFloat(getComputedStyle(el).fontSize), n = 0;
+      while (el.scrollWidth > el.clientWidth + 1 && s > 26 && n++ < 40) { s *= .95; el.style.fontSize = s.toFixed(1) + "px"; }
+    });
+  }
+  window.addEventListener("resize", function(){ clearTimeout(encajar._t); encajar._t = setTimeout(encajar, 150); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(encajar);
+  function todo(){ textos(); pintarCasos(); pintarLista(); pintarFiltro(); yaPintado = true; encajar(); }
   var idiomaPintado = BSS.idioma();
   todo(); desdeHash();
   window.addEventListener("hashchange", desdeHash);

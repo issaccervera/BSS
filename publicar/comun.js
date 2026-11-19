@@ -182,7 +182,7 @@
       if (!/(\.html$|\/$)/.test(u.pathname) || u.pathname === location.pathname) return;
       e.preventDefault();
       var nom = nombrePagina(u); try { sessionStorage.setItem("bss-telon", nom); } catch (er) {}
-      t.querySelector("b").textContent = nom; t.classList.add("cubre");
+      t.querySelector("b").textContent = nom; t.style.setProperty("--telon-n", nom.length); t.classList.add("cubre");
       mover("translateY(100%)", "translateY(0)", 600, function(){ location.href = u.href; });
     });
     // al volver con el botón de atrás, la página no debe quedarse tapada

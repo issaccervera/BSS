@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
+<style>html{--tf:min(clamp(34px,8.6vw,150px),calc(170vw / var(--telon-n,10)))}html.telon-llega:not(.telon-sale),html.telon-llega:not(.telon-sale) body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:var(--tf);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - var(--tf) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + var(--tf) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t);d.style.setProperty("--telon-n",t.length)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss");d.style.setProperty("--telon-n",20)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +17,13 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://blacksheepstudioss.xyz/estudio">
 <meta property="og:title" content="Estudio · Black Sheep Studioss">
-<meta property="og:description" content="Gema Solis e Issac Asley: dos ovejas negras y una red en cuatro países. Estudio creativo y asesoría comercial nacido en Mérida.">
+<meta property="og:description" content="Gema Solis e Issac Asley: dos ovejas negras y una red en cuatro países. Estudio creativo y consultoría comercial nacido en Mérida.">
 <meta property="og:image" content="https://blacksheepstudioss.xyz/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>Estudio · Black Sheep Studioss</title>
-<meta name="description" content="Gema Solis e Issac Asley: dos ovejas negras y una red en cuatro países. Estudio creativo y asesoría comercial nacido en Mérida.">
+<meta name="description" content="Gema Solis e Issac Asley: dos ovejas negras y una red en cuatro países. Estudio creativo y consultoría comercial nacido en Mérida.">
 <style>
 /* Estudio: Gema da la cara, Issac es el brazo técnico; debajo, el mapa de todo lo que hemos hecho. */
 .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,96px);align-items:start}
@@ -156,10 +156,8 @@
 </head>
 <body data-sub data-titulo-en="Studio · Black Sheep Studioss">
 <a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
-<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
 <main>
   <header class="sub-hero env" data-escribenos-desde>
-    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Studio">Estudio</span></p>
     <h1 class="gigante"><span data-en="Studio">Estudio</span><span class="serif">.</span></h1>
     <p class="bajada" id="bajadaRed">Dos ovejas negras y una red en cuatro países.</p>
   </header>
@@ -170,14 +168,14 @@
       <h2 class="gigante">Gema Soli<span class="s-inv">s</span></h2>
       <span class="rol" data-en="The face of the studio: marketing and clients">La cara del estudio: marketing y clientes</span>
       <p class="bio" data-en="A certified marketer with more than seven years in marketing and over 100,000 people following her on Instagram and TikTok. She's the face of the studio: you talk to her, she understands your business and turns what you need into a strategy. She knows what makes someone stop scrolling, because she does it every day.">Mercadóloga titulada, con más de siete años en marketing y más de cien mil personas que la siguen en Instagram y TikTok. Es la cara del estudio: con ella hablas, ella entiende tu negocio y convierte lo que necesitas en una estrategia. Sabe qué hace que alguien deje de hacer scroll, porque lo hace todos los días.</p>
-      <a class="ig mono" href="https://www.instagram.com/gemademar/" target="_blank" rel="noopener">@GemadeMar ↗</a>
+      <a class="ig mono" href="https://www.instagram.com/gemademar/" target="_blank" rel="noopener">@GemadeMar</a>
     </article>
     <article class="quien brazo sube">
       <figure><img src="img/issac.webp" alt="Issac Asley de pie en un campo, a contraluz" loading="lazy"></figure>
       <h2 class="gigante">Is<span class="s-inv">s</span>ac Asley</h2>
       <span class="rol" data-en="The technical arm: production and direction">El brazo técnico: producción y dirección</span>
       <p class="bio" data-en="Audiovisual producer, photographer, designer and a career salesman, with more than ten years selling in Mexico and Spain. He's the technical arm: he directs the shoots, edits, builds the websites and puts together the numbers that show whether something worked.">Productor audiovisual, fotógrafo, diseñador y vendedor de carrera, con más de diez años vendiendo en México y en España. Es el brazo técnico: dirige los rodajes, edita, construye las webs y arma los números que demuestran si algo funcionó.</p>
-      <a class="ig mono" href="https://www.instagram.com/asley.sinh/" target="_blank" rel="noopener">@asley.sinH ↗</a>
+      <a class="ig mono" href="https://www.instagram.com/asley.sinh/" target="_blank" rel="noopener">@asley.sinH</a>
     </article>
   </section>
 
@@ -219,7 +217,7 @@
     <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
     <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
     <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
-    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" aria-current="page" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" aria-current="page" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
     <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
   </div>
 </footer>

@@ -4754,6 +4754,6 @@
   });
 })();
 </script>
-<script>addEventListener("message",function(e){var m=e.data&&e.data.bss;if(m!=="ir")return;var k=(e.data.d||1)>0?"ArrowRight":"ArrowLeft";document.dispatchEvent(new KeyboardEvent("keydown",{key:k,code:k,bubbles:true}));setTimeout(function(){try{var s=document.querySelector(".slide.active,.slide.is-active,.slide.current");var t=document.querySelectorAll(".slide");parent.postMessage({bssDeck:[[].indexOf.call(t,s)+1,t.length]},"*")}catch(x){}},60)});</script>
+<script>addEventListener("message",function(e){var m=e.data&&e.data.bss;if(m!=="ir")return;var d=(e.data.d||1)>0,b=document.getElementById(d?"next":"prev");if(b)b.click();else{var k=d?"ArrowRight":"ArrowLeft";document.body.dispatchEvent(new KeyboardEvent("keydown",{key:k,code:k,bubbles:true}))}setTimeout(avisar,80)});function avisar(){try{var t=document.querySelectorAll(".slide"),s=document.querySelector(".slide.active");parent.postMessage({bssDeck:[[].indexOf.call(t,s)+1,t.length]},"*")}catch(x){}}addEventListener("load",function(){setTimeout(avisar,300)});</script>
 </body>
 </html>

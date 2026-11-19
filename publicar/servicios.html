@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<style>html.telon-llega,html.telon-llega body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:clamp(34px,8.6vw,150px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - clamp(34px,8.6vw,150px) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + clamp(34px,8.6vw,150px) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
-<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss")}}catch(e){}})();</script>
+<style>html{--tf:min(clamp(34px,8.6vw,150px),calc(170vw / var(--telon-n,10)))}html.telon-llega:not(.telon-sale),html.telon-llega:not(.telon-sale) body{background:#0B0B0A}html.telon-llega body::before{content:"";position:fixed;inset:0;z-index:300;background:#0B0B0A}html.telon-llega::after{content:attr(data-telon);position:fixed;left:0;right:0;top:50%;z-index:302;transform:translateY(-50%);padding:0 16px;text-align:center;color:#F4F4F2;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:850;font-stretch:70%;font-size:var(--tf);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}html.telon-llega body::after{content:"";position:fixed;left:50%;top:calc(50% - var(--tf) * .45 - 92px);width:90px;height:72px;margin-left:-45px;z-index:302;background:url(img/oveja-tinta-blanca.webp) center/contain no-repeat}html.telon-llega::before{content:"";position:fixed;left:50%;top:calc(50% + var(--tf) * .45 + 26px);width:180px;height:3px;margin-left:-90px;z-index:302;background:#2E5BFF}html.telon-sale body::before,html.telon-sale body::after,html.telon-sale::before{transform:translateY(-100vh);transition:transform .76s cubic-bezier(.7,0,.2,1)}html.telon-sale::after{transform:translateY(calc(-50% - 100vh));transition:transform .76s cubic-bezier(.7,0,.2,1)}</style>
+<script>(function(){var d=document.documentElement;try{var t=sessionStorage.getItem("bss-telon");if(t){sessionStorage.removeItem("bss-telon");d.className+=" telon-llega";d.setAttribute("data-telon",t);d.style.setProperty("--telon-n",t.length)}else if(sessionStorage.getItem("bss-visto")){d.className+=" telon-llega vuelta";d.setAttribute("data-telon","Black Sheep Studioss");d.style.setProperty("--telon-n",20)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="img/oveja-solida.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,6 +143,7 @@
 .tres li b{font-weight:850;font-stretch:72%;font-size:clamp(64px,6.6vw,110px);line-height:.8}
 .tres li p{font-weight:720;font-size:clamp(19px,1.6vw,24px);line-height:1.15;max-width:18ch}
 .tres li small{display:block;margin-top:6px;font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:clamp(16px,1.3vw,19px);opacity:.8}
+.acciones .boton+.boton{margin-left:0}
 .empieza .acciones{display:flex;flex-wrap:wrap;align-items:center;gap:12px 34px;margin-top:clamp(24px,3vw,40px);font-size:clamp(19px,1.6vw,24px)}
 
 /* ---------- 3. También de uno en uno ---------- */
@@ -160,7 +161,7 @@
 .pieza::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72))}
 .pieza span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
 .pieza b{font-weight:820;font-stretch:78%;font-size:clamp(20px,1.9vw,30px);line-height:.95;text-transform:uppercase}
-.pieza small{flex:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;transition:color .3s}
+.pieza small{flex:none;font-family:var(--f-mono);font-size:16px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;transition:color .3s}
 .pieza:hover small{color:var(--klein-claro)}
 
 /* ---------- 4. Preguntas, como en WhatsApp ---------- */
@@ -217,10 +218,8 @@
 </head>
 <body data-sub data-titulo-en="Services · Black Sheep Studioss">
 <a class="firma" href="index.html" aria-label="Black Sheep Studioss, inicio" data-en-aria="Black Sheep Studioss, home"><img src="img/oveja-tinta.webp" alt=""><span class="firma-texto">Black Sheep<br>Studios<span class="sx">S</span></span></a>
-<button type="button" class="idioma" id="idioma" aria-label="Cambiar idioma" data-en-aria="Change language"><span data-l="es">ES</span> / <span data-l="en">EN</span></button>
 <main>
   <header class="sub-hero env" data-escribenos-desde>
-    <p class="miga mono"><a href="index.html" data-en="Home">Inicio</a> / <span data-en="Services">Servicios</span></p>
     <h1 class="gigante"><span data-en="Services">Servicios</span><span class="serif">.</span></h1>
     <p class="bajada" data-en="Tell us what's happening to your brand. We'll tell you where to start.">Dinos qué le pasa a tu marca. Te decimos por dónde empezar.</p>
   </header>
@@ -243,7 +242,7 @@
             <li><b data-en="1 shoot">1 rodaje</b><span data-en="a month">al mes</span></li>
             <li><b data-en="1 number">1 número</b><span data-en="to beat">a superar</span></li>
           </ul>
-          <a class="boton" href="https://wa.me/529999046145" data-wa="contenido" target="_blank" rel="noopener" data-en="I want to be seen ↗">Quiero que me vean ↗</a>
+          <a class="boton" href="https://wa.me/529999046145" data-wa="contenido" target="_blank" rel="noopener" data-en="I want to be seen">Quiero que me vean</a>
         </div>
         <div class="s-demo" aria-hidden="true">
           <div class="tel"><div><video muted loop playsinline preload="none" poster="vid/v-tigre.jpg" src="vid/v-tigre.mp4"></video>
@@ -270,7 +269,7 @@
             <li><b data-en="30 days">30 días</b><span data-en="of follow-up">de seguimiento</span></li>
             <li><b data-en="0 judgement">0 juicios</b><span data-en="about how you sell">sobre cómo vendes</span></li>
           </ul>
-          <a class="boton" href="https://wa.me/529999046145" data-wa="ventas" target="_blank" rel="noopener" data-en="I want people to buy ↗">Quiero que me compren ↗</a>
+          <a class="boton" href="https://wa.me/529999046145" data-wa="ventas" target="_blank" rel="noopener" data-en="I want people to buy">Quiero que me compren</a>
         </div>
         <div class="s-demo" aria-hidden="true">
           <div class="tel"><div class="chat">
@@ -301,7 +300,7 @@
             <li><b data-en="Every 15">Cada 15</b><span data-en="days, a review">días, revisión</span></li>
             <li><b data-en="Data">Datos</b><span data-en="not opinions">no opiniones</span></li>
           </ul>
-          <a class="boton" href="https://wa.me/529999046145" data-wa="consultoria" target="_blank" rel="noopener" data-en="I want to grow ↗">Quiero crecer ↗</a>
+          <a class="boton" href="https://wa.me/529999046145" data-wa="consultoria" target="_blank" rel="noopener" data-en="I want to grow">Quiero crecer</a>
         </div>
         <div class="s-demo" aria-hidden="true">
           <div class="rebano">
@@ -328,7 +327,7 @@
       <li><b>2</b><p><span data-en="One number and a plan.">Un número y un plan.</span><small data-en="What has to move in your business.">Lo que tiene que moverse en tu negocio.</small></p></li>
       <li><b>3</b><p><span data-en="We make, measure and adjust.">Hacemos, medimos y ajustamos.</span><small data-en="Until it works.">Hasta que funciona.</small></p></li>
     </ol>
-    <div class="acciones"><a class="boton" href="https://wa.me/529999046145" data-wa="diagnostico" target="_blank" rel="noopener" data-en="I want my diagnosis ↗">Quiero mi diagnóstico ↗</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
+    <div class="acciones"><a class="boton" href="https://wa.me/529999046145" data-wa="diagnostico" target="_blank" rel="noopener" data-en="I want my diagnosis">Quiero mi diagnóstico</a><a class="boton claro" href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a></div>
   </section>
 
   <section class="env sueltos sube" aria-labelledby="t-sueltos">
@@ -352,7 +351,7 @@
     <p class="serif pie-a" data-en="If you want to look like everyone else, there are plenty of options.">Si quieres parecerte a los demás, hay muchas opciones.</p>
     <p class="gigante pie-b"><span data-en="If not,">Si no,</span> <span class="serif" data-en="write to us.">escríbenos.</span></p>
     <div class="pie-acciones"><a class="boton klein" href="https://wa.me/529999046145" data-wa="contacto" target="_blank" rel="noopener">WhatsApp</a><a class="boton fantasma" href="mailto:blacksheepstudiosmid@gmail.com" data-en="Email">Correo</a></div>
-    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" aria-current="page" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss ↗</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
+    <div class="pie-fila mono"><nav aria-label="Páginas" data-en-aria="Pages"><a href="index.html" data-en="Home">Inicio</a><a href="trabajo.html" data-en="Work">Trabajo</a><a href="servicios.html" aria-current="page" data-en="Services">Servicios</a><a href="como-trabajamos.html" data-en="How we work">Cómo trabajamos</a><a href="estudio.html" data-en="Studio">Estudio</a></nav><span><a href="https://www.instagram.com/blacksheepstudioss/" target="_blank" rel="noopener">@blacksheepstudioss</a> · <a href="privacidad.html" data-en="Privacy notice">Aviso de privacidad</a></span></div>
     <p class="mono pie-c" data-en="Black Sheep Studioss · Mérida, Mexico · © 2026">Black Sheep Studioss · Mérida, México · © 2026</p>
   </div>
 </footer>
@@ -424,15 +423,15 @@
 
   /* ---------- proyectos sueltos: cada tipo con su muestra ---------- */
   var SUELTOS = [["webs", "img/proy/ysla-1.webp", null], ["presentaciones", "vid/cactus.jpg", "vid/cactus.mp4"], ["campanas", "vid/halvo.jpg", "vid/halvo.mp4"], ["redes", "vid/v-moshi.jpg", "vid/v-moshi.mp4"],
-                 ["corporativo", "vid/duoson.jpg", "vid/duoson.mp4"], ["eventos", "vid/aftermovies.jpg", "vid/aftermovies.mp4"], ["foto", "img/proy/flash-1.webp", null], ["cine", "vid/tcf.jpg", "vid/tcf.mp4"],
+                 ["corporativo", "vid/duoson.jpg", "vid/duoson.mp4"], ["eventos", "vid/aftermovies.jpg", "vid/aftermovies.mp4"], ["foto", "img/proy/noche-1.webp", null], ["cine", "vid/tcf.jpg", "vid/tcf.mp4"],
                  ["arte", "img/spook/giulia.webp", null], ["educativo", "vid/ragnarok.jpg", "vid/ragnarok.mp4"]];
   var fino = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
   function pintarMosaico(){
     var m = document.getElementById("mosaico");
     m.innerHTML = SUELTOS.map(function(s){
-      var t = BSS.etiqueta(s[0]), n = BSS.porTipo(s[0]).filter(function(p){ return p.cuenta !== false; }).length;
+      var t = BSS.etiqueta(s[0]);
       return '<a class="pieza" href="trabajo.html#' + s[0] + '"><img loading="lazy" src="' + s[1] + '" alt="">' + (s[2] ? '<video muted loop playsinline preload="none" src="' + s[2] + '"></video>' : "") +
-        '<span><b>' + L(t.es, t.en) + '</b><small>' + n + " " + L(n === 1 ? "proyecto" : "proyectos", n === 1 ? "project" : "projects") + ' →</small></span></a>';
+        '<span><b>' + L(t.es, t.en) + '</b><small>→</small></span></a>';
     }).join("");
     [].forEach.call(m.querySelectorAll(".pieza"), function(a){
       var v = a.querySelector("video"); if (!v || reducido) return;
